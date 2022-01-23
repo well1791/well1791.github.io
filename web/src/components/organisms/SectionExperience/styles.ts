@@ -70,7 +70,6 @@ export const cardsContent = css({
 })
 
 export const cardContainer = css({
-  // position: 'absolute',
   inlineSize: '90%',
   '@laptop': {
     inlineSize: '65%',

@@ -53,11 +53,11 @@ export default function SectionHi(props: Props) {
 
           <div className={stl.info()}>
             <p className={stl.name({ className: 'highlight' })}>
-              wellington mendoza
+              Wellington Mendoza
             </p>
             <div className={stl.divider()} />
             <p className={stl.role({ className: 'highlight' })}>
-              frontend developer
+              Frontend Developer
             </p>
           </div>
         </div>

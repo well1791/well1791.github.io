@@ -23,7 +23,7 @@ export const expList: ExpData[] = [
     url: 'https://www.stackbuilders.com',
     role: 'full stack',
     startDate: new Date(2016, 6, 25),
-    endDate: new Date(2018, 11, 10),
+    endDate: new Date(2018, 7, 10),
     skills: [
       { name: 'typescript', cat: 'js' },
       { name: 'express', cat: 'js' },

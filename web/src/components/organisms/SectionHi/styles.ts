@@ -134,7 +134,6 @@ export const info = css({
 
   '.highlight': {
     px: '1rem',
-    br: '10% / 30% 70%',
 
     color: '$whiteA12',
     fontSize: '$2xl',
@@ -142,23 +141,14 @@ export const info = css({
       '0px 0px 10px $colors$whiteA11',
       '1px 0px 5px $colors$blackA12',
     ].join(','),
-
-    transition: 'border .5s ease-out',
-
-    '&:hover, &:focus': {
-      color: 'white',
-      borderColor: 'white',
-    },
   },
 })
 
 export const name = css({
-  borderBlockStart: 'transparent 2.5px solid',
   animation: `1.5s ease 0.5s 1 normal both running ${animation.slideInUp}`,
 })
 
 export const role = css({
-  borderBlockEnd: 'transparent 2.5px solid',
   animation: `1.5s ease 0.5s 1 normal both running ${animation.slideInDown}`,
 })
 
