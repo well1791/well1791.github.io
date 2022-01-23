@@ -1,19 +1,24 @@
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
-import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
+import { RecoilRoot } from 'recoil'
+import { OverlayProvider } from 'react-aria'
 
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
-
+import ThemeProvider from 'src/ThemeProvider'
 import './index.css'
 
 const App = () => (
-  <FatalErrorBoundary page={FatalErrorPage}>
-    <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <RedwoodApolloProvider>
-        <Routes />
-      </RedwoodApolloProvider>
-    </RedwoodProvider>
-  </FatalErrorBoundary>
+  <RecoilRoot>
+    <FatalErrorBoundary page={FatalErrorPage}>
+      <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
+        <ThemeProvider>
+          <OverlayProvider>
+            <Routes />
+          </OverlayProvider>
+        </ThemeProvider>
+      </RedwoodProvider>
+    </FatalErrorBoundary>
+  </RecoilRoot>
 )
 
 export default App
