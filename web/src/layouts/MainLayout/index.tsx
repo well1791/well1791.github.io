@@ -21,7 +21,7 @@ export default function MainLayout({ mainId, children }: Props) {
           css: { paddingBlockStart: headerStyles.blockSize },
         })}
       >
-        <div className={stl.mainContent()}>{children}</div>
+        <div>{children}</div>
       </main>
     </>
   )

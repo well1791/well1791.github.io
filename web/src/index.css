@@ -601,11 +601,6 @@ html, html:focus-within {
   src: url(../public/fonts/OpenSans-Regular.ttf);
 }
 
-@font-face {
-  font-family: 'Waterfall-Regular';
-  src: url(../public/fonts/Waterfall-Regular.ttf);
-}
-
 
 html {
   font-family: 'OpenSans-Regular';

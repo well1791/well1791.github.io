@@ -11,7 +11,7 @@ export const headerContainer = css({
 export const headerContent = css({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-end',
 
   maxInlineSize: '$sizes$wide',
   blockSize: 'inherit',

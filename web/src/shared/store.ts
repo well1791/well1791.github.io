@@ -1,3 +1,4 @@
+import { isBrowser } from '@redwoodjs/prerender/browserUtils'
 import { atom } from 'recoil'
 
 import { isValidTheme } from 'src/shared/theme'
@@ -9,7 +10,7 @@ export type SelectedThemeType = {
   isUserChoice: boolean
 }
 
-const storedTheme = localStorage.getItem('theme')
+const storedTheme = isBrowser ? localStorage.getItem('theme') : undefined
 
 export const selectedTheme = atom<SelectedThemeType>({
   key: 'selectedTheme',

@@ -100,7 +100,6 @@ export const {
     fonts: {
       openSansB: 'OpenSans-Bold, sans-serif',
       openSansR: 'OpenSans-Regular, sans-serif',
-      waterfall: 'Waterfall-Regular, serif',
     },
     fontSizes: {
       xs: 'clamp(0.69rem, 0.71rem + -0.08vw, 0.63rem)',

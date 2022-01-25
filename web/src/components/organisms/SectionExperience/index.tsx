@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { ParallaxLayer } from '@react-spring/parallax'
 import { useMove } from '@use-gesture/react'
 import debounce from 'lodash/fp/debounce'
