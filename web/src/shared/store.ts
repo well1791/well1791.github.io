@@ -14,7 +14,7 @@ const storedTheme = localStorage.getItem('theme')
 export const selectedTheme = atom<SelectedThemeType>({
   key: 'selectedTheme',
   default: {
-    name: isValidTheme(storedTheme) ? storedTheme : 'light',
+    name: isValidTheme(storedTheme) ? storedTheme : 'blackAndWhite',
     isUserChoice: isValidTheme(storedTheme),
   },
 })

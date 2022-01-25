@@ -9,14 +9,13 @@ export const container = css({
 })
 
 export const contentHeader = css({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
+  display: 'flex',
+  justifyContent: 'center',
 
   px: '1.5rem',
   py: '0.66rem',
 
   bg: 'black',
-
   color: 'white',
 
   borderStartStartRadius: '$radii$md',
@@ -24,7 +23,9 @@ export const contentHeader = css({
   borderBlockEnd: '1px solid white',
 
   '.underline': {
+    display: 'block',
     blockSize: 1.5,
+
     bg: 'white',
     br: '$full',
 
@@ -39,12 +40,6 @@ export const contentHeader = css({
       boxShadow: '0px 1px 6px 0px white',
       transition: 'opacity 350ms linear',
     },
-  },
-
-  '.title': {
-    gridColumn: 2,
-    display: 'flex',
-    justifyContent: 'center',
   },
 
   h3: {
@@ -67,10 +62,6 @@ export const contentHeader = css({
       },
     },
   },
-
-  '.date-duration': {
-    textAlign: 'right',
-  },
 })
 
 export const contentInfo = css({
@@ -87,11 +78,15 @@ export const contentInfo = css({
     pr: '6px',
   },
 
-  '.date-info': {
+  '.exp-info': {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
     pb: '1.5rem',
     borderBlockEnd: 'dashed 1.5px $colors$gray8',
+
+    p: {
+      textTransform: 'capitalize',
+    },
   },
 
   ul: {
@@ -100,82 +95,6 @@ export const contentInfo = css({
     gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
 
     mt: '2rem',
-  },
-
-  li: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-
-    backgroundImage:
-      'linear-gradient(to right, white 38%, black 40%, black 88%, white 90%)',
-    backgroundSize: '200% 100%',
-    backgroundPosition: 'left',
-
-    pl: '.875rem',
-    blockSize: 40,
-    br: '$md',
-    boxShadow: '$md',
-
-    transition: [
-      'background-position 0.5s ease',
-      'color 0.8s ease',
-      'transform 350ms ease',
-    ].join(','),
-
-    position: 'relative',
-    '&:before': {
-      content: '',
-      position: 'absolute',
-      inset: 0,
-      zIndex: -1,
-      br: '$md',
-
-      boxShadow: '0px 7px 10px -5px $colors$gray12',
-      opacity: 0,
-      transition: 'opacity 350ms ease',
-    },
-
-    '.name': {
-      color: 'black',
-      fontSize: '$md',
-      transition: 'color 0.8s ease',
-    },
-
-    '.category': {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-
-      borderStartEndRadius: 'inherit',
-      borderEndEndRadius: 'inherit',
-      minInlineSize: 50,
-      inlineSize: 'fit-content',
-      blockSize: '100%',
-
-      color: 'white',
-      fontWeight: 'bold',
-      fontSize: '$sm',
-
-      transition: 'color 350ms ease',
-    },
-
-    '&:hover, &:focus': {
-      backgroundPosition: 'right',
-      transform: 'translateY(-10%) scale(1.05)',
-
-      '&:before': {
-        opacity: 1,
-      },
-
-      '.name': {
-        color: 'white',
-      },
-
-      '.category': {
-        color: 'black',
-      },
-    },
   },
 })
 
@@ -194,80 +113,3 @@ export const contentFooter = css({
 
   color: 'white',
 })
-
-export const expNavBtn = css({
-  br: '$full',
-  py: 2,
-
-  backgroundSize: '300% 100%',
-
-  color: 'black',
-
-  transition: 'background-position 0.8s ease',
-
-  '.sr-only': {
-    srOnly: true,
-  },
-
-  svg: {
-    size: '1.5rem',
-    transition: 'transform 300ms ease',
-  },
-
-  '.btn-content': {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '0.125rem',
-
-    br: 'inherit',
-    py: '.15rem',
-    px: '1.5rem',
-
-    background: 'white',
-  },
-
-  variants: {
-    navTo: {
-      prev: {
-        backgroundPosition: 'left',
-        backgroundImage:
-          'linear-gradient(to right, white 35%, black, white 65%)',
-
-        svg: {
-          transform: 'scale(0.8) translateX(3px)',
-        },
-
-        '&:hover, &:focus': {
-          backgroundPosition: 'right',
-
-          svg: {
-            transform: 'translateX(-2px)',
-          },
-        },
-      },
-
-      next: {
-        backgroundPosition: 'right',
-        backgroundImage:
-          'linear-gradient(to left, white 35%, black, white 65%)',
-
-        svg: {
-          transform: 'scale(0.8) translateX(-3px)',
-        },
-
-        '&:hover, &:focus': {
-          backgroundPosition: 'left',
-
-          svg: {
-            transform: 'translateX(2px)',
-          },
-        },
-      },
-    },
-  },
-})
-
-export const prevExpContainer = css({})
-
-export const nextExpContainer = css({})

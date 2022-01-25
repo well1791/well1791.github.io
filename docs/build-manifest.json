@@ -1,6 +1,6 @@
 {
   "app.css": "/static/css/app.ca0703a9.css",
-  "app.js": "/static/js/app.86d14b8f.js",
+  "app.js": "/static/js/app.57bfdc92.js",
   "runtime-app.js": "/static/js/runtime-app.20723b98.js",
   "fonts/Waterfall-Regular.ttf": "/fonts/Waterfall-Regular.ttf",
   "static/media/Waterfall-Regular.ttf": "/static/media/Waterfall-Regular.650eece1..ttf",
@@ -13,6 +13,6 @@
   "favicon.png": "/favicon.png",
   "index.html": "/index.html",
   "robots.txt": "/robots.txt",
-  "app.86d14b8f.js.map": "/static/js/app.86d14b8f.js.map",
+  "app.57bfdc92.js.map": "/static/js/app.57bfdc92.js.map",
   "runtime-app.20723b98.js.map": "/static/js/runtime-app.20723b98.js.map"
 }

@@ -5,13 +5,11 @@ import { useSetRecoilState } from 'recoil'
 import MainLayout from 'src/layouts/MainLayout'
 import SectionHi from 'src/components/organisms/SectionHi'
 import SectionExperience from 'src/components/organisms/SectionExperience'
-import SectionAbout from 'src/components/organisms/SectionAbout'
 import * as str from 'src/shared/store'
 
 const section = {
   hi: { page: 0, id: 'hi' },
   experience: { page: 1, id: 'experience' },
-  about: { page: 2, id: 'about' },
 }
 
 export default function HomePage() {
@@ -50,7 +48,6 @@ export default function HomePage() {
         >
           <SectionHi {...section.hi} />
           <SectionExperience {...section.experience} />
-          <SectionAbout {...section.about} />
         </Parallax>
       </MainLayout>
     </>

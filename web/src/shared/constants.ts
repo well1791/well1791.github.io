@@ -4,7 +4,7 @@ export const expList: ExpData[] = [
   {
     title: 'funiber',
     url: 'https://www.funiber.org',
-    role: 'full stack',
+    role: 'Full stack',
     startDate: new Date(2013, 11, 2),
     endDate: new Date(2016, 6, 23),
     skills: [
@@ -21,7 +21,7 @@ export const expList: ExpData[] = [
   {
     title: 'stack builders',
     url: 'https://www.stackbuilders.com',
-    role: 'full stack',
+    role: 'Full stack',
     startDate: new Date(2016, 6, 25),
     endDate: new Date(2018, 7, 10),
     skills: [
@@ -44,7 +44,7 @@ export const expList: ExpData[] = [
   {
     title: 'genome',
     url: 'https://geno.me',
-    role: 'front end',
+    role: 'Front end',
     startDate: new Date(2018, 11, 3),
     endDate: new Date(2021, 9, 15),
     skills: [
@@ -64,9 +64,9 @@ export const expList: ExpData[] = [
     ],
   },
   {
-    title: 'jobless',
+    title: 'no job',
     url: 'https://well1791.github.io/resume',
-    role: 'front end',
+    role: 'Front end',
     startDate: new Date(2021, 9, 16),
     endDate: 'Present',
     skills: [
