@@ -65,7 +65,7 @@ export const expList: ExpData[] = [
   },
   {
     title: 'no job',
-    url: 'https://well1791.github.io/resume',
+    url: 'https://well1791.github.io/',
     role: 'Front end',
     startDate: new Date(2021, 9, 16),
     endDate: 'Present',
