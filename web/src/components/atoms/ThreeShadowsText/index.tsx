@@ -7,7 +7,7 @@ type Props = {
   wrapper: (text: string) => React.ReactNode
   className?: string
   pos: { x: number; y: number }
-  colors: React.CSSProperties['color'][]
+  colors: Array<React.CSSProperties['color']>
   shadowClassName: string
 }
 
@@ -31,12 +31,7 @@ export default function ThreeShadowsText({
             className: shadowClassName,
             css: { [`$$shadowColor${i}`]: color },
           })}
-          style={{
-            transform: [
-              `translateX(${pos.x * n}%)`,
-              `translateY(${pos.y * n}%)`,
-            ].join(' '),
-          }}
+          style={{ transform: `translate(${pos.x * n}%, ${pos.y * n}%)` }}
           aria-hidden="true"
         >
           {text}
@@ -45,3 +40,5 @@ export default function ThreeShadowsText({
     </div>
   )
 }
+
+export { default as useMousePosition } from './useMousePosition'

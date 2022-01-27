@@ -1,28 +1,15 @@
 import { ParallaxLayer } from '@react-spring/parallax'
-import { useMove } from '@use-gesture/react'
-import debounce from 'lodash/fp/debounce'
-import clamp from 'lodash/fp/clamp'
 
-import ThreeShadowsText from 'src/components/atoms/ThreeShadowsText'
+import ThreeShadowsText, {
+  useMousePosition,
+} from 'src/components/atoms/ThreeShadowsText'
 import { lightTheme as theme } from 'src/shared/theme'
 import * as stl from './styles'
-
-const TEXT_SH_LIMIT = 2.5
 
 export type Props = React.HTMLAttributes<HTMLElement> & { page: number }
 
 export default function SectionHi(props: Props) {
-  const [mousePos, setMousePos] = React.useState({ x: -3, y: 3 })
-  const shadowLimit = clamp(-TEXT_SH_LIMIT, TEXT_SH_LIMIT)
-
-  const mouseBind = useMove(
-    debounce(200, ({ xy: [pX, pY] }) => {
-      const x = shadowLimit((window.innerWidth - pX * 1.8) / 100)
-      const y = shadowLimit((window.innerHeight - pY * 2.5) / 100)
-
-      if (x !== mousePos.x || y !== mousePos.y) setMousePos({ x, y })
-    })
-  )
+  const [mouseBind, mousePos] = useMousePosition()
 
   return (
     <section {...mouseBind()} id={props.id}>
