@@ -2,13 +2,10 @@ import { css, keyframes } from 'src/shared/theme'
 
 const animation = {
   hi: keyframes({
-    from: {
-      opacity: 0,
-      transform: 'translateY(115%) rotate(0.1turn) scale(0.2)',
-    },
+    from: { opacity: 0 },
     to: {
       opacity: 1,
-      transform: 'translateY(-10%) rotate(-0.08turn) scale(1.2)',
+      transform: 'rotate(-0.04turn)',
     },
   }),
 
@@ -80,18 +77,16 @@ export const hiContainer = css({
   alignItems: 'flex-end',
   justifyContent: 'flex-start',
 
-  maxWidth: '$wide',
+  maxInlineSize: '$wide',
   mx: 'auto',
 })
 
-export const hi = css({
-  color: '$sectionHiTitle',
-  fontSize: 'calc(min(75vh, 75vw) + 1rem)',
-  fontWeight: 'bold',
-  fontFamily: '$openSansB',
+export const shadowsContainer = css({
+  animation: `1.5s ease-in 0s 1 normal both running ${animation.hi}`,
+})
 
-  transition: 'text-shadow .8s ease',
-  animation: `1s ease 0s 1.5 alternate both running ${animation.hi}`,
+export const hi = css({
+  fontSize: 'calc(min(75vh, 75vw) + 1rem)',
 })
 
 export const bgShadow = css({

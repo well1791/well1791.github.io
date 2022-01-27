@@ -95,7 +95,13 @@ export const {
       themeSwitcherMenuSelectedBg: 'black',
 
       sectionHiBg1: '$cyan10',
-      sectionHiText1: '$gray1',
+      sectionHiTitleSh1: 'white',
+      sectionHiTitleSh2: '$whiteA11',
+      sectionHiTitleSh3: '$whiteA8',
+
+      sectionExpTitleSh1: 'black',
+      sectionExpTitleSh2: '$blackA10',
+      sectionExpTitleSh3: '$blackA8',
     },
     fonts: {
       openSansB: 'OpenSans-Bold, sans-serif',
@@ -311,12 +317,13 @@ export const blackAndWhiteTheme = createTheme({
     themeSwitcherMenuSelectedBg: 'black',
 
     sectionHiBg1: '$gray12',
-    sectionHiText1: '$gray1',
-
-    sectionHiTitle: 'transparent',
     sectionHiTitleSh1: 'white',
     sectionHiTitleSh2: '$whiteA11',
     sectionHiTitleSh3: '$whiteA8',
+
+    sectionExpTitleSh1: 'black',
+    sectionExpTitleSh2: '$blackA9',
+    sectionExpTitleSh3: '$blackA8',
   },
 })
 

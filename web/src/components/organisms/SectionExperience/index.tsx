@@ -4,25 +4,26 @@ import debounce from 'lodash/fp/debounce'
 import clamp from 'lodash/fp/clamp'
 
 import UnMemoExperienceCard from 'src/components/molecules/ExperienceCard'
+import ThreeShadowsText from 'src/components/atoms/ThreeShadowsText'
 import { expList } from 'src/shared/constants'
+import { lightTheme as theme } from 'src/shared/theme'
+import * as stl from './styles'
 
 const ExperienceCard = React.memo(UnMemoExperienceCard)
 
-import * as stl from './styles'
-
-const TEXT_SH_LIMIT = 3
+const TEXT_SH_LIMIT = 2.5
 
 export type Props = React.HTMLAttributes<HTMLElement> & { page: number }
 
-export default function (props: Props) {
+export default function SectionExperience(props: Props) {
   const [expI0, setExpI0] = React.useState(expList.length - 1)
   const [mousePos, setMousePos] = React.useState({ x: 3, y: -3 })
   const shadowLimit = clamp(-TEXT_SH_LIMIT, TEXT_SH_LIMIT)
 
   const mouseBind = useMove(
     debounce(200, ({ xy: [pX, pY] }) => {
-      const x = shadowLimit((window.innerWidth - pX * 1.7) / 100)
-      const y = shadowLimit((window.innerHeight - pY * 3) / 100)
+      const x = shadowLimit((window.innerWidth - pX * 1.8) / 100)
+      const y = shadowLimit((window.innerHeight - pY * 2.5) / 100)
 
       if (x !== mousePos.x || y !== mousePos.y) setMousePos({ x, y })
     })
@@ -42,20 +43,18 @@ export default function (props: Props) {
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page + 0.1} speed={0.2}>
-        <div className={stl.skillsContainer()}>
-          <h2
-            className={stl.skills()}
-            style={{
-              textShadow: [
-                `calc(-5px * ${mousePos.x}) calc(-3px * ${mousePos.y}) 1px black`,
-                `calc(${mousePos.x}px) calc(${mousePos.y}px) 2px var(--colors-blackA10)`,
-                `calc(6px * ${mousePos.x}) calc(5px * ${mousePos.y}) 5px var(--colors-blackA8)`,
-              ].join(','),
-            }}
-          >
-            Skills
-          </h2>
-        </div>
+        <ThreeShadowsText
+          text="Skills"
+          className={stl.skillsContainer()}
+          wrapper={(text) => <h2>{text}</h2>}
+          pos={mousePos}
+          shadowClassName={stl.skills()}
+          colors={[
+            theme.colors.sectionExpTitleSh1.toString(),
+            theme.colors.sectionExpTitleSh2.toString(),
+            theme.colors.sectionExpTitleSh3.toString(),
+          ]}
+        />
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page}>

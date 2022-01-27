@@ -44,14 +44,8 @@ export const skillsContainer = css({
 })
 
 export const skills = css({
-  color: 'transparent',
   fontSize: 'calc(min(30vh) + 1rem)',
-  fontWeight: 'bold',
-  fontFamily: '$openSansB',
-  lineHeight: 1,
-
   writingMode: 'sideways-lr',
-  transition: 'text-shadow .8s ease',
 })
 
 export const cardsContainer = css({
