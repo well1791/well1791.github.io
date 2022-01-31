@@ -1,5 +1,7 @@
 import { css } from 'src/shared/theme'
 
+import { contentInfo } from 'src/components/molecules/ExperienceCard/styles'
+
 export const divider1 = css({
   bg: 'black',
   inlineSize: '120vw',
@@ -41,6 +43,10 @@ export const threeShadowsContainer = css({
   maxInlineSize: '$wide',
   mx: 'auto',
   pr: '5%',
+
+  '@wide': {
+    pr: '10%',
+  },
 })
 
 export const threeShadowsText = css({
@@ -50,9 +56,13 @@ export const threeShadowsText = css({
 export const cardsContainer = css({
   display: 'flex',
   alignItems: 'flex-start',
-  pt: '10%',
 
+  pt: '15%',
   blockSize: '100%',
+
+  '@laptop': {
+    pt: '10%',
+  },
 })
 
 export const cardsContent = css({
@@ -64,9 +74,20 @@ export const cardsContent = css({
 
 export const cardContainer = css({
   inlineSize: '90%',
+
+  [`.${contentInfo()}`]: {
+    maxBlockSize: '60vh',
+    overflowY: 'auto',
+  },
+
   '@laptop': {
     inlineSize: '65%',
+
+    [`.${contentInfo()}`]: {
+      maxBlockSize: '60vh',
+    },
   },
+
   '@desktop': {
     inlineSize: '75%',
   },

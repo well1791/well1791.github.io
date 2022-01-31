@@ -33,7 +33,7 @@ export const contentHeader = css({
     transition: 'transform 350ms ease, opacity 350ms linear',
 
     position: 'relative',
-    '&:after': {
+    '&::after': {
       content: '',
       position: 'absolute',
       inset: 0,
@@ -42,12 +42,12 @@ export const contentHeader = css({
     },
   },
 
-  h3: {
+  '& h3': {
     inlineSize: 'fit-content',
     textAlign: 'center',
   },
 
-  a: {
+  '& a': {
     textTransform: 'uppercase',
     outline: 'unset',
     br: '$md',
@@ -64,6 +64,25 @@ export const contentHeader = css({
   },
 })
 
+export const expInfo = css({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  pb: '1.5rem',
+  borderBlockEnd: 'dashed 1.5px $colors$gray8',
+
+  '& p': {
+    textTransform: 'capitalize',
+  },
+})
+
+export const techSkills = css({
+  display: 'grid',
+  gap: '1.125rem',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+
+  mt: '2rem',
+})
+
 export const contentInfo = css({
   px: '1.5rem',
   py: '2rem',
@@ -73,28 +92,9 @@ export const contentInfo = css({
   background: 'linear-gradient(to right, $colors$whiteA12, $colors$blackA5)',
   borderBlock: '1px solid black',
 
-  strong: {
+  '& strong': {
     fontWeight: 'bold',
     pr: '6px',
-  },
-
-  '.exp-info': {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, 1fr)',
-    pb: '1.5rem',
-    borderBlockEnd: 'dashed 1.5px $colors$gray8',
-
-    p: {
-      textTransform: 'capitalize',
-    },
-  },
-
-  ul: {
-    display: 'grid',
-    gap: '1.125rem',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
-
-    mt: '2rem',
   },
 })
 

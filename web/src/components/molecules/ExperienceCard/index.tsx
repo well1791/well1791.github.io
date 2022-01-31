@@ -49,7 +49,7 @@ export default function ExperienceCard({
       </header>
 
       <div className={stl.contentInfo()}>
-        <div className="exp-info">
+        <div className={stl.expInfo()}>
           <div>
             <p>
               <strong>{'Role: '}</strong>
@@ -80,7 +80,7 @@ export default function ExperienceCard({
           </div>
         </div>
 
-        <ul>
+        <ul className={stl.techSkills()}>
           {data.skills.map((skill) => (
             <TechSkill key={skill.name} {...skill} />
           ))}
