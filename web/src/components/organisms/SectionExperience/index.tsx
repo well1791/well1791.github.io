@@ -29,19 +29,21 @@ export default function SectionExperience(props: Props) {
         <div className={stl.bgShadow()} />
       </ParallaxLayer>
 
-      <ParallaxLayer offset={props.page + 0.1} speed={0.2}>
-        <ThreeShadowsText
-          text="Skills"
-          className={stl.skillsContainer()}
-          wrapper={(text) => <h2>{text}</h2>}
-          pos={mousePos}
-          shadowClassName={stl.skills()}
-          colors={[
-            theme.colors.sectionExpTitleSh1.toString(),
-            theme.colors.sectionExpTitleSh2.toString(),
-            theme.colors.sectionExpTitleSh3.toString(),
-          ]}
-        />
+      <ParallaxLayer offset={props.page + 0.3} speed={0.2}>
+        <div className={stl.threeShadowsContainer()}>
+          <ThreeShadowsText
+            text="Skills"
+            className={stl.threeShadowsText()}
+            wrapper={(text) => <h2>{text}</h2>}
+            pos={mousePos}
+            shadowFontSize="calc(min(30vh) + 1rem)"
+            shadowColors={[
+              theme.colors.sectionExpTitleSh1.toString(),
+              theme.colors.sectionExpTitleSh2.toString(),
+              theme.colors.sectionExpTitleSh3.toString(),
+            ]}
+          />
+        </div>
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page}>

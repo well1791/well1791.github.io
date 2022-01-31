@@ -2,10 +2,13 @@ import { css, keyframes } from 'src/shared/theme'
 
 const animation = {
   hi: keyframes({
-    from: { opacity: 0 },
+    from: {
+      opacity: 0,
+      transform: 'translateY(110%)',
+    },
     to: {
       opacity: 1,
-      transform: 'rotate(-0.04turn)',
+      transform: 'rotate(-0.04turn) translateY(40%)',
     },
   }),
 
@@ -81,12 +84,8 @@ export const hiContainer = css({
   mx: 'auto',
 })
 
-export const shadowsContainer = css({
+export const threeShadowsText = css({
   animation: `1.5s ease-in 0s 1 normal both running ${animation.hi}`,
-})
-
-export const hi = css({
-  fontSize: 'calc(min(75vh, 75vw) + 1rem)',
 })
 
 export const bgShadow = css({

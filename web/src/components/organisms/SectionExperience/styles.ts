@@ -32,9 +32,9 @@ export const lines = css({
   ].join(','),
 })
 
-export const skillsContainer = css({
+export const threeShadowsContainer = css({
   display: 'flex',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   justifyContent: 'flex-end',
 
   blockSize: '100%',
@@ -43,9 +43,8 @@ export const skillsContainer = css({
   pr: '5%',
 })
 
-export const skills = css({
-  fontSize: 'calc(min(30vh) + 1rem)',
-  writingMode: 'sideways-lr',
+export const threeShadowsText = css({
+  transform: 'rotate(-0.25turn) translateX(0%)',
 })
 
 export const cardsContainer = css({

@@ -2,7 +2,6 @@ import { css } from 'src/shared/theme'
 
 export const textContainer = css({
   position: 'relative',
-  size: '100%',
 
   '.sr-only': {
     srOnly: true,
