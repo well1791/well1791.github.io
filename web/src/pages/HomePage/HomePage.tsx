@@ -22,14 +22,15 @@ export default function HomePage() {
       title: val.id,
       onClick: () => parallaxRef.current.scrollTo(val.page),
     }))
+    const skipToNav = {
+      href: `#${section.experience.id}`,
+      title: 'Skip Navigation',
+      onClick: () => parallaxRef.current.scrollTo(section.experience.page),
+    }
 
     setMainNavItems({
       items: navItems,
-      skipTo: {
-        onClick: () => parallaxRef.current.scrollTo(section.experience.page),
-        title: 'Skip Navigation',
-        href: `#${section.experience}`,
-      },
+      skipTo: skipToNav,
     })
   }, [setMainNavItems])
 
@@ -40,7 +41,7 @@ export default function HomePage() {
         description="Wellington Mendoza resume page. Frontend React Developer."
       />
 
-      <MainLayout mainId={section.experience.id}>
+      <MainLayout>
         <Parallax
           ref={parallaxRef}
           pages={Object.values(section).length}

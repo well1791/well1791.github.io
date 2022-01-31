@@ -5,18 +5,16 @@ import * as str from 'src/shared/store'
 import * as stl from './styles'
 
 type Props = {
-  mainId?: string
   children?: React.ReactNode
 }
 
-export default function MainLayout({ mainId, children }: Props) {
+export default function MainLayout({ children }: Props) {
   const headerStyles = useRecoilValue(str.mainHeaderStyles)
 
   return (
     <>
       <Header />
       <main
-        id={mainId}
         className={stl.mainContainer({
           css: { paddingBlockStart: headerStyles.blockSize },
         })}
