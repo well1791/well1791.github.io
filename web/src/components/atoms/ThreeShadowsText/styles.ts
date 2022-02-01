@@ -1,6 +1,7 @@
 import { css } from 'src/shared/theme'
 
 export const textContainer = css({
+  userSelect: 'none',
   position: 'relative',
 
   '.sr-only': {
