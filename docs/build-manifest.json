@@ -1,17 +1,16 @@
 {
   "app.css": "/static/css/app.3e6b482f.css",
-  "app.js": "/static/js/app.667001dc.js",
+  "app.js": "/static/js/app.38fcd98a.js",
   "runtime-app.js": "/static/js/runtime-app.20723b98.js",
   "fonts/Waterfall-Regular.ttf": "/fonts/Waterfall-Regular.ttf",
   "fonts/OpenSans-Regular.ttf": "/fonts/OpenSans-Regular.ttf",
   "static/media/OpenSans-Regular.ttf": "/static/media/OpenSans-Regular.d7d7b835..ttf",
   "fonts/OpenSans-Bold.ttf": "/fonts/OpenSans-Bold.ttf",
   "static/media/OpenSans-Bold.ttf": "/static/media/OpenSans-Bold.6e27168f..ttf",
-  "mockServiceWorker.js": "/mockServiceWorker.js",
   "README.md": "/README.md",
   "favicon.png": "/favicon.png",
   "index.html": "/index.html",
   "robots.txt": "/robots.txt",
-  "app.667001dc.js.map": "/static/js/app.667001dc.js.map",
+  "app.38fcd98a.js.map": "/static/js/app.38fcd98a.js.map",
   "runtime-app.20723b98.js.map": "/static/js/runtime-app.20723b98.js.map"
 }
