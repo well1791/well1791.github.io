@@ -323,7 +323,7 @@ export const blackAndWhiteTheme = createTheme({
 
     sectionExpTitleSh1: 'black',
     sectionExpTitleSh2: '$blackA9',
-    sectionExpTitleSh3: '$blackA8',
+    sectionExpTitleSh3: '$blackA9',
   },
 })
 
