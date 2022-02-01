@@ -9,7 +9,7 @@ import * as stl from './styles'
 export type Props = React.HTMLAttributes<HTMLElement> & { page: number }
 
 export default function SectionHi(props: Props) {
-  const [mouseBind, mousePos] = useMousePosition()
+  const { mouseBind, mousePos } = useMousePosition()
 
   return (
     <section {...mouseBind()} id={props.id}>

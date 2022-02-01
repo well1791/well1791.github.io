@@ -55,14 +55,10 @@ export const threeShadowsText = css({
 
 export const cardsContainer = css({
   display: 'flex',
-  alignItems: 'flex-start',
+  alignItems: 'center',
 
-  pt: '15%',
+  pt: 50,
   blockSize: '100%',
-
-  '@laptop': {
-    pt: '10%',
-  },
 })
 
 export const cardsContent = css({
@@ -77,18 +73,18 @@ export const cardContainer = css({
 
   [`.${contentInfo()}`]: {
     maxBlockSize: '60vh',
-    overflowY: 'auto',
+    overflowX: 'hidden',
   },
 
-  '@laptop': {
-    inlineSize: '65%',
+  '@tablet': {
+    inlineSize: '70%',
 
     [`.${contentInfo()}`]: {
-      maxBlockSize: '60vh',
+      maxBlockSize: '50vh',
     },
   },
 
-  '@desktop': {
+  '@laptop': {
     inlineSize: '75%',
   },
 })

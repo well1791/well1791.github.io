@@ -14,7 +14,7 @@ export type Props = React.HTMLAttributes<HTMLElement> & { page: number }
 
 export default function SectionExperience(props: Props) {
   const [expI0, setExpI0] = React.useState(expList.length - 1)
-  const [mouseBind, mousePos] = useMousePosition()
+  const { mouseBind, mousePos } = useMousePosition()
 
   const getExp = (i: number) => ({
     title: expList[i].title,

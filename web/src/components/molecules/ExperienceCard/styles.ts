@@ -8,7 +8,48 @@ export const container = css({
   boxShadow: '$md',
 })
 
-export const contentHeader = css({
+export const headerUnderline = css({
+  display: 'block',
+  blockSize: 1.5,
+
+  bg: 'white',
+  br: '$full',
+
+  transform: 'scale(0.001)',
+  transition: 'transform 350ms ease, opacity 350ms linear',
+
+  position: 'relative',
+  '&::after': {
+    content: '',
+    position: 'absolute',
+    inset: 0,
+    boxShadow: '0px 1px 6px 0px white',
+    transition: 'opacity 350ms linear',
+  },
+})
+
+export const headerLink = css({
+  textTransform: 'uppercase',
+  outline: 'unset',
+  br: '$md',
+  py: '0.3rem',
+  px: '0.5rem',
+
+  '&:hover, &:focus': {
+    textShadow: '0px 0px 2px white',
+
+    [`& + .${headerUnderline()}`]: {
+      transform: 'scale(0.9)',
+    },
+  },
+})
+
+export const headerTitle = css({
+  inlineSize: 'fit-content',
+  textAlign: 'center',
+})
+
+export const header = css({
   display: 'flex',
   justifyContent: 'center',
 
@@ -21,61 +62,90 @@ export const contentHeader = css({
   borderStartStartRadius: '$radii$md',
   borderStartEndRadius: '$radii$md',
   borderBlockEnd: '1px solid white',
+})
 
-  '.underline': {
-    display: 'block',
-    blockSize: 1.5,
+export const expRole = css({})
 
-    bg: 'white',
-    br: '$full',
+export const expTime = css({
+  position: 'relative',
+})
 
-    transform: 'scale(0.001)',
-    transition: 'transform 350ms ease, opacity 350ms linear',
+export const tooltip = css({
+  position: 'absolute',
+  bottom: '-4.5em',
+  right: '-10em',
+  overflow: 'hidden',
+  zIndex: '$max',
 
-    position: 'relative',
-    '&::after': {
-      content: '',
-      position: 'absolute',
-      inset: 0,
-      boxShadow: '0px 1px 6px 0px white',
-      transition: 'opacity 350ms linear',
-    },
+  backgroundColor: 'white',
+
+  py: '.5rem',
+  px: '1rem',
+  br: '$md',
+  boxShadow: '$md, inset -5px -5px 20px -10px $colors$blackA11',
+  minInlineSize: '200px',
+
+  color: 'black',
+  fontSize: '.875rem',
+
+  transition: 'opacity 350ms ease',
+
+  svg: {
+    position: 'absolute',
+    insetBlock: 0,
+    insetInlineStart: '75%',
+
+    transform: 'rotate(.03turn)',
+
+    size: '75px',
+    color: '$colors$blackA7',
   },
 
-  '& h3': {
-    inlineSize: 'fit-content',
-    textAlign: 'center',
-  },
+  variants: {
+    isOpen: {
+      true: {
+        opacity: 1,
+      },
 
-  '& a': {
-    textTransform: 'uppercase',
-    outline: 'unset',
-    br: '$md',
-    py: '0.3rem',
-    px: '0.5rem',
-
-    '&:hover, &:focus': {
-      textShadow: '0px 0px 2px white',
-
-      '& + .underline': {
-        transform: 'scale(0.9)',
+      false: {
+        opacity: 0,
+        visibility: 'hidden',
       },
     },
   },
 })
 
-export const expInfo = css({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(2, 1fr)',
-  pb: '1.5rem',
-  borderBlockEnd: 'dashed 1.5px $colors$gray8',
-
-  '& p': {
-    textTransform: 'capitalize',
+export const tooltipTrigger = css({
+  cursor: 'default',
+  svg: {
+    size: 18,
+    ml: '.25rem',
   },
 })
 
-export const techSkills = css({
+export const expContainer = css({
+  display: 'flex',
+  flexWrap: 'wrap',
+  aligItems: 'center',
+
+  pb: '1.5rem',
+  borderBlockEnd: 'dashed 1.5px $colors$gray8',
+
+  [`.${expRole()}, .${expTime()}`]: {
+    display: 'flex',
+    strong: { pr: '.5em' },
+  },
+
+  [`.${expRole()}`]: {
+    width: '100%',
+
+    '@laptop': {
+      width: '40%',
+    },
+  },
+})
+
+export const techSkillsInfo = css({
   display: 'grid',
   gap: '1.125rem',
   gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
@@ -91,14 +161,9 @@ export const contentInfo = css({
 
   background: 'linear-gradient(to right, $colors$whiteA12, $colors$blackA5)',
   borderBlock: '1px solid black',
-
-  '& strong': {
-    fontWeight: 'bold',
-    pr: '6px',
-  },
 })
 
-export const contentFooter = css({
+export const footer = css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',

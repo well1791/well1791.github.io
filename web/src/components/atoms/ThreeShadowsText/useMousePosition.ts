@@ -30,7 +30,6 @@ export default function useMousePosition({
       if (x !== mousePos.x || y !== mousePos.y) setMousePos({ x, y })
     })
   )
-  const result: [typeof mouseBind, typeof mousePos] = [mouseBind, mousePos]
 
-  return result
+  return { mouseBind, mousePos }
 }
