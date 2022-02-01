@@ -1,6 +1,5 @@
 import { useTooltip } from '@react-aria/tooltip'
 import { mergeProps } from '@react-aria/utils'
-import React from 'react'
 
 type AriaTooltipProps = Parameters<typeof useTooltip>[0]
 type TooltipState = Parameters<typeof useTooltip>[1]

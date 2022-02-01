@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { useTooltipTrigger } from '@react-aria/tooltip'
 import { useTooltipTriggerState } from '@react-stately/tooltip'
 
