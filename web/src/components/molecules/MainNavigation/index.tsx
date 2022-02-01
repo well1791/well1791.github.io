@@ -81,7 +81,7 @@ export default function MainNavigation() {
         </a>
       )}
 
-      <nav>
+      <nav aria-label="Main Navigation">
         <button
           {...openMenuProps}
           ref={openMenuRef}
