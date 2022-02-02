@@ -29,7 +29,7 @@ export default function SectionExperience(props: Props) {
         <div className={stl.bgShadow()} />
       </ParallaxLayer>
 
-      <ParallaxLayer offset={props.page + 0.3} speed={0.2}>
+      <ParallaxLayer offset={props.page + 0.3} speed={1.2}>
         <div className={stl.threeShadowsContainer()}>
           <ThreeShadowsText
             text="Skills"
@@ -56,7 +56,7 @@ export default function SectionExperience(props: Props) {
         <div className={stl.divider1()} />
       </ParallaxLayer>
 
-      <ParallaxLayer offset={props.page} speed={1.2}>
+      <ParallaxLayer offset={props.page} speed={0.5}>
         <div className={stl.cardsContainer()}>
           <div className={stl.cardsContent()}>
             {expList.map((exp, i0) => {
