@@ -72,6 +72,7 @@ export const expTime = css({
 
 export const tooltip = css({
   $$px: '1rem',
+  $$duration: '350ms',
 
   position: 'absolute',
   insetBlockEnd: '-4.75em',
@@ -92,12 +93,12 @@ export const tooltip = css({
   color: 'black',
   fontSize: '.875rem',
 
-  transition: 'opacity 350ms ease',
+  transition: 'opacity $$duration ease',
 
   variants: {
     isOpen: {
       true: {
-        animation: `350ms ${animation.fadeIn}`,
+        animation: `$$duration ${animation.fadeIn}`,
       },
 
       false: {
