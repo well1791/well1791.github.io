@@ -22,7 +22,7 @@ export default function useTooltip({
   const ref = React.useRef()
   const aria = useTooltipTrigger(props, state, ref)
   const isClosed = !state.isOpen
-  const isMounted = !isClosed || isDelayed
+  const isMounted = state.isOpen || isDelayed
 
   React.useEffect(() => {
     const timeoutId = setTimeout(() => {

@@ -15,6 +15,7 @@ export const category = css({
   minInlineSize: 50,
   inlineSize: 'fit-content',
   blockSize: '100%',
+  pr: '.35rem',
 
   fontWeight: 'bold',
   fontSize: '$md',
@@ -29,6 +30,7 @@ export const bg = css({
   insetInline: '-50%',
   br: 'inherit',
   transform: 'translateX(25%)',
+  boxShadow: 'inset 0px 0px 20px -10px black',
 
   transition: 'transform 0.5s ease',
 })
