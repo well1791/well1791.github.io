@@ -1,4 +1,4 @@
-import { css } from 'src/shared/theme'
+import { css, animation } from 'src/shared/theme'
 
 export const container = css({
   background: '$whiteA10',
@@ -71,18 +71,22 @@ export const expTime = css({
 })
 
 export const tooltip = css({
+  $$px: '1rem',
+
   position: 'absolute',
-  bottom: '-4.5em',
-  right: '-10em',
-  overflow: 'hidden',
+  insetBlockEnd: '-4.75em',
+  insetInlineEnd: '-6.1em',
   zIndex: '$max',
 
   backgroundColor: 'white',
 
   py: '.5rem',
-  px: '1rem',
   br: '$md',
-  boxShadow: '$md, inset -5px -5px 20px -10px $colors$blackA11',
+  boxShadow: [
+    '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+    '0 2px 4px -2px rgb(0 0 0 / 0.1)',
+    ' inset -10px -10px 20px -20px $colors$blackA11',
+  ].join(','),
   minInlineSize: '200px',
 
   color: 'black',
@@ -90,26 +94,14 @@ export const tooltip = css({
 
   transition: 'opacity 350ms ease',
 
-  svg: {
-    position: 'absolute',
-    insetBlock: 0,
-    insetInlineStart: '75%',
-
-    transform: 'rotate(.03turn)',
-
-    size: '75px',
-    color: '$colors$blackA7',
-  },
-
   variants: {
     isOpen: {
       true: {
-        opacity: 1,
+        animation: `350ms ${animation.fadeIn}`,
       },
 
       false: {
         opacity: 0,
-        visibility: 'hidden',
       },
     },
   },
@@ -123,17 +115,62 @@ export const tooltipTrigger = css({
   },
 })
 
+export const tooltipArrow = css({
+  $$size: '10px',
+  $$halfSize: 'calc($$size / 2)',
+  $$2ThirdsSize: 'calc($$size / 3 * 2)',
+
+  size: '0',
+  borderLeft: '$$size solid transparent',
+  borderRight: '$$size solid transparent',
+  borderBottom: '$$size solid white',
+
+  position: 'absolute',
+  insetBlockStart: '-$$2ThirdsSize',
+  insetInlineStart: 'calc(50% - $$halfSize)',
+})
+
+export const tooltipContent = css({
+  px: '1rem',
+})
+
+export const tooltipIcon = css({
+  blockSize: '100%',
+  inlineSize: '100%',
+
+  overflow: 'hidden',
+  position: 'absolute',
+  insetBlockStart: 0,
+
+  svg: {
+    position: 'absolute',
+    insetBlock: 0,
+    insetInlineStart: '75%',
+
+    transform: 'rotate(.03turn)',
+
+    size: '75px',
+    color: '$colors$blackA4',
+  },
+})
+
 export const expContainer = css({
   display: 'flex',
   flexWrap: 'wrap',
   aligItems: 'center',
 
+  px: '$$px',
   pb: '1.5rem',
-  borderBlockEnd: 'dashed 1.5px $colors$gray8',
+  borderBlockEnd: 'solid 1px $colors$gray8',
+  boxShadow: [
+    '0 2px 3px 0 rgb(0 0 0 / 0.1)',
+    '0 1px 2px -1px rgb(0 0 0 / 0.1)',
+  ].join(','),
 
   [`.${expRole()}, .${expTime()}`]: {
     display: 'flex',
-    strong: { pr: '.5em' },
+    '& strong': { pl: '.4em' },
+    '& p': { lineHeight: '$relaxed' },
   },
 
   [`.${expRole()}`]: {
@@ -146,6 +183,7 @@ export const expContainer = css({
 })
 
 export const techSkillsInfo = css({
+  px: '$$px',
   display: 'grid',
   gap: '1.125rem',
   gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
@@ -154,7 +192,7 @@ export const techSkillsInfo = css({
 })
 
 export const contentInfo = css({
-  px: '1.5rem',
+  $$px: '1.5rem',
   py: '2rem',
   minBlockSize: '300px',
   minInlineSize: '300px',
@@ -168,8 +206,6 @@ export const footer = css({
   alignItems: 'center',
   justifyContent: 'space-between',
 
-  px: '1.5rem',
-  py: '0.66rem',
   borderEndStartRadius: '$radii$md',
   borderEndEndRadius: '$radii$md',
   borderBlockStart: '1px solid white',
@@ -177,4 +213,16 @@ export const footer = css({
   bg: 'black',
 
   color: 'white',
+
+  variants: {
+    isEmpty: {
+      true: {
+        blockSize: 35,
+      },
+      false: {
+        px: '1.5rem',
+        py: '0.66rem',
+      },
+    },
+  },
 })

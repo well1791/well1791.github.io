@@ -63,23 +63,21 @@ export default function SectionExperience(props: Props) {
               const i1 = i0 + 1
               const isFirst = i0 === 0
               const isLast = i1 === expList.length
-
-              // const pos = i1 * 8
-              const style = {
-                display: i0 === expI0 ? 'block' : 'none',
-                // zIndex: i1,
-                // opacity: i0 === expI0 ? 1 : 0,
-                // transform: `translateX(${pos}px) translateY(${pos}px)`,
-              }
+              const hasMoreCards = expList.length > 1
 
               return (
                 <ExperienceCard
                   key={exp.title}
-                  style={style}
-                  className={stl.cardContainer()}
+                  className={stl.cardContainer({
+                    css: {
+                      display: i0 === expI0 ? 'block' : 'none',
+                    },
+                  })}
                   data={exp}
-                  prevExp={isFirst ? undefined : getExp(i0 - 1)}
-                  nextExp={isLast ? undefined : getExp(i1)}
+                  prevExp={
+                    hasMoreCards && !isFirst ? getExp(i0 - 1) : undefined
+                  }
+                  nextExp={hasMoreCards && !isLast ? getExp(i1) : undefined}
                 />
               )
             })}

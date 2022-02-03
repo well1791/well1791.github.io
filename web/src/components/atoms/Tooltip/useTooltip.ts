@@ -1,16 +1,40 @@
 import { useTooltipTrigger } from '@react-aria/tooltip'
 import { useTooltipTriggerState } from '@react-stately/tooltip'
 
-type Props = Parameters<typeof useTooltipTrigger>[0]
+type Props = Parameters<typeof useTooltipTrigger>[0] & {
+  closeDelay?: number
+}
 
-export default function useTooltip(props: Props = { delay: 200 }) {
-  const state = useTooltipTriggerState(props)
+export default function useTooltip({
+  delay = 200,
+  closeDelay = 400,
+  ...propsArg
+}: Props = {}) {
+  const [isDelayed, setIsDelayed] = React.useState(false)
+  const props = { delay, ...propsArg }
+  const state = useTooltipTriggerState({
+    ...props,
+    onOpenChange: (isTooltipOpen) => {
+      if (isTooltipOpen) setIsDelayed(Boolean(closeDelay))
+      if (props.onOpenChange) props.onOpenChange(isTooltipOpen)
+    },
+  })
   const ref = React.useRef()
-  const tooltip = useTooltipTrigger(props, state, ref)
+  const aria = useTooltipTrigger(props, state, ref)
+  const isClosed = !state.isOpen
+  const isMounted = !isClosed || isDelayed
+
+  React.useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (isClosed && isDelayed) setIsDelayed(false)
+    }, closeDelay)
+
+    return () => clearTimeout(timeoutId)
+  }, [closeDelay, isDelayed, isClosed])
 
   return {
-    tooltipTriggerProps: tooltip.triggerProps,
-    tooltipOverlayProps: tooltip.tooltipProps,
-    tooltipState: state,
+    tooltipTriggerProps: aria.triggerProps,
+    tooltipOverlayProps: aria.tooltipProps,
+    tooltipState: { isMounted, ...state },
   }
 }

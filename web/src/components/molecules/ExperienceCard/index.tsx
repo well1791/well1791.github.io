@@ -61,13 +61,13 @@ export default function ExperienceCard({
       <div className={stl.contentInfo()}>
         <div className={stl.expContainer()}>
           <div className={stl.expRole()}>
-            <strong>{'Role: '}</strong>
-            <p>{data.role}</p>
+            <p>{'Role: '}</p>
+            <strong>{data.role}</strong>
           </div>
 
-          <div {...tooltipTriggerProps} className={stl.expTime()}>
-            <strong>{'Duration: '}</strong>
-            <p className={stl.tooltipTrigger()}>
+          <div className={stl.expTime()}>
+            <p>{'Duration: '}</p>
+            <strong {...tooltipTriggerProps} className={stl.tooltipTrigger()}>
               {durationTime({
                 start: data.startDate,
                 end: data.endDate === 'Present' ? startOfToday() : data.endDate,
@@ -77,25 +77,34 @@ export default function ExperienceCard({
                 focusable="false"
                 style={{ display: 'inline' }}
               />
-            </p>
+            </strong>
 
             <Tooltip
               state={tooltipState}
               {...tooltipOverlayProps}
               className={stl.tooltip({ isOpen: tooltipState.isOpen })}
             >
-              <p>
-                <strong>{'Started: '}</strong>
-                {formatDate(data.startDate)}
-              </p>
+              <div className={stl.tooltipArrow()} />
 
-              <p>
-                <strong>{'Ended: '}</strong>
-                {data.endDate === 'Present'
-                  ? 'Present'
-                  : formatDate(data.endDate)}
-              </p>
-              <InfoCircledIcon aria-hidden="true" focusable="false" />
+              <div className={stl.tooltipContent()}>
+                <p>
+                  {'Started: '}
+                  <strong>{formatDate(data.startDate)}</strong>
+                </p>
+
+                <p>
+                  {'Ended: '}
+                  <strong>
+                    {data.endDate === 'Present'
+                      ? 'Present'
+                      : formatDate(data.endDate)}
+                  </strong>
+                </p>
+              </div>
+
+              <div className={stl.tooltipIcon()}>
+                <InfoCircledIcon aria-hidden="true" focusable="false" />
+              </div>
             </Tooltip>
           </div>
         </div>
@@ -107,26 +116,14 @@ export default function ExperienceCard({
         </ul>
       </div>
 
-      <footer className={stl.footer()}>
-        <div>
-          {prevExp && (
-            <NavBtn
-              nav="prev"
-              title={prevExp.title}
-              onClick={prevExp.onClick}
-            />
-          )}
-        </div>
+      <footer className={stl.footer({ isEmpty: !prevExp && !nextExp })}>
+        {prevExp && (
+          <NavBtn nav="prev" title={prevExp.title} onClick={prevExp.onClick} />
+        )}
 
-        <div>
-          {nextExp && (
-            <NavBtn
-              nav="next"
-              title={nextExp.title}
-              onClick={nextExp.onClick}
-            />
-          )}
-        </div>
+        {nextExp && (
+          <NavBtn nav="next" title={nextExp.title} onClick={nextExp.onClick} />
+        )}
       </footer>
     </div>
   )
