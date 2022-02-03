@@ -4,6 +4,7 @@ import { FocusScope } from '@react-aria/focus'
 import { useOverlay, DismissButton } from '@react-aria/overlays'
 
 import type { Props as MenuItemProps } from './MenuItem'
+import * as stl from './styles'
 
 type MenuProps = Parameters<typeof useMenu>[0]
 type TreeStateProps = Parameters<typeof useTreeState>[0]
@@ -37,10 +38,6 @@ export default function MenuPopup(props: Props) {
     overlayRef
   )
 
-  // Wrap in <FocusScope> so that focus is restored back to the
-  // trigger when the menu is closed.
-  // In addition, add hidden <DismissButton> components at the start and
-  // end of the list to allow screen reader users to dismiss the popup easily.
   return (
     <FocusScope restoreFocus>
       <div {...overlayProps} ref={overlayRef}>

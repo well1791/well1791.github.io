@@ -38,9 +38,9 @@ export default function SectionExperience(props: Props) {
             pos={mousePos}
             shadowFontSize="calc(min(30vh) + 1rem)"
             shadowColors={[
-              theme.colors.sectionExpTitleSh1.toString(),
-              theme.colors.sectionExpTitleSh2.toString(),
-              theme.colors.sectionExpTitleSh3.toString(),
+              theme.colors.sectionExpTitleShBot.toString(),
+              theme.colors.sectionExpTitleShMid.toString(),
+              theme.colors.sectionExpTitleShTop.toString(),
             ]}
           />
         </div>
@@ -53,7 +53,7 @@ export default function SectionExperience(props: Props) {
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page}>
-        <div className={stl.divider1()} />
+        <div className={stl.divider()} />
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page} speed={0.5}>

@@ -1,11 +1,6 @@
 import { animation, css } from 'src/shared/theme'
 
-export const container = css({
-  order: 1,
-  '@tablet': {
-    order: 0,
-  },
-})
+export const container = css({})
 
 export const skipNav = css({
   position: 'absolute',
@@ -16,6 +11,7 @@ export const skipNav = css({
   px: '0.75rem',
   boxShadow: '$shadows$lg',
   color: '$skipMainNavText',
+  fontWeight: 'bold',
   bg: '$skipMainNavBg',
 
   '&:focus': {
@@ -28,8 +24,10 @@ export const navItem = css({
   p: '0.25rem',
   br: '$sm',
   fontWeight: 'bold',
+  fontSize: '$lg',
 
   '@tablet': {
+    fontSize: '$md',
     color: '$mainNavText',
   },
 })
@@ -67,7 +65,7 @@ export const navItems = css({
 
 export const mobCloseMenuBtn = css({
   aspectRatio: 1,
-  size: '$smBtn',
+  size: 'calc($smBtn + 10px)',
   $$position: '2rem',
   position: 'absolute',
   insetBlockStart: '$$position',
@@ -81,7 +79,7 @@ export const mobCloseMenuBtn = css({
 
   '& > svg': {
     margin: 'auto',
-    size: 24,
+    size: 35,
   },
 })
 
@@ -89,7 +87,7 @@ export const mobOpenMenuBtn = css({
   aspectRatio: 1,
   size: '$smBtn',
   br: '$radii$full',
-  color: '$mobMainNavBtnText',
+  color: '$mainNavText',
   transition: 'background-color 200ms ease-in-out',
 
   '@tablet': {

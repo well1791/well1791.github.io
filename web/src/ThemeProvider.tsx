@@ -9,7 +9,9 @@ export default function ThemProvider({ children }: Props) {
   const [selectedTheme] = useSelectedTheme()
 
   React.useEffect(() => {
-    document.querySelector('body').setAttribute('class', theme.blackAndWhite)
+    document
+      .querySelector('body')
+      .setAttribute('class', theme[selectedTheme.name])
   }, [selectedTheme])
 
   return <>{children}</>

@@ -11,7 +11,7 @@ export const themeOption = css({
         '& span': { srOnly: true },
         '& svg': {
           margin: 'auto',
-          size: '22px',
+          size: '30px',
           color: '$themeSwitcherTriggerText',
         },
       },
@@ -58,25 +58,29 @@ export const themeOption = css({
 })
 
 export const menuContainer = css({
-  position: 'absolute',
-  insetInlineEnd: '0.5rem',
-  minInlineSize: '8rem',
-  marginBlockStart: '1.5rem',
-  py: '0.5rem',
-  br: '$md',
-  background: '$themeSwitcherMenuBg',
   display: 'flex',
   flexDirection: 'column',
   gap: '0.5rem',
-  animation: `${animation.fadeIn} 350ms`,
+
+  py: '0.5rem',
+  br: '$md',
+  minInlineSize: '8rem',
+  background: '$themeSwitcherMenuBg',
   boxShadow: [
-    '0 2px 20px -10px rgba(255 255 255 / 0.5)',
-    '0 2px 20px -10px rgba(0 0 0 / 0.5)',
+    '$md',
+    'inset 4px 1px 20px -10px $colors$themeSwitcherMenuText',
   ].join(','),
+
+  position: 'absolute',
+  insetInlineEnd: '0.5rem',
+  insetBlockStart: '3rem',
+
+  animation: `${animation.fadeIn} 350ms`,
 })
 
 export const menuItem = css({
   cursor: 'pointer',
+  transition: 'background-color 300ms ease',
 
   '&:hover, &:focus': {
     bg: '$themeSwitcherMenuBgHover',

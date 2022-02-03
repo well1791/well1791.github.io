@@ -32,7 +32,7 @@ export const expList: ExpData[] = [
       { name: 'lodash', cat: 'js' },
       { name: 'laravel', cat: 'php' },
       { name: 'ruby on rails', cat: 'rb' },
-      { name: 'django', cat: 'js' },
+      { name: 'django', cat: 'py' },
       { name: 'vue', cat: 'js' },
       { name: 'react', cat: 'js' },
       { name: 'yesod', cat: 'hs' },

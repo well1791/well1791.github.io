@@ -35,6 +35,6 @@ export const navsContainer = css({
 })
 
 export const divider = css({
-  borderBlockStart: '1px solid $mainHeaderBorderStart',
-  borderBlockEnd: '1px solid $mainHeaderBorderEnd',
+  borderBlockStart: '1.5px solid $colors$mainHeaderBorderStart',
+  borderBlockEnd: '1.5px solid $colors$mainHeaderBorderEnd',
 })

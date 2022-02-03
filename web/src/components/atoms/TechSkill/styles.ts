@@ -1,9 +1,8 @@
 import { css } from 'src/shared/theme'
 
 export const name = css({
-  color: 'black',
-  fontSize: '$md',
   transition: 'color 0.8s ease',
+  fontWeight: 'bold',
 })
 
 export const category = css({
@@ -17,9 +16,8 @@ export const category = css({
   inlineSize: 'fit-content',
   blockSize: '100%',
 
-  color: 'white',
   fontWeight: 'bold',
-  fontSize: '$sm',
+  fontSize: '$md',
 
   transition: 'color 350ms ease',
 })
@@ -30,8 +28,6 @@ export const bg = css({
   insetBlock: 0,
   insetInline: '-50%',
   br: 'inherit',
-  backgroundImage:
-    'linear-gradient(to right, white 38%, black 40%, black 88%, white 90%)',
   transform: 'translateX(25%)',
 
   transition: 'transform 0.5s ease',
@@ -53,10 +49,66 @@ export const container = css({
   position: 'relative',
   zIndex: '$4',
 
+  [`.${bg()}`]: {
+    backgroundImage:
+      'linear-gradient(to right, $$color 38%, $$bg 40%, $$bg 88%, $$color 90%)',
+  },
+  [`.${category()}`]: { color: '$$color' },
+  [`.${name()}`]: { color: '$$bg' },
+
   '&:hover, &:focus': {
     transform: 'translateY(-10%) scale(1.05)',
-    [`.${name()}`]: { color: 'white' },
-    [`.${category()}`]: { color: 'black' },
+    [`.${name()}`]: { color: '$$color' },
+    [`.${category()}`]: { color: '$$bg' },
     [`.${bg()}`]: { transform: 'translateX(-25%)' },
+  },
+
+  variants: {
+    category: {
+      none: {
+        $$bg: 'black',
+        $$color: 'white',
+      },
+
+      php: {
+        $$bg: 'white',
+        $$color: '#474A8A',
+      },
+
+      js: {
+        $$bg: '#323330',
+        $$color: '#F0DB4F',
+      },
+
+      hs: {
+        $$bg: '#f4f1e2',
+        $$color: '#453a62',
+      },
+
+      py: {
+        $$bg: '#fff1c3',
+        $$color: '#2B5B7B',
+      },
+
+      rb: {
+        $$bg: 'white',
+        $$color: '#820C02',
+      },
+
+      sql: {
+        $$bg: 'white',
+        $$color: '#006d9a',
+      },
+
+      liquid: {
+        $$bg: 'white',
+        $$color: '#95bf47',
+      },
+
+      linux: {
+        $$bg: 'white',
+        $$color: '#003366',
+      },
+    },
   },
 })

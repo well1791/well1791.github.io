@@ -39,40 +39,45 @@ const animation = {
   shadowFrames: keyframes({
     '25%': {
       boxShadow: [
-        'calc(-1em - 1rem) 0 0 0 $colors$blackA7',
-        'calc(-2em - 2rem) 0 0 0 $colors$blackA7',
+        'calc(-1em - 1rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-2em - 2rem) 0 0 0 $colors$sectionHiBgShadowFrame',
       ].join(','),
     },
     '50%': {
       boxShadow: [
-        'calc(-1em - 1rem) 0 0 0 $colors$blackA7',
-        'calc(-2em - 2rem) 0 0 0 $colors$blackA7',
-        'calc(-3em - 3rem) 0 0 0 $colors$blackA7',
+        'calc(-1em - 1rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-2em - 2rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-3em - 3rem) 0 0 0 $colors$sectionHiBgShadowFrame',
       ].join(','),
     },
     '75%': {
       boxShadow: [
-        'calc(-1em - 1rem) 0 0 0 $colors$blackA7',
-        'calc(-2em - 2rem) 0 0 0 $colors$blackA7',
-        'calc(-3em - 3rem) 0 0 0 $colors$blackA7',
-        'calc(-5em - 4rem) 0 0 0 $colors$blackA7',
+        'calc(-1em - 1rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-2em - 2rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-3em - 3rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-5em - 4rem) 0 0 0 $colors$sectionHiBgShadowFrame',
       ].join(','),
     },
     to: {
       boxShadow: [
-        'calc(-1em - 1rem) 0 0 0 $colors$blackA6',
-        'calc(-2em - 2rem) 0 0 0 $colors$blackA6',
-        'calc(-3em - 3rem) 0 0 0 $colors$blackA6',
-        'calc(-5em - 4rem) 0 0 0 $colors$blackA6',
-        'calc(-8em - 5rem) 0 0 0 $colors$blackA6',
-        'calc(-13em - 7rem) 0 0 0 $colors$blackA6',
+        'calc(-1em - 1rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-2em - 2rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-3em - 3rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-5em - 4rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-8em - 5rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-13em - 7rem) 0 0 0 $colors$sectionHiBgShadowFrame',
       ].join(','),
     },
+  }),
+
+  bodyContainer: keyframes({
+    to: { transform: 'translateX(7.5%)' },
   }),
 }
 
 export const layerBg = css({
-  background: 'linear-gradient(to bottom, $gray12 40%, $gray1)',
+  background:
+    'linear-gradient(to bottom, $colors$sectionHiBgTop 40%, $colors$sectionHiBgBot)',
 })
 
 export const hiContainer = css({
@@ -91,7 +96,8 @@ export const threeShadowsText = css({
 export const bgShadow = css({
   ml: 'clamp(25px, 10%, 10vw)',
   height: '100%',
-  background: 'linear-gradient(210deg, $colors$blackA12, $colors$blackA11)',
+  background:
+    'linear-gradient(210deg, $colors$sectionHiBgShadow1, $colors$sectionHiBgShadow2)',
 
   animation: [
     `0.5s ease 0s 1 normal both running ${animation.slideInRight}`,
@@ -110,6 +116,9 @@ export const bodyContainer = css({
 
   height: '100%',
   pl: 'clamp(20px, 10%, 10vw)',
+  transition: 'transform 350ms ease',
+
+  animation: `1.7s ease 1.8s 1 normal both running ${animation.bodyContainer}`,
 })
 
 export const im = css({
@@ -151,7 +160,7 @@ export const divider = css({
   blockSize: '5px',
   borderBlock: 'solid 1.5px white',
   br: '$full',
-  bg: 'black',
+  bg: 'transparent',
   marginBlock: '0.75rem',
 
   position: 'relative',

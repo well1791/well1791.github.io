@@ -1,7 +1,7 @@
 import { css, animation } from 'src/shared/theme'
 
 export const container = css({
-  background: '$whiteA10',
+  bg: '$sectionExpCardBg',
   p: '0.175rem',
   br: '$radii$lg',
 
@@ -29,11 +29,15 @@ export const headerUnderline = css({
 })
 
 export const headerLink = css({
-  textTransform: 'uppercase',
   outline: 'unset',
   br: '$md',
   py: '0.3rem',
   px: '0.5rem',
+
+  fontSize: '$md',
+  textTransform: 'uppercase',
+  fontWeight: 'bold',
+  letterSpacing: '1px',
 
   '&:hover, &:focus': {
     textShadow: '0px 0px 2px white',
@@ -56,8 +60,8 @@ export const header = css({
   px: '1.5rem',
   py: '0.66rem',
 
-  bg: 'black',
-  color: 'white',
+  bg: '$sectionExpCardHeaderBg',
+  color: '$sectionExpCardHeaderText',
 
   borderStartStartRadius: '$radii$md',
   borderStartEndRadius: '$radii$md',
@@ -70,7 +74,24 @@ export const expTime = css({
   position: 'relative',
 })
 
+export const tooltipArrow = css({
+  $$size: '10px',
+  $$halfSize: 'calc($$size / 2)',
+  $$2ThirdsSize: 'calc($$size / 3 * 2)',
+
+  size: '0',
+  borderLeft: '$$size solid transparent',
+  borderRight: '$$size solid transparent',
+  borderBottom: '$$size solid $$bgColor',
+
+  position: 'absolute',
+  insetBlockStart: '-$$2ThirdsSize',
+  insetInlineStart: 'calc(50% - $$halfSize)',
+})
+
 export const tooltip = css({
+  $$bgColor: 'white',
+
   $$px: '1rem',
   $$duration: '350ms',
 
@@ -79,7 +100,7 @@ export const tooltip = css({
   insetInlineEnd: '-6.1em',
   zIndex: '$max',
 
-  backgroundColor: 'white',
+  bg: '$$bgColor',
 
   py: '.5rem',
   br: '$md',
@@ -114,21 +135,6 @@ export const tooltipTrigger = css({
     size: 18,
     ml: '.25rem',
   },
-})
-
-export const tooltipArrow = css({
-  $$size: '10px',
-  $$halfSize: 'calc($$size / 2)',
-  $$2ThirdsSize: 'calc($$size / 3 * 2)',
-
-  size: '0',
-  borderLeft: '$$size solid transparent',
-  borderRight: '$$size solid transparent',
-  borderBottom: '$$size solid white',
-
-  position: 'absolute',
-  insetBlockStart: '-$$2ThirdsSize',
-  insetInlineStart: 'calc(50% - $$halfSize)',
 })
 
 export const tooltipContent = css({
@@ -168,6 +174,9 @@ export const expContainer = css({
     '0 1px 2px -1px rgb(0 0 0 / 0.1)',
   ].join(','),
 
+  fontSize: '$md',
+  color: '$sectionExpCardHeaderBg',
+
   [`.${expRole()}, .${expTime()}`]: {
     display: 'flex',
     '& strong': { pl: '.4em' },
@@ -198,7 +207,8 @@ export const contentInfo = css({
   minBlockSize: '300px',
   minInlineSize: '300px',
 
-  background: 'linear-gradient(to right, $colors$whiteA12, $colors$blackA5)',
+  background:
+    'linear-gradient(170deg, $colors$sectionExpCardContentBg1, $colors$sectionExpCardContentBg2 55%)',
   borderBlock: '1px solid black',
 })
 
@@ -211,7 +221,7 @@ export const footer = css({
   borderEndEndRadius: '$radii$md',
   borderBlockStart: '1px solid white',
 
-  bg: 'black',
+  bg: '$sectionExpCardHeaderBg',
 
   color: 'white',
 

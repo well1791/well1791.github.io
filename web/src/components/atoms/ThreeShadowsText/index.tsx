@@ -30,7 +30,7 @@ export default function ThreeShadowsText({
     >
       <div className="sr-only">{wrapper(text)}</div>
 
-      {zip([-0.5, 0.5, 1.5], shadowColors).map(([n, color], i) => (
+      {zip([1.5, 0.5, -0.5], shadowColors).map(([n, color], i) => (
         <span
           key={n}
           className={stl.text({

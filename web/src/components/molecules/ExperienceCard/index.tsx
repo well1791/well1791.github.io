@@ -117,13 +117,25 @@ export default function ExperienceCard({
       </div>
 
       <footer className={stl.footer({ isEmpty: !prevExp && !nextExp })}>
-        {prevExp && (
-          <NavBtn nav="prev" title={prevExp.title} onClick={prevExp.onClick} />
-        )}
+        <div>
+          {prevExp && (
+            <NavBtn
+              nav="prev"
+              title={prevExp.title}
+              onClick={prevExp.onClick}
+            />
+          )}
+        </div>
 
-        {nextExp && (
-          <NavBtn nav="next" title={nextExp.title} onClick={nextExp.onClick} />
-        )}
+        <div>
+          {nextExp && (
+            <NavBtn
+              nav="next"
+              title={nextExp.title}
+              onClick={nextExp.onClick}
+            />
+          )}
+        </div>
       </footer>
     </div>
   )

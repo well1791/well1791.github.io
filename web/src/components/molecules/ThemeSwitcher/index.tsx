@@ -76,7 +76,7 @@ export default function ThemeSwitcher() {
       }}
     >
       {Object.values(themeInfo).map((v) => (
-        <Item key={v.id}>
+        <Item key={v.id} textValue={v.name}>
           <ThemeRender {...v} scope="menu" />
         </Item>
       ))}

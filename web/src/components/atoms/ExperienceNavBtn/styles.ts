@@ -19,9 +19,11 @@ export const content = css({
   br: 'inherit',
   py: '.2rem',
   px: '1.5rem',
-
-  color: 'black',
   background: 'white',
+
+  color: '$sectionExpCardHeaderBg',
+  fontSize: '$md',
+  fontWeight: 'bold',
 
   position: 'relative',
 })
@@ -38,40 +40,38 @@ export const container = css({
   },
 
   svg: {
-    size: '1.5rem',
+    size: '1.75rem',
     transition: 'transform 300ms ease',
+    transform: 'translateX($$iconBaseX)',
+  },
+
+  [`.${bg()}`]: {
+    transform: 'translateX($$bgBaseX)',
+    backgroundImage:
+      'linear-gradient($$bgDir, white 35%, transparent, white 65%)',
+  },
+
+  '&:hover, &:focus': {
+    [`.${bg()}`]: { transform: 'translateX($$bgHoverX)' },
+    svg: { transform: 'translateX($$iconHoverX)' },
   },
 
   variants: {
     nav: {
       prev: {
-        [`.${bg()}`]: {
-          transform: 'translateX(33%)',
-          backgroundImage:
-            'linear-gradient(to right, white 35%, black, white 65%)',
-        },
-
-        svg: { transform: 'scale(0.8) translateX(3px)' },
-
-        '&:hover, &:focus': {
-          [`.${bg()}`]: { transform: 'translateX(-33%)' },
-          svg: { transform: 'translateX(-2px)' },
-        },
+        $$iconBaseX: '3px',
+        $$iconHoverX: '-2px',
+        $$bgBaseX: '33%',
+        $$bgHoverX: '-33%',
+        $$bgDir: 'to right',
       },
 
       next: {
-        [`.${bg()}`]: {
-          transform: 'translateX(-33%)',
-          backgroundImage:
-            'linear-gradient(to left, white 35%, black, white 65%)',
-        },
-
-        svg: { transform: 'scale(0.8) translateX(-3px)' },
-
-        '&:hover, &:focus': {
-          [`.${bg()}`]: { transform: 'translateX(33%)' },
-          svg: { transform: 'translateX(2px)' },
-        },
+        $$iconBaseX: '-3px',
+        $$iconHoverX: '2px',
+        $$bgBaseX: '-33%',
+        $$bgHoverX: '33%',
+        $$bgDir: 'to left',
       },
     },
   },

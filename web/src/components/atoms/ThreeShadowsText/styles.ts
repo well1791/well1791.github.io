@@ -20,9 +20,9 @@ export const text = css({
 
   variants: {
     shadow: {
-      '0': { textShadow: '0 0 1px $$shadowColor0' },
+      '0': { textShadow: '0 0 5px $$shadowColor0' },
       '1': { textShadow: '0 0 2px $$shadowColor1' },
-      '2': { textShadow: '0 0 5px $$shadowColor2' },
+      '2': { textShadow: '0 0 1px $$shadowColor2' },
     },
   },
 })
