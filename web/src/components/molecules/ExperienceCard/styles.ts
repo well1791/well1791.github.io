@@ -182,11 +182,13 @@ export const expContainer = css({
     position: 'absolute',
     inset: 0,
     zIndex: -1,
-    bg: '$blackA12',
+    bg: 'rgba(255 255 255 / .85)',
   },
 
-  '@laptop': {
-    bg: 'transparent',
+  '@mobile': {
+    '&::before': {
+      bg: 'transparent',
+    },
   },
 
   [`.${expRole()}, .${expTime()}`]: {
@@ -217,8 +219,7 @@ export const contentInfo = css({
   $$px: '.75rem',
   pt: '2rem',
   pb: '2rem',
-  minBlockSize: '300px',
-  minInlineSize: '300px',
+  minBlockSize: '40%',
 
   background:
     'linear-gradient(170deg, $colors$sectionExpCardContentBg1, $colors$sectionExpCardContentBg2 55%)',

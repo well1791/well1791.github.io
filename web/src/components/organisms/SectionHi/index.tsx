@@ -38,16 +38,18 @@ export default function SectionHi(props: Props) {
 
       <ParallaxLayer offset={props.page} speed={-0.2}>
         <div className={stl.bodyContainer()}>
-          <p className={stl.im()}>{"I'm"}</p>
+          <div className={stl.bodyContent()}>
+            <p className={stl.im()}>{"I'm"}</p>
 
-          <div className={stl.info()}>
-            <p className={stl.name({ className: 'highlight' })}>
-              Wellington Mendoza
-            </p>
-            <div className={stl.divider()} />
-            <p className={stl.role({ className: 'highlight' })}>
-              Frontend Developer
-            </p>
+            <div className={stl.info()}>
+              <p className={stl.name({ className: 'highlight' })}>
+                Wellington Mendoza
+              </p>
+              <div className={stl.divider()} />
+              <p className={stl.role({ className: 'highlight' })}>
+                Frontend Developer
+              </p>
+            </div>
           </div>
         </div>
       </ParallaxLayer>

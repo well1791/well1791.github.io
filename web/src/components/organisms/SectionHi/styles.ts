@@ -1,4 +1,4 @@
-import { css, keyframes, animation as themeAnimation } from 'src/shared/theme'
+import { css, keyframes, animation as thAnimation } from 'src/shared/theme'
 
 const animation = {
   hi: keyframes({
@@ -100,7 +100,12 @@ export const hiContainer = css({
   justifyContent: 'flex-start',
 
   maxInlineSize: '$wide',
+  blockSize: '70%',
   mx: 'auto',
+
+  '@laptop': {
+    blockSize: 'auto',
+  },
 })
 
 export const threeShadowsText = css({
@@ -108,18 +113,36 @@ export const threeShadowsText = css({
 })
 
 export const bgShadow = css({
-  ml: 'clamp(25px, 10%, 10vw)',
   height: '100%',
-  background:
+  ml: 'clamp(25px, 40%, 40vw)',
+  backgroundImage:
     'linear-gradient(210deg, $colors$sectionHiBgShadow1, $colors$sectionHiBgShadow2)',
 
   animation: [
-    `0.5s ease 0s 1 normal both running ${themeAnimation.fadeIn}`,
+    `0.5s ease 0s 1 normal both running ${thAnimation.fadeIn}`,
     `.5s ease 0.5s 1 normal both running ${animation.shadowFrames}`,
   ].join(','),
 
   '@tablet': {
     ml: 'clamp(25px, 30%, 30vw)',
+  },
+})
+
+export const bodyContent = css({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  p: '1rem',
+  br: '$md',
+  bg: '$blackA9',
+
+  animation: `1.7s ease 1s 1 normal both running ${thAnimation.fadeIn}`,
+
+  '@tablet': {
+    bg: 'transparent',
+    br: '$md',
+    animation: 'none',
   },
 })
 
@@ -129,8 +152,11 @@ export const bodyContainer = css({
   justifyContent: 'center',
 
   height: '100%',
-  pl: 'clamp(20px, 10%, 10vw)',
   transition: 'transform 350ms ease',
+
+  '@tablet': {
+    pl: 'clamp(20px, 10%, 10vw)',
+  },
 
   '@laptop': {
     animation: `1.7s ease 4s 1 normal both running ${animation.bodyContainer}`,
@@ -143,8 +169,8 @@ export const im = css({
   paddingInlineEnd: '0.75em',
 
   animation: [
-    `1s ease 1.5s 1 normal both running ${themeAnimation.fadeIn}`,
-    `1s ease 1.5s 1 normal both running ${themeAnimation.slideInRight}`,
+    `1s ease 1.5s 1 normal both running ${thAnimation.fadeIn}`,
+    `1s ease 1.5s 1 normal both running ${thAnimation.slideInRight}`,
   ].join(','),
 })
 

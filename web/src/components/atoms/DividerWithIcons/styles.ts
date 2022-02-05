@@ -20,18 +20,21 @@ const animation = {
 export const iconContainer = css({
   size: '$$iconSize',
   padding: '$$iconGap',
+  $$duration: '20s',
 
-  animation: `10s linear $$rotationDelay infinite alternate both running ${animation.move}`,
+  animation: `$$duration linear $$rotationDelay infinite alternate both running ${animation.move}`,
 
   '& svg': {
-    color: '$whiteA8',
+    color: '$whiteA9',
     size: '100%',
-    animation: `20s linear $$rotationDelay infinite alternate both running ${animation.rotate}`,
+    animation: `$$duration linear $$rotationDelay infinite alternate both running ${animation.rotate}`,
     transition: 'color 3s cubic-bezier(0, 1.2, 1, 0.98)',
+  },
 
-    '&:hover': {
-      color: '$whiteA12',
-      filter: 'drop-shadow(0 0px 10px white)',
+  '&:hover': {
+    svg: {
+      color: 'white !important',
+      filter: 'drop-shadow(0 0px 15px white)',
     },
   },
 })
@@ -49,4 +52,10 @@ export const divider = css({
   overflow: 'hidden',
 
   transform: 'translateX(-10%) translateY(-25%) rotate(.005turn)',
+
+  [`&:hover .${iconContainer()}`]: {
+    svg: {
+      color: '$whiteA7',
+    },
+  },
 })

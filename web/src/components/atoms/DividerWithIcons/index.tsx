@@ -76,6 +76,7 @@ export default function Divider() {
         css: {
           $$pr: `${pr}px`,
           $$pl: `${pl}px`,
+          $$iconSize: `${iconSize}px`,
           $$iconGap: `${iconGap}px`,
         },
       })}
@@ -86,8 +87,7 @@ export default function Divider() {
           data-id={i}
           className={stl.iconContainer({
             css: {
-              $$iconSize: `${iconSize}px`,
-              $$rotationDelay: `${i}0ms`,
+              $$rotationDelay: `${icons.length - i}00ms`,
             },
           })}
         >

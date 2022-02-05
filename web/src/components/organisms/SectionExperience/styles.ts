@@ -49,10 +49,15 @@ export const threeShadowsText = css({
 
 export const cardsContainer = css({
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'flex-start',
 
-  pt: 50,
+  pt: 80,
   blockSize: '100%',
+
+  '@laptop': {
+    alignItems: 'flex-start',
+    pt: 50,
+  },
 })
 
 export const cardsContent = css({
