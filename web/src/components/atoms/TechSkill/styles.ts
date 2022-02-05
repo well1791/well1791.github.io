@@ -30,7 +30,7 @@ export const bg = css({
   insetInline: '-50%',
   br: 'inherit',
   transform: 'translateX(25%)',
-  boxShadow: 'inset 0px 0px 20px -10px black',
+  boxShadow: 'inset 0px 0px 15px -10px black',
 
   transition: 'transform 0.5s ease',
 })

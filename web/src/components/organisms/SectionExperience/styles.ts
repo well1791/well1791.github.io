@@ -2,14 +2,6 @@ import { css } from 'src/shared/theme'
 
 import { contentInfo } from 'src/components/molecules/ExperienceCard/styles'
 
-export const divider = css({
-  background:
-    'linear-gradient(178deg, $sectionExpDividerBg1 55%, $sectionExpDividerBg2 80%)',
-  inlineSize: '120vw',
-  blockSize: 'max(7vh, 7vw)',
-  transform: 'translateX(-10%) translateY(-25%) rotate(.005turn)',
-})
-
 export const layerBg = css({
   bg: '$gray1',
 })
@@ -17,7 +9,8 @@ export const layerBg = css({
 export const bgShadow = css({
   mr: 'clamp(25px, 25%, 25vw)',
   height: '100%',
-  background: 'linear-gradient(90deg, $sectionExpBgShadow, transparent 95%)',
+  background:
+    'linear-gradient(90deg, $sectionExpBgShadow1 5%, $sectionExpBgShadow2, $sectionExpBgShadow3 80%, $sectionExpBgShadow4)',
 })
 
 export const linesContainer = css({
@@ -66,14 +59,16 @@ export const cardsContent = css({
   maxInlineSize: '$wide',
   inlineSize: '100%',
   mx: 'auto',
-  px: 'max(5%, 30px)',
+  px: '1.25rem',
+
+  '@laptop': {
+    px: '5%',
+  },
 })
 
 export const cardContainer = css({
-  inlineSize: '90%',
-
   [`.${contentInfo()}`]: {
-    maxBlockSize: '60vh',
+    maxBlockSize: '50vh',
     overflowX: 'hidden',
   },
 

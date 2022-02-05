@@ -76,9 +76,10 @@ export const {
       skipMainNavText: '#1D3557',
       skipMainNavBg: '#F1FAEE',
 
-      mainHeaderBg: '#264653',
+      mainHeaderBg: 'rgba(38 70 83 / 0.9)',
+      mainHeaderBgBlur: 'rgba(37 70 83 / 0.7)',
 
-      mobMainNavMenuBg: '#F1FAEE',
+      mobMainNavMenuBg: 'rgb(241 255 246 / .7)',
       mobMainNavMenuText: '#1D3557',
 
       mainNavText: 'white',
@@ -102,9 +103,11 @@ export const {
       sectionHiTitleShMid: 'rgba(69, 123, 157, .8)',
       sectionHiTitleShBot: 'rgba(168, 218, 220, .8)',
 
-      sectionExpDividerBg1: '#c7ced1',
-      sectionExpDividerBg2: 'rgb(33, 54, 70)',
-      sectionExpBgShadow: 'rgba(2, 24, 43, .8)',
+      sectionExpDividerBg: 'rgb(33, 54, 70)',
+      sectionExpBgShadow1: 'rgba(2, 24, 43, .8)',
+      sectionExpBgShadow2: 'rgb(125, 144, 153)',
+      sectionExpBgShadow3: 'rgb(190, 196, 201)',
+      sectionExpBgShadow4: 'transparent',
       sectionExpBgShadowLine1: '$colors$whiteA12',
       sectionExpBgShadowLine2: 'rgba(2, 24, 43, .25)',
       sectionExpTitleShTop: '#2b404f',
@@ -286,6 +289,7 @@ export const darkTheme = createTheme({
     skipMainNavBg: '',
 
     mainHeaderBg: '',
+    mainHeaderBgBlur: '',
 
     mobMainNavMenuBg: '',
     mobMainNavMenuText: '',
@@ -311,9 +315,11 @@ export const darkTheme = createTheme({
     sectionHiTitleShMid: '',
     sectionHiTitleShBot: '',
 
-    sectionExpDividerBg1: '',
-    sectionExpDividerBg2: '',
-    sectionExpBgShadow: '',
+    sectionExpDividerBg: '',
+    sectionExpBgShadow1: '',
+    sectionExpBgShadow2: '',
+    sectionExpBgShadow3: '',
+    sectionExpBgShadow4: '',
     sectionExpBgShadowLine1: '',
     sectionExpBgShadowLine2: '',
     sectionExpTitleShTop: '',
@@ -333,8 +339,9 @@ export const blackAndWhiteTheme = createTheme({
     skipMainNavBg: 'white',
 
     mainHeaderBg: 'black',
+    mainHeaderBgBlur: '$blackA11',
 
-    mobMainNavMenuBg: 'white',
+    mobMainNavMenuBg: '$whiteA12',
     mobMainNavMenuText: '$gray12',
 
     mainNavText: '$gray1',
@@ -358,9 +365,11 @@ export const blackAndWhiteTheme = createTheme({
     sectionHiTitleShMid: '$whiteA11',
     sectionHiTitleShBot: '$whiteA8',
 
-    sectionExpDividerBg1: '$gray7',
-    sectionExpDividerBg2: 'black',
-    sectionExpBgShadow: '$colors$blackA11',
+    sectionExpDividerBg: 'black',
+    sectionExpBgShadow1: '$colors$blackA11',
+    sectionExpBgShadow2: '$colors$blackA9',
+    sectionExpBgShadow3: '$colors$blackA7',
+    sectionExpBgShadow4: 'transparent',
     sectionExpBgShadowLine1: '$colors$whiteA12',
     sectionExpBgShadowLine2: '$colors$blackA8',
     sectionExpTitleShTop: 'black',
@@ -398,6 +407,11 @@ export const animation = {
 
   slideInLeft: keyframes({
     from: { transform: 'translateX(105%)' },
+    to: { transform: 'translateX(0px)' },
+  }),
+
+  slideInRight: keyframes({
+    from: { transform: 'translateX(-105%)' },
     to: { transform: 'translateX(0px)' },
   }),
 

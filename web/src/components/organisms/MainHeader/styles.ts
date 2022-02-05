@@ -6,6 +6,23 @@ export const headerContainer = css({
   insetBlock: '0 auto',
   zIndex: '$zIndices$3',
   bg: '$mainHeaderBg',
+
+  '&::before': {
+    content: '',
+    position: 'absolute',
+    inset: 0,
+    bg: '$blackA9',
+    zIndex: -1,
+  },
+
+  '@supports (backdrop-filter: blur(5px))': {
+    bg: '$mainHeaderBgBlur',
+    backdropFilter: 'blur(5px)',
+
+    '&::before': {
+      bg: 'transparent',
+    },
+  },
 })
 
 export const headerContent = css({

@@ -4,6 +4,7 @@ import UnMemoExperienceCard from 'src/components/molecules/ExperienceCard'
 import ThreeShadowsText, {
   useMousePosition,
 } from 'src/components/atoms/ThreeShadowsText'
+import Divider from 'src/components/atoms/DividerWithIcons'
 import { expList } from 'src/shared/constants'
 import { lightTheme as theme } from 'src/shared/theme'
 import * as stl from './styles'
@@ -53,7 +54,7 @@ export default function SectionExperience(props: Props) {
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page}>
-        <div className={stl.divider()} />
+        <Divider />
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page} speed={0.5}>

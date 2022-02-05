@@ -1,4 +1,4 @@
-import { css, keyframes } from 'src/shared/theme'
+import { css, keyframes, animation as themeAnimation } from 'src/shared/theme'
 
 const animation = {
   hi: keyframes({
@@ -12,22 +12,22 @@ const animation = {
     },
   }),
 
-  slideInUp: keyframes({
-    from: { opacity: 0, transform: 'translateY(-105%)' },
-    '40%': { opacity: 0 },
-    to: { transform: 'translateY(0px)' },
-  }),
-
-  slideInLeft: keyframes({
-    from: { opacity: 0, transform: 'translateX(-105%)' },
-    '40%': { opacity: 0 },
-    to: { transform: 'translateX(0px)' },
-  }),
-
-  slideInRight: keyframes({
+  slideInDivider: keyframes({
     from: { opacity: 0, transform: 'translateX(105%)' },
     '40%': { opacity: 0 },
     to: { transform: 'translateX(0px)' },
+  }),
+
+  slideInName: keyframes({
+    from: {
+      opacity: 0,
+      transform: 'translateY(65%) translateX(35%)',
+    },
+    to: { transform: 'translateY(65%) translateX(0px)' },
+  }),
+
+  slideUpName: keyframes({
+    to: { transform: 'translateY(0px)' },
   }),
 
   slideInDown: keyframes({
@@ -36,21 +36,26 @@ const animation = {
     to: { transform: 'translateY(0px)' },
   }),
 
+  slideDownRole: keyframes({
+    from: { opacity: 0, transform: 'translateY(-50%)' },
+    to: { transform: 'translateY(0px)' },
+  }),
+
   shadowFrames: keyframes({
-    '25%': {
+    '20%': {
       boxShadow: [
         'calc(-1em - 1rem) 0 0 0 $colors$sectionHiBgShadowFrame',
         'calc(-2em - 2rem) 0 0 0 $colors$sectionHiBgShadowFrame',
       ].join(','),
     },
-    '50%': {
+    '40%': {
       boxShadow: [
         'calc(-1em - 1rem) 0 0 0 $colors$sectionHiBgShadowFrame',
         'calc(-2em - 2rem) 0 0 0 $colors$sectionHiBgShadowFrame',
         'calc(-3em - 3rem) 0 0 0 $colors$sectionHiBgShadowFrame',
       ].join(','),
     },
-    '75%': {
+    '60%': {
       boxShadow: [
         'calc(-1em - 1rem) 0 0 0 $colors$sectionHiBgShadowFrame',
         'calc(-2em - 2rem) 0 0 0 $colors$sectionHiBgShadowFrame',
@@ -58,7 +63,16 @@ const animation = {
         'calc(-5em - 4rem) 0 0 0 $colors$sectionHiBgShadowFrame',
       ].join(','),
     },
-    to: {
+    '80%': {
+      boxShadow: [
+        'calc(-1em - 1rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-2em - 2rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-3em - 3rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-5em - 4rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+        'calc(-8em - 5rem) 0 0 0 $colors$sectionHiBgShadowFrame',
+      ].join(','),
+    },
+    '100%': {
       boxShadow: [
         'calc(-1em - 1rem) 0 0 0 $colors$sectionHiBgShadowFrame',
         'calc(-2em - 2rem) 0 0 0 $colors$sectionHiBgShadowFrame',
@@ -90,7 +104,7 @@ export const hiContainer = css({
 })
 
 export const threeShadowsText = css({
-  animation: `1.5s ease-in 0s 1 normal both running ${animation.hi}`,
+  animation: `.7s ease-out 1s 1 normal both running ${animation.hi}`,
 })
 
 export const bgShadow = css({
@@ -100,8 +114,8 @@ export const bgShadow = css({
     'linear-gradient(210deg, $colors$sectionHiBgShadow1, $colors$sectionHiBgShadow2)',
 
   animation: [
-    `0.5s ease 0s 1 normal both running ${animation.slideInRight}`,
-    `0.5s linear 0.5s 1 normal both running ${animation.shadowFrames}`,
+    `0.5s ease 0s 1 normal both running ${themeAnimation.fadeIn}`,
+    `.5s ease 0.5s 1 normal both running ${animation.shadowFrames}`,
   ].join(','),
 
   '@tablet': {
@@ -118,7 +132,9 @@ export const bodyContainer = css({
   pl: 'clamp(20px, 10%, 10vw)',
   transition: 'transform 350ms ease',
 
-  animation: `1.7s ease 1.8s 1 normal both running ${animation.bodyContainer}`,
+  '@laptop': {
+    animation: `1.7s ease 4s 1 normal both running ${animation.bodyContainer}`,
+  },
 })
 
 export const im = css({
@@ -126,7 +142,10 @@ export const im = css({
   fontSize: '$lg',
   paddingInlineEnd: '0.75em',
 
-  animation: `1s ease 0s 1 normal both running ${animation.slideInLeft}`,
+  animation: [
+    `1s ease 1.5s 1 normal both running ${themeAnimation.fadeIn}`,
+    `1s ease 1.5s 1 normal both running ${themeAnimation.slideInRight}`,
+  ].join(','),
 })
 
 export const info = css({
@@ -148,11 +167,14 @@ export const info = css({
 })
 
 export const name = css({
-  animation: `1.5s ease 0.5s 1 normal both running ${animation.slideInUp}`,
+  animation: [
+    `1.3s ease 1.5s 1 normal both running ${animation.slideInName}`,
+    `1s ease 3s 1 normal both running ${animation.slideUpName}`,
+  ].join(','),
 })
 
 export const role = css({
-  animation: `1.5s ease 0.5s 1 normal both running ${animation.slideInDown}`,
+  animation: `1s ease 3s 1 normal both running ${animation.slideDownRole}`,
 })
 
 export const divider = css({
@@ -163,6 +185,5 @@ export const divider = css({
   bg: 'transparent',
   marginBlock: '0.75rem',
 
-  position: 'relative',
-  animation: `1s ease 0.5s 1 normal both running ${animation.slideInRight}`,
+  animation: `.8s ease 2.75s 1 normal both running ${animation.slideInDivider}`,
 })

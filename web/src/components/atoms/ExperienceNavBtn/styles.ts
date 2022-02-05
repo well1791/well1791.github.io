@@ -40,9 +40,12 @@ export const container = css({
   },
 
   svg: {
-    size: '1.75rem',
+    size: '1rem',
     transition: 'transform 300ms ease',
     transform: 'translateX($$iconBaseX)',
+    '@laptop': {
+      size: '1.75rem',
+    },
   },
 
   [`.${bg()}`]: {

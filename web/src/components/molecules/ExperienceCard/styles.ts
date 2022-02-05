@@ -130,7 +130,6 @@ export const tooltip = css({
 })
 
 export const tooltipTrigger = css({
-  cursor: 'default',
   svg: {
     size: 18,
     ml: '.25rem',
@@ -167,8 +166,7 @@ export const expContainer = css({
   aligItems: 'center',
 
   px: '$$px',
-  pb: '1.5rem',
-  borderBlockEnd: 'solid 1px $colors$gray8',
+  py: '1rem',
   boxShadow: [
     '0 2px 3px 0 rgb(0 0 0 / 0.1)',
     '0 1px 2px -1px rgb(0 0 0 / 0.1)',
@@ -176,6 +174,20 @@ export const expContainer = css({
 
   fontSize: '$md',
   color: '$sectionExpCardHeaderBg',
+
+  position: 'relative',
+
+  '&::before': {
+    content: '',
+    position: 'absolute',
+    inset: 0,
+    zIndex: -1,
+    bg: '$blackA12',
+  },
+
+  '@laptop': {
+    bg: 'transparent',
+  },
 
   [`.${expRole()}, .${expTime()}`]: {
     display: 'flex',
@@ -202,14 +214,19 @@ export const techSkillsInfo = css({
 })
 
 export const contentInfo = css({
-  $$px: '1.5rem',
-  py: '2rem',
+  $$px: '.75rem',
+  pt: '2rem',
+  pb: '2rem',
   minBlockSize: '300px',
   minInlineSize: '300px',
 
   background:
     'linear-gradient(170deg, $colors$sectionExpCardContentBg1, $colors$sectionExpCardContentBg2 55%)',
   borderBlock: '1px solid black',
+
+  '@laptop': {
+    $$px: '1.5rem',
+  },
 })
 
 export const footer = css({

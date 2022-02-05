@@ -33,18 +33,20 @@ export const navItem = css({
 })
 
 export const navItems = css({
-  gap: '1.5rem',
-
-  bg: '$mobMainNavMenuBg',
-  '@supports (backdrop-filter: blur(1rem))': {
-    backdropFilter: 'blur(1rem)',
-  },
-
-  blockSize: '100%',
   display: 'flex',
   flexDirection: 'column',
+  gap: '1.5rem',
+
+  blockSize: '100%',
   py: '5rem',
   pl: '2.5rem',
+
+  bg: '$mobMainNavMenuBg',
+
+  '@supports (backdrop-filter: blur(10px))': {
+    backdropFilter: 'blur(10px)',
+  },
+
   '@tablet': {
     bg: 'transparent',
     inlineSize: 'fit-content',
@@ -53,6 +55,10 @@ export const navItems = css({
     flexDirection: 'row',
     alignItems: 'center',
     p: '0',
+
+    '@supports (backdrop-filter: blur(10px))': {
+      backdropFilter: 'blur(0)',
+    },
   },
 
   variants: {
@@ -100,7 +106,7 @@ export const mobOpenMenuBtn = css({
 
   '& > svg': {
     margin: 'auto',
-    size: '20px',
+    size: '30px',
   },
 })
 
@@ -121,5 +127,9 @@ export const mobUnderlayContainer = css({
 export const mobOverlayContainer = css({
   position: 'absolute',
   insetBlock: 0,
-  insetInline: '35% 0',
+  insetInline: '20% 0',
+
+  '@mobile': {
+    insetInline: '35% 0',
+  },
 })

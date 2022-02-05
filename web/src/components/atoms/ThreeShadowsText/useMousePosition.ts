@@ -17,7 +17,7 @@ export type Props = {
 export default function useMousePosition({
   textShLimit = 2.5,
   initialPos = { x: -3, y: 3 },
-  debounceDelay = 200,
+  debounceDelay = 100,
   mouseThreshold = { x: 1.8, y: 2.5 },
 }: Props = {}) {
   const [mousePos, setMousePos] = React.useState(initialPos)
