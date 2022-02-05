@@ -9,10 +9,10 @@ const animation = {
 
   move: keyframes({
     from: {
-      transform: 'translateX(-200%)',
+      transform: 'translateX(-100%)',
     },
     to: {
-      transform: 'translateX(200%)',
+      transform: 'translateX(100%)',
     },
   }),
 }
