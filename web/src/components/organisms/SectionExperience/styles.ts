@@ -55,7 +55,7 @@ export const cardsContainer = css({
   blockSize: '100%',
 
   '@laptop': {
-    alignItems: 'flex-start',
+    alignItems: 'center',
     pt: 50,
   },
 })
