@@ -1,6 +1,121 @@
-<!DOCTYPE html><html lang="en"><head>
-  
-  <meta data-rh="true" property="og:title" content="Wellington Mendoza - Frontend React Developer"><meta data-rh="true" property="twitter:title" content="Wellington Mendoza - Frontend React Developer"><meta data-rh="true" name="description" content="Wellington Mendoza resume page. Frontend React Developer."><meta data-rh="true" name="twitter:description" content="Wellington Mendoza resume page. Frontend React Developer."><meta data-rh="true" property="og:description" content="Wellington Mendoza resume page. Frontend React Developer."><meta data-rh="true" property="twitter:card" content="summary_large_image"><meta data-rh="true" property="twitter:image" content="">
-  
-  
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="/favicon.png"><script defer="defer" src="/static/js/runtime-app.20723b98.js"></script><script defer="defer" src="/static/js/app.0f062524.js"></script><link href="/static/css/app.3e6b482f.css" rel="stylesheet"></head><body><div id="redwood-app"><div data-overlay-container="true"><meta property="og:type" content="website"><div class="c-crpRoB c-crpRoB-ielXFdm-css"><header class="c-uGZjX"><div class="c-hGragW"><div class="c-jCMypw"><button type="button" id="react-aria9638280088-1" aria-haspopup="true" aria-expanded="false" class="c-irbiUG"><div class="c-gulvcB c-gulvcB-iSwOav-scope-trigger"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="transform:rotate(.5turn)"><path d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM7.49988 1.82689C4.36688 1.8269 1.82707 4.36672 1.82707 7.49972C1.82707 10.6327 4.36688 13.1725 7.49988 13.1726V1.82689Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg><span>B/W</span></div></button></div></div></header><div class="c-eDsTCp"></div></div><main class="c-PJLV c-PJLV-iktrXiC-css"><div><div style="position:absolute;width:100%;height:100%;overflow-y:scroll;overflow-x:hidden;-webkit-overflow-scrolling:touch;-webkit-transform:translate(0px,0px);-ms-transform:translate(0px,0px);transform:translate3d(0px,0px,0px);top:0;left:0"></div></div></main></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="/favicon.png"><style>@keyframes ellipsis {
+      0% { content: '    ' }
+      25% { content: ' .  ' }
+      50% { content: ' .. ' }
+      75% { content: ' ...' }
+      100% { content: '    ' }
+    }
+
+    @keyframes bpLeftToRight {
+      0% { background-position: left }
+      100% { background-position: right }
+    }
+
+    @keyframes rotate1Turn {
+      to { transform: rotate(1turn) }
+    }
+
+    @keyframes skewFTW {
+      0% { transform: skew(1deg, 0) }
+      25% { transform: skew(0, 1.3deg) }
+      50% { transform: skew(-1.2deg, 1deg) }
+      75% { transform: skew(0, -1.5deg) }
+      100% { transform: skew(-1deg, 0) }
+    }
+
+    .loading-container {
+      ---bgBlack: #080f11;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background-color: var(---bgBlack);
+      padding: 2.5rem;
+
+      position: absolute;
+      inset: 0;
+      z-index: 9999;
+
+      opacity: 0;
+
+      transition: opacity 800ms ease;
+    }
+
+    .opacity-1 { opacity: 1; }
+    .opacity-0 { opacity: 0; }
+
+    .loading-outer-shadow {
+      ---size: 200px;
+      ---shBlur: calc(var(---size) * 0.75);
+      ---shOffset: calc(var(---size) / 3.5);
+
+      height: var(---size);
+      width: var(---size);
+      box-shadow:
+        orangered var(---shOffset) 0 var(---shBlur) calc(var(---size) * -.4),
+        yellow calc(var(---shOffset) * -1) 0 var(---shBlur) calc(var(---size) * -.4),
+        blue 0 var(---shOffset) var(---shBlur) calc(var(---size) * -.35),
+        steelblue 0 calc(var(---shOffset) * -1) var(---shBlur) calc(var(---size) * -.35);
+      border-radius: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .loading-circle-color {
+      z-index: 100;
+      inline-size: var(---size);
+      block-size: var(---size);
+      background:
+        linear-gradient(270deg, lightgoldenrodyellow, steelblue, cyan, fuchsia, yellow);
+      background-size: 400%;
+      animation:
+        3s linear 0s infinite normal none running rotate1Turn,
+        3s ease 0s infinite alternate-reverse none running bpLeftToRight;
+    }
+
+    .loading-inner-shadow {
+      ---thisSize: calc(var(---size) - 4px);
+      ---shBlur: calc(var(---size) * 10.7);
+      ---shOffset: calc(var(---size) / 1.8);
+      ---shSpread: calc(var(---size) * -1);
+
+      z-index: 200;
+      block-size: var(---thisSize);
+      inline-size: var(---thisSize);
+      background-color: var(---bgBlack);
+      box-shadow:
+        yellow var(---shOffset) 0px var(---shBlur) var(---shSpread) inset,
+        blueviolet calc(var(---shOffset) * -1) 0px var(---shBlur) var(---shSpread) inset,
+        green 0px var(---shOffset) var(---shBlur) var(---shSpread) inset,
+        salmon 0px calc(var(---shOffset) * -1) var(---shBlur) var(---shSpread) inset;
+      animation: 10s ease 0s infinite alternate-reverse none running skewFTW;
+    }
+
+    .loading-backdrop {
+      display: grid;
+      grid-template-columns: 1fr;
+      place-items: center;
+      animation: 5s ease 0s infinite alternate-reverse none running skewFTW;
+    }
+
+    .loading-backdrop .loading-circle-color,
+    .loading-backdrop .loading-inner-shadow {
+      grid-row: 1 / auto;
+      grid-column: 1 / auto;
+      border-radius: 100%;
+    }
+
+    .loading-text {
+      color: white;
+      margin-block-start: 120px;
+      width: 75px;
+      font-size: 1.5rem;
+    }
+
+    .loading-text::after {
+      white-space: pre;
+      content: '   ';
+      animation: ellipsis steps(1, end) 1s infinite;
+    }</style><script defer="defer" src="/static/js/runtime-app.20723b98.js"></script><script defer="defer" src="/static/js/app.5a87f775.js"></script><link href="/static/css/app.3e6b482f.css" rel="stylesheet"></head><body><div class="loading-container"><div class="loading-outer-shadow"><div class="loading-backdrop"><div class="loading-circle-color"></div><div class="loading-inner-shadow"></div></div></div><p class="loading-text">loading</p></div><div id="redwood-app"></div></body></html>
