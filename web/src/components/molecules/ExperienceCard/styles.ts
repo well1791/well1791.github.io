@@ -1,4 +1,4 @@
-import { css, animation } from 'src/shared/theme'
+import { css, animation, darkTheme } from 'src/shared/theme'
 
 export const container = css({
   bg: '$sectionExpCardBg',
@@ -15,16 +15,18 @@ export const headerUnderline = css({
   bg: 'white',
   br: '$full',
 
-  transform: 'scale(0.001)',
-  transition: 'transform 350ms ease, opacity 350ms linear',
+  transform: 'scale(0.9)',
+  transition: 'transform 350ms ease',
 
   position: 'relative',
   '&::after': {
     content: '',
     position: 'absolute',
     inset: 0,
-    boxShadow: '0px 1px 6px 0px white',
+
+    boxShadow: '0px 1px 3px 0px white',
     transition: 'opacity 350ms linear',
+    opacity: 0,
   },
 })
 
@@ -40,10 +42,14 @@ export const headerLink = css({
   letterSpacing: '1px',
 
   '&:hover, &:focus': {
-    textShadow: '0px 0px 2px white',
+    textShadow: '0px 0px 5px white',
 
     [`& + .${headerUnderline()}`]: {
-      transform: 'scale(0.9)',
+      transform: 'scale(1)',
+
+      '&::after': {
+        opacity: 1,
+      },
     },
   },
 })
@@ -65,7 +71,7 @@ export const header = css({
 
   borderStartStartRadius: '$radii$md',
   borderStartEndRadius: '$radii$md',
-  borderBlockEnd: '1px solid white',
+  boxShadow: 'inset 0 -3px 4px -4px white',
 })
 
 export const expRole = css({})
@@ -91,7 +97,6 @@ export const tooltipArrow = css({
 
 export const tooltip = css({
   $$bgColor: 'white',
-
   $$px: '1rem',
   $$duration: '350ms',
 
@@ -167,13 +172,15 @@ export const expContainer = css({
 
   px: '$$px',
   py: '1rem',
+  mb: '1rem',
   boxShadow: [
     '0 2px 3px 0 rgb(0 0 0 / 0.1)',
     '0 1px 2px -1px rgb(0 0 0 / 0.1)',
+    '0 3px 3px -4px white',
   ].join(','),
 
   fontSize: '$md',
-  color: '$sectionExpCardHeaderBg',
+  color: '$sectionExpCardContentText',
 
   position: 'relative',
 
@@ -183,6 +190,10 @@ export const expContainer = css({
     inset: 0,
     zIndex: -1,
     bg: 'rgba(255 255 255 / .85)',
+
+    [`.${darkTheme} &`]: {
+      bg: '$blackA12',
+    },
   },
 
   '@mobile': {
@@ -212,18 +223,22 @@ export const techSkillsInfo = css({
   gap: '1.125rem',
   gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
 
-  mt: '2rem',
+  py: '1rem',
+  bg: '$blackA9',
+
+  '@tablet': {
+    bg: 'transparent',
+  },
 })
 
 export const contentInfo = css({
   $$px: '.75rem',
-  pt: '2rem',
-  pb: '2rem',
+  py: '1rem',
   minBlockSize: '40%',
 
   background:
     'linear-gradient(170deg, $colors$sectionExpCardContentBg1, $colors$sectionExpCardContentBg2 55%)',
-  borderBlock: '1px solid black',
+  borderBlock: '1px solid transparent',
 
   '@laptop': {
     $$px: '1.5rem',
@@ -237,7 +252,7 @@ export const footer = css({
 
   borderEndStartRadius: '$radii$md',
   borderEndEndRadius: '$radii$md',
-  borderBlockStart: '1px solid white',
+  boxShadow: 'inset 0 3px 4px -4px white',
 
   bg: '$sectionExpCardHeaderBg',
 

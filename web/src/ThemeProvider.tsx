@@ -5,7 +5,7 @@ export type Props = {
   children?: React.ReactNode
 }
 
-export default function ThemProvider({ children }: Props) {
+export default function ThemeProvider({ children }: Props) {
   const [selectedTheme] = useSelectedTheme()
 
   React.useEffect(() => {

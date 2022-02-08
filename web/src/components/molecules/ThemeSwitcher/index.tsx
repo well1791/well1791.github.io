@@ -18,11 +18,11 @@ const themeInfo: { [k in AvThemeType]: ThemeInfo } = {
     name: 'Light',
     icon: <SunIcon aria-hidden="true" focusable={false} />,
   },
-  // dark: {
-  //   id: 'dark',
-  //   name: 'Dark',
-  //   icon: <MoonIcon aria-hidden="true" focusable={false} />,
-  // },
+  dark: {
+    id: 'dark',
+    name: 'Dark',
+    icon: <MoonIcon aria-hidden="true" focusable={false} />,
+  },
   blackAndWhite: {
     id: 'blackAndWhite',
     name: 'B/W',
@@ -34,11 +34,11 @@ const themeInfo: { [k in AvThemeType]: ThemeInfo } = {
       />
     ),
   },
-  // system: {
-  //   id: 'system',
-  //   name: 'System',
-  //   icon: <GearIcon aria-hidden="true" focusable={false} />,
-  // },
+  system: {
+    id: 'system',
+    name: 'System',
+    icon: <GearIcon aria-hidden="true" focusable={false} />,
+  },
 }
 
 type CSSScopeType = Parameters<typeof stl.themeOption>[0]['scope']

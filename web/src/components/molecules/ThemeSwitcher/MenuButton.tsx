@@ -28,7 +28,7 @@ export default function MenuButton(props: Props) {
         {props.trigger.rendered}
       </button>
 
-      {state.isOpen && (
+      {(state.isOpen || false) && (
         <MenuPopup
           {...props}
           {...(menuProps as unknown)}

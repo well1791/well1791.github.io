@@ -3,7 +3,7 @@ import { css } from 'src/shared/theme'
 import { contentInfo } from 'src/components/molecules/ExperienceCard/styles'
 
 export const layerBg = css({
-  bg: '$gray1',
+  bg: '$sectionExpBg',
 })
 
 export const bgShadow = css({
@@ -30,7 +30,7 @@ export const lines = css({
 
 export const threeShadowsContainer = css({
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'flex-end',
   justifyContent: 'flex-end',
 
   blockSize: '100%',
@@ -44,7 +44,7 @@ export const threeShadowsContainer = css({
 })
 
 export const threeShadowsText = css({
-  transform: 'rotate(-0.25turn) translateX(0%)',
+  transform: 'rotate(-0.25turn)',
 })
 
 export const cardsContainer = css({

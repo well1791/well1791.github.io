@@ -63,7 +63,7 @@ export const circleColor = css({
     'linear-gradient(270deg, lightgoldenrodyellow, steelblue, cyan, fuchsia, yellow)',
   backgroundSize: '400%',
   animation: [
-    `3s ease 0s infinite normal none running ${animation.rotate1Turn()}`,
+    `3s linear 0s infinite normal none running ${animation.rotate1Turn()}`,
     `3s ease 0s infinite alternate-reverse none running ${animation.bpLeftToRight()}`,
   ].join(', '),
 })
@@ -71,7 +71,7 @@ export const circleColor = css({
 export const innerShadow = css({
   $$width: 'calc($$wMax - 4px)',
   $$shBlur: 'calc($$wMax * 2.7)',
-  $$shOffset: 'calc($$wMax / 3.5)',
+  $$shOffset: 'calc($$wMax / 1.8)',
   $$shSpread: 'calc($$wMax * -1)',
 
   zIndex: '200',
@@ -103,30 +103,10 @@ export const backdrop = css({
 export const loadingText = css({
   color: 'white;',
   mt: 120,
+  width: 75,
   '&:after': {
     whiteSpace: 'pre',
     content: '   ',
     animation: `${animation.ellipsis()} steps(1, end) 1s infinite`,
-  },
-})
-
-export const btnFocusVisible = css({
-  $$scale: 'scale(1.2)',
-  '&:hover, &:focus': { transform: '$$scale' },
-  '@supports selector(:focus-visible)': {
-    '&:focus': { transform: 'scale(1)' },
-    '&:hover': { transform: '$$scale' },
-    '&:focus-visible': { outlineOffset: '.5rem' },
-  },
-})
-
-export const underlineTransition = css({
-  backgroundColor: 'linear-gradient(90deg, red, blue)',
-  backgroundSize: '0% 3px',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'left bottom',
-  transition: 'background-size 300ms ease-out',
-  '&:hover': {
-    backgroundSize: '100% 3px',
   },
 })

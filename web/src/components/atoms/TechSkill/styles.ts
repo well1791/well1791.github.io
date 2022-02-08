@@ -1,4 +1,4 @@
-import { css } from 'src/shared/theme'
+import { css, darkTheme } from 'src/shared/theme'
 
 export const name = css({
   transition: 'color 0.8s ease',
@@ -30,7 +30,9 @@ export const bg = css({
   insetInline: '-50%',
   br: 'inherit',
   transform: 'translateX(25%)',
-  boxShadow: 'inset 0px 0px 15px -10px black',
+  boxShadow: ['inset 0 0 15px -10px black', 'inset 0 3px 3px -3px white'].join(
+    ','
+  ),
 
   transition: 'transform 0.5s ease',
 })
@@ -80,6 +82,11 @@ export const container = css({
       js: {
         $$bg: '#323330',
         $$color: '#F0DB4F',
+
+        [`.${darkTheme} &`]: {
+          $$bg: '#F0DB4F',
+          $$color: '#323330',
+        },
       },
 
       hs: {

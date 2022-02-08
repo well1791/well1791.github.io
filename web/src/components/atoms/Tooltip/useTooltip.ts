@@ -5,11 +5,10 @@ type Props = Parameters<typeof useTooltipTrigger>[0] & {
   closeDelay?: number
 }
 
-export default function useTooltip({
-  delay = 200,
-  closeDelay = 400,
-  ...propsArg
-}: Props = {}) {
+export default function useTooltip(
+  ref: React.RefObject<HTMLElement>,
+  { delay = 200, closeDelay = 400, ...propsArg }: Props = {}
+) {
   const [isDelayed, setIsDelayed] = React.useState(false)
   const props = { delay, ...propsArg }
   const state = useTooltipTriggerState({
@@ -19,7 +18,6 @@ export default function useTooltip({
       if (props.onOpenChange) props.onOpenChange(isTooltipOpen)
     },
   })
-  const ref = React.useRef()
   const aria = useTooltipTrigger(props, state, ref)
   const isClosed = !state.isOpen
   const isMounted = state.isOpen || isDelayed

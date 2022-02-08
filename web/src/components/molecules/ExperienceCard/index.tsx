@@ -39,8 +39,9 @@ export default function ExperienceCard({
   nextExp,
   ...props
 }: Props) {
+  const ref = React.useRef()
   const { tooltipTriggerProps, tooltipOverlayProps, tooltipState } =
-    useTooltip()
+    useTooltip(ref)
 
   return (
     <div {...props} className={stl.container({ className: props.className })}>
@@ -67,16 +68,22 @@ export default function ExperienceCard({
 
           <div className={stl.expTime()}>
             <p>{'Duration: '}</p>
-            <strong {...tooltipTriggerProps} className={stl.tooltipTrigger()}>
+            <strong>
               {durationTime({
                 start: data.startDate,
                 end: data.endDate === 'Present' ? startOfToday() : data.endDate,
               })}
-              <QuestionMarkCircledIcon
-                aria-hidden="true"
-                focusable="false"
-                style={{ display: 'inline' }}
-              />
+              <button
+                ref={ref}
+                {...tooltipTriggerProps}
+                className={stl.tooltipTrigger()}
+              >
+                <QuestionMarkCircledIcon
+                  aria-hidden="true"
+                  focusable="false"
+                  style={{ display: 'inline' }}
+                />
+              </button>
             </strong>
 
             <Tooltip

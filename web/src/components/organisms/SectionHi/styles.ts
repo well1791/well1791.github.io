@@ -146,6 +146,14 @@ export const bodyContent = css({
   },
 })
 
+export const highlight = css({
+  color: '$whiteA12',
+  textShadow: [
+    '0px 0px 10px $colors$whiteA11',
+    '1px 0px 5px $colors$blackA12',
+  ].join(','),
+})
+
 export const bodyContainer = css({
   display: 'flex',
   alignItems: 'center',
@@ -174,24 +182,6 @@ export const im = css({
   ].join(','),
 })
 
-export const info = css({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-
-  '.highlight': {
-    px: '1rem',
-
-    color: '$whiteA12',
-    fontSize: '$2xl',
-    textShadow: [
-      '0px 0px 10px $colors$whiteA11',
-      '1px 0px 5px $colors$blackA12',
-    ].join(','),
-  },
-})
-
 export const name = css({
   animation: [
     `1.3s ease 1.5s 1 normal both running ${animation.slideInName}`,
@@ -201,6 +191,18 @@ export const name = css({
 
 export const role = css({
   animation: `1s ease 3s 1 normal both running ${animation.slideDownRole}`,
+})
+
+export const info = css({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  [`.${name()}, .${role()}`]: {
+    px: '1rem',
+    fontSize: '$2xl',
+  },
 })
 
 export const divider = css({

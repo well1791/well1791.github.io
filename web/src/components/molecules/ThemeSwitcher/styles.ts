@@ -68,7 +68,7 @@ export const menuContainer = css({
   background: '$themeSwitcherMenuBg',
   boxShadow: [
     '$md',
-    'inset 4px 1px 20px -10px $colors$themeSwitcherMenuText',
+    'inset 0px 0px 2px -1px $colors$themeSwitcherMenuText',
   ].join(','),
 
   position: 'absolute',
