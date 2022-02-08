@@ -224,7 +224,10 @@ export const techSkillsInfo = css({
   gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
 
   py: '1rem',
-  bg: '$blackA9',
+
+  [`.${darkTheme} &`]: {
+    bg: '$blackA9',
+  },
 
   '@tablet': {
     bg: 'transparent',
