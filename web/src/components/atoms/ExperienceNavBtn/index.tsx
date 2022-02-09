@@ -13,7 +13,7 @@ export default function ExperienceNavBtn({ title, onClick, nav }: Props) {
     <button type="button" className={stl.container({ nav })} onClick={onClick}>
       {title && (
         <span className="sr-only">
-          go to {nav === 'prev' ? 'previous' : 'next'}: {title}
+          go to {nav === 'prev' ? 'previous' : 'next'} job experience: {title}
         </span>
       )}
 
@@ -23,7 +23,7 @@ export default function ExperienceNavBtn({ title, onClick, nav }: Props) {
         {nav === 'prev' && (
           <ChevronLeftIcon aria-hidden="true" focusable={false} />
         )}
-        <span>{nav}</span>
+        <span aria-hidden="true">{nav}</span>
         {nav === 'next' && (
           <ChevronRightIcon aria-hidden="true" focusable={false} />
         )}

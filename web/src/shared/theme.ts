@@ -154,6 +154,7 @@ export const {
     hover: '(any-hover: hover)',
     dark: '(prefers-color-scheme: dark)',
     light: '(prefers-color-scheme: light)',
+    touchable: '(hover: none) and (pointer: coarse)',
   },
   utils: {
     p: (

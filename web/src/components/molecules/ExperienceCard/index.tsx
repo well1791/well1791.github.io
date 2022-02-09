@@ -2,12 +2,14 @@ import { QuestionMarkCircledIcon, InfoCircledIcon } from '@radix-ui/react-icons'
 import flow from 'lodash/fp/flow'
 import format from 'date-fns/fp/format'
 import { formatDuration, intervalToDuration, startOfToday } from 'date-fns'
+import { useMediaQuery } from 'react-responsive'
 
 import NavBtn from 'src/components/atoms/ExperienceNavBtn'
 import type { Props as NavBtnProps } from 'src/components/atoms/ExperienceNavBtn'
 import TechSkill from 'src/components/atoms/TechSkill'
 import type { Props as TechSkillProps } from 'src/components/atoms/TechSkill'
 import Tooltip, { useTooltip } from 'src/components/atoms/Tooltip'
+import { config } from 'src/shared/theme'
 import * as stl from './styles'
 
 export type NavAction = Omit<NavBtnProps, 'nav'>
@@ -43,6 +45,7 @@ export default function ExperienceCard({
   nextBtn,
   ...props
 }: Props) {
+  const isTouchable = useMediaQuery({ query: config.media.touchable })
   const ref = React.useRef()
   const { tooltipTriggerProps, tooltipOverlayProps, tooltipState } =
     useTooltip(ref)
@@ -88,6 +91,8 @@ export default function ExperienceCard({
                 <button
                   type="button"
                   onClick={() => {
+                    if (!isTouchable) return
+
                     if (tooltipState.isMounted) tooltipState.close()
                     else tooltipState.open()
                   }}

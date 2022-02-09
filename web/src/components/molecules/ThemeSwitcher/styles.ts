@@ -5,7 +5,7 @@ export const menuUnderlay = css({ position: 'relative', lineHeight: 1 })
 export const themeOption = css({
   outline: 'none',
 
-  '. sr-only': { srOnly: true },
+  '.sr-only': { srOnly: true },
 
   variants: {
     scope: {

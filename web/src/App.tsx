@@ -51,15 +51,15 @@ const App = () => {
 
   return (
     <RecoilRoot>
-      <FatalErrorBoundary page={FatalErrorPage}>
-        <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-          <ThemeProvider>
+      <ThemeProvider>
+        <FatalErrorBoundary page={FatalErrorPage}>
+          <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
             <OverlayProvider>
               <Routes />
             </OverlayProvider>
-          </ThemeProvider>
-        </RedwoodProvider>
-      </FatalErrorBoundary>
+          </RedwoodProvider>
+        </FatalErrorBoundary>
+      </ThemeProvider>
     </RecoilRoot>
   )
 }

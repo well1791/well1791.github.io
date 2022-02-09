@@ -1,5 +1,4 @@
 import { ParallaxLayer } from '@react-spring/parallax'
-import { useSpringCarousel } from 'react-spring-carousel-js'
 
 import UnMemoExperienceCard from 'src/components/molecules/ExperienceCard'
 import ThreeShadowsText, {
