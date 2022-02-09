@@ -355,8 +355,8 @@ export const blackAndWhiteTheme = createTheme({
 
     sectionExpBg: '$gray1',
     sectionExpDividerBg: 'black',
-    sectionExpBgShadow1: '$colors$blackA12',
-    sectionExpBgShadow2: '$colors$blackA11',
+    sectionExpBgShadow1: '$colors$blackA11',
+    sectionExpBgShadow2: '$colors$blackA9',
     sectionExpBgShadow3: '$colors$blackA8',
     sectionExpBgShadow4: 'transparent',
     sectionExpBgShadowLine1: '$colors$whiteA12',

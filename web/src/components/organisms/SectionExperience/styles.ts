@@ -36,9 +36,9 @@ export const threeShadowsContainer = css({
   blockSize: '100%',
   maxInlineSize: '$wide',
   mx: 'auto',
-  pt: 'max(60px, 5vh)',
+  pt: 'max(70px, 8vh + 40px)',
 
-  '@tablet': {
+  '@laptop': {
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
     pt: 0,
@@ -51,15 +51,19 @@ export const threeShadowsContainer = css({
 })
 
 export const threeShadowsText = css({
-  $$size: 'calc(30vw + 1rem)',
+  $$size: 'calc(20vw + 1rem)',
   blockSize: '$$size',
   fontSize: '$$size',
   inlineSize: '100%',
   px: '30px',
 
-  '@tablet': {
+  display: 'flex',
+  justifyContent: 'center',
+
+  '@laptop': {
     $$size: 'calc(30vh + 1rem)',
     inlineSize: '$$size',
+    display: 'block',
 
     transform: 'rotate(-0.25turn)',
   },
@@ -69,35 +73,12 @@ export const cardsContainer = css({
   display: 'flex',
   alignItems: 'flex-start',
 
-  pt: 'calc(30vw + 1rem + 70px)',
-  blockSize: '100%',
+  pt: '35vw',
 
   '@laptop': {
     alignItems: 'center',
     pt: 0,
-  },
-})
-
-export const expNavBtn = css({
-  position: 'absolute',
-  insetBlockEnd: 8,
-  zIndex: '$1',
-
-  variants: {
-    nav: {
-      prev: {
-        $$left: 'calc(1.25rem + 0.75rem)',
-
-        insetInlineStart: '$$left',
-
-        '@laptop': {
-          $$left: 'calc(5% + 1.5rem)',
-        },
-      },
-      next: {
-        display: 'none',
-      },
-    },
+    height: '100%',
   },
 })
 
@@ -116,16 +97,11 @@ export const cardsContent = css({
 
 export const cardContainer = css({
   [`.${contentInfo()}`]: {
-    blockSize: '100%',
-    maxBlockSize: '50vh',
     overflowX: 'hidden',
-  },
+    maxBlockSize: 'calc(55vh - 100px)',
 
-  '@tablet': {
-    inlineSize: '70%',
-
-    [`.${contentInfo()}`]: {
-      maxBlockSize: '50vh',
+    '@laptop': {
+      maxBlockSize: 'calc(55vh)',
     },
   },
 

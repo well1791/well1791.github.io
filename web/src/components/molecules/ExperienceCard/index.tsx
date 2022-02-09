@@ -31,7 +31,7 @@ export type Props = React.HTMLAttributes<HTMLElement> & {
 
 const formatDate = format('MMM d, yyyy')
 const durationTime = flow(intervalToDuration, formatDuration)
-const durationShortTime = (durationFmt: string) =>
+export const durationShortTime = (durationFmt: string) =>
   durationFmt
     .replace(/s/g, '')
     .replace(
@@ -53,8 +53,6 @@ export default function ExperienceCard({
     start: data.startDate,
     end: data.endDate === 'Present' ? startOfToday() : data.endDate,
   })
-  const durationShortFmt = durationShortTime(durationFmt)
-  console.log({ durationShortFmt })
 
   return (
     <div {...props} className={stl.container({ className: props.className })}>
@@ -144,12 +142,24 @@ export default function ExperienceCard({
       </div>
 
       <div className={stl.footer()}>
-        {prevBtn && (
-          <NavBtn title={prevBtn.title} nav="prev" onClick={prevBtn.onClick} />
-        )}
-        {nextBtn && (
-          <NavBtn title={nextBtn.title} nav="next" onClick={nextBtn.onClick} />
-        )}
+        <div>
+          {prevBtn && (
+            <NavBtn
+              title={prevBtn.title}
+              nav="prev"
+              onClick={prevBtn.onClick}
+            />
+          )}
+        </div>
+        <div>
+          {nextBtn && (
+            <NavBtn
+              title={nextBtn.title}
+              nav="next"
+              onClick={nextBtn.onClick}
+            />
+          )}
+        </div>
       </div>
     </div>
   )
