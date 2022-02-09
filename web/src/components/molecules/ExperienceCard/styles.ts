@@ -237,6 +237,10 @@ export const techSkillsInfo = css({
 
   [`.${darkTheme} &`]: {
     bg: '$blackA9',
+
+    '@tablet': {
+      bg: 'transparent',
+    },
   },
 
   '@tablet': {

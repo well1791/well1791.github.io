@@ -37,7 +37,7 @@ export default function SectionExperience(props: Props) {
             className={stl.threeShadowsText()}
             wrapper={(text) => <h2>{text}</h2>}
             pos={mousePos}
-            shadowFontSize="calc(min(30vh) + 1rem)"
+            // shadowFontSize="calc(min(30vh) + 1rem)"
             shadowColors={[
               theme.colors.sectionExpTitleShBot.toString(),
               theme.colors.sectionExpTitleShMid.toString(),

@@ -8,7 +8,7 @@ type Props = {
   className?: string
   pos: { x: number; y: number }
   shadowColors: Array<React.CSSProperties['color']>
-  shadowFontSize: React.CSSProperties['fontSize']
+  shadowFontSize?: React.CSSProperties['fontSize']
   shadowClassName?: string
 }
 

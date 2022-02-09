@@ -30,13 +30,20 @@ export const lines = css({
 
 export const threeShadowsContainer = css({
   display: 'flex',
-  alignItems: 'flex-end',
-  justifyContent: 'flex-end',
+  alignItems: 'flex-start',
+  justifyContent: 'center',
 
   blockSize: '100%',
   maxInlineSize: '$wide',
   mx: 'auto',
-  pr: '5%',
+  pt: 'max(60px, 5vh)',
+
+  '@tablet': {
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    pt: 0,
+    pr: '5%',
+  },
 
   '@wide': {
     pr: '10%',
@@ -44,19 +51,30 @@ export const threeShadowsContainer = css({
 })
 
 export const threeShadowsText = css({
-  transform: 'rotate(-0.25turn)',
+  $$size: 'calc(30vw + 1rem)',
+  blockSize: '$$size',
+  fontSize: '$$size',
+  inlineSize: '100%',
+  px: '30px',
+
+  '@tablet': {
+    $$size: 'calc(30vh + 1rem)',
+    inlineSize: '$$size',
+
+    transform: 'rotate(-0.25turn)',
+  },
 })
 
 export const cardsContainer = css({
   display: 'flex',
   alignItems: 'flex-start',
 
-  pt: 80,
+  pt: 'calc(30vw + 1rem + 70px)',
   blockSize: '100%',
 
   '@laptop': {
     alignItems: 'center',
-    pt: 50,
+    pt: 0,
   },
 })
 
