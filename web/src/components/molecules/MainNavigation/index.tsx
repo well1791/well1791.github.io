@@ -108,8 +108,9 @@ export default function MainNavigation() {
                 {...closeMenuProps}
                 ref={closeMenuRef}
                 className={stl.mobCloseMenuBtn()}
+                aria-label="Close main navigation menu"
               >
-                <span>Close</span>
+                <span aria-hidden="true">Close</span>
                 <Cross2Icon aria-hidden="true" focusable={false} />
               </button>
             </ModalDialog>

@@ -13,10 +13,11 @@ export type Props = MenuTriggerStateProps &
     trigger: {
       className?: string
       rendered: React.ReactNode
+      ariaProps: React.AriaAttributes
     }
   }
 
-export default function MenuButton(props: Props) {
+export default function MenuButton({ trigger, ...props }: Props) {
   const state = useMenuTriggerState(props)
   const ref = React.useRef()
   const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref)
@@ -24,8 +25,13 @@ export default function MenuButton(props: Props) {
 
   return (
     <div className={stl.menuUnderlay()}>
-      <button {...triggerProps} ref={ref} className={props.trigger.className}>
-        {props.trigger.rendered}
+      <button
+        {...trigger.ariaProps}
+        {...triggerProps}
+        ref={ref}
+        className={trigger.className}
+      >
+        {trigger.rendered}
       </button>
 
       {(state.isOpen || false) && (

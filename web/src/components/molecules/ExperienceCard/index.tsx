@@ -1,19 +1,16 @@
 import { QuestionMarkCircledIcon, InfoCircledIcon } from '@radix-ui/react-icons'
-import { flow } from 'lodash/fp'
-import { format } from 'date-fns/fp'
+import flow from 'lodash/fp/flow'
+import format from 'date-fns/fp/format'
 import { formatDuration, intervalToDuration, startOfToday } from 'date-fns'
 
 import NavBtn from 'src/components/atoms/ExperienceNavBtn'
-import TechSkill, {
-  Props as TechSkillProps,
-} from 'src/components/atoms/TechSkill'
+import type { Props as NavBtnProps } from 'src/components/atoms/ExperienceNavBtn'
+import TechSkill from 'src/components/atoms/TechSkill'
+import type { Props as TechSkillProps } from 'src/components/atoms/TechSkill'
 import Tooltip, { useTooltip } from 'src/components/atoms/Tooltip'
 import * as stl from './styles'
 
-export type NavAction = {
-  title: string
-  onClick?: () => void
-}
+export type NavAction = Omit<NavBtnProps, 'nav'>
 
 export type ExpData = {
   title: string
@@ -26,22 +23,35 @@ export type ExpData = {
 
 export type Props = React.HTMLAttributes<HTMLElement> & {
   data: ExpData
-  prevExp?: NavAction
-  nextExp?: NavAction
+  prevBtn?: NavAction
+  nextBtn?: NavAction
 }
 
 const formatDate = format('MMM d, yyyy')
 const durationTime = flow(intervalToDuration, formatDuration)
+const durationShortTime = (durationFmt: string) =>
+  durationFmt
+    .replace(/s/g, '')
+    .replace(
+      /( years?)|( months?)|( days?)/g,
+      (m: string) => ({ day: 'd', month: 'mo', year: 'yr' }[m.trim()])
+    )
 
 export default function ExperienceCard({
   data,
-  prevExp,
-  nextExp,
+  prevBtn,
+  nextBtn,
   ...props
 }: Props) {
   const ref = React.useRef()
   const { tooltipTriggerProps, tooltipOverlayProps, tooltipState } =
     useTooltip(ref)
+  const durationFmt = durationTime({
+    start: data.startDate,
+    end: data.endDate === 'Present' ? startOfToday() : data.endDate,
+  })
+  const durationShortFmt = durationShortTime(durationFmt)
+  console.log({ durationShortFmt })
 
   return (
     <div {...props} className={stl.container({ className: props.className })}>
@@ -69,21 +79,26 @@ export default function ExperienceCard({
           <div className={stl.expTime()}>
             <p>{'Duration: '}</p>
             <strong>
-              {durationTime({
-                start: data.startDate,
-                end: data.endDate === 'Present' ? startOfToday() : data.endDate,
-              })}
-              <button
+              {durationFmt}
+              <span
                 ref={ref}
                 {...tooltipTriggerProps}
                 className={stl.tooltipTrigger()}
               >
-                <QuestionMarkCircledIcon
-                  aria-hidden="true"
-                  focusable="false"
-                  style={{ display: 'inline' }}
-                />
-              </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (tooltipState.isMounted) tooltipState.close()
+                    else tooltipState.open()
+                  }}
+                >
+                  <span className="sr-only">time period</span>
+                  <QuestionMarkCircledIcon
+                    aria-hidden="true"
+                    focusable="false"
+                  />
+                </button>
+              </span>
             </strong>
 
             <Tooltip
@@ -123,27 +138,14 @@ export default function ExperienceCard({
         </ul>
       </div>
 
-      <footer className={stl.footer({ isEmpty: !prevExp && !nextExp })}>
-        <div>
-          {prevExp && (
-            <NavBtn
-              nav="prev"
-              title={prevExp.title}
-              onClick={prevExp.onClick}
-            />
-          )}
-        </div>
-
-        <div>
-          {nextExp && (
-            <NavBtn
-              nav="next"
-              title={nextExp.title}
-              onClick={nextExp.onClick}
-            />
-          )}
-        </div>
-      </footer>
+      <div className={stl.footer()}>
+        {prevBtn && (
+          <NavBtn title={prevBtn.title} nav="prev" onClick={prevBtn.onClick} />
+        )}
+        {nextBtn && (
+          <NavBtn title={nextBtn.title} nav="next" onClick={nextBtn.onClick} />
+        )}
+      </div>
     </div>
   )
 }

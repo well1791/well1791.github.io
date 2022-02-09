@@ -60,11 +60,36 @@ export const cardsContainer = css({
   },
 })
 
+export const expNavBtn = css({
+  position: 'absolute',
+  insetBlockEnd: 8,
+  zIndex: '$1',
+
+  variants: {
+    nav: {
+      prev: {
+        $$left: 'calc(1.25rem + 0.75rem)',
+
+        insetInlineStart: '$$left',
+
+        '@laptop': {
+          $$left: 'calc(5% + 1.5rem)',
+        },
+      },
+      next: {
+        display: 'none',
+      },
+    },
+  },
+})
+
 export const cardsContent = css({
   maxInlineSize: '$wide',
   inlineSize: '100%',
   mx: 'auto',
   px: '1.25rem',
+
+  position: 'relative',
 
   '@laptop': {
     px: '5%',
@@ -73,6 +98,7 @@ export const cardsContent = css({
 
 export const cardContainer = css({
   [`.${contentInfo()}`]: {
+    blockSize: '100%',
     maxBlockSize: '50vh',
     overflowX: 'hidden',
   },

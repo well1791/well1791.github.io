@@ -1,11 +1,17 @@
 import { css, animation, darkTheme } from 'src/shared/theme'
 
 export const container = css({
+  $$px: '.75rem',
+
   bg: '$sectionExpCardBg',
   p: '0.175rem',
   br: '$radii$lg',
 
   boxShadow: '$md',
+
+  '@laptop': {
+    $$px: '1.5rem',
+  },
 })
 
 export const headerUnderline = css({
@@ -97,7 +103,6 @@ export const tooltipArrow = css({
 
 export const tooltip = css({
   $$bgColor: 'white',
-  $$px: '1rem',
   $$duration: '350ms',
 
   position: 'absolute',
@@ -135,7 +140,12 @@ export const tooltip = css({
 })
 
 export const tooltipTrigger = css({
+  '& .sr-only': {
+    srOnly: true,
+  },
+
   svg: {
+    display: 'inline',
     size: 18,
     ml: '.25rem',
   },
@@ -235,17 +245,12 @@ export const techSkillsInfo = css({
 })
 
 export const contentInfo = css({
-  $$px: '.75rem',
   py: '1rem',
   minBlockSize: '40%',
 
   background:
     'linear-gradient(170deg, $colors$sectionExpCardContentBg1, $colors$sectionExpCardContentBg2 55%)',
   borderBlock: '1px solid transparent',
-
-  '@laptop': {
-    $$px: '1.5rem',
-  },
 })
 
 export const footer = css({
@@ -253,6 +258,8 @@ export const footer = css({
   alignItems: 'center',
   justifyContent: 'space-between',
 
+  blockSize: '3.125rem',
+  px: '$$px',
   borderEndStartRadius: '$radii$md',
   borderEndEndRadius: '$radii$md',
   boxShadow: 'inset 0 3px 4px -4px white',
@@ -260,16 +267,4 @@ export const footer = css({
   bg: '$sectionExpCardHeaderBg',
 
   color: 'white',
-
-  variants: {
-    isEmpty: {
-      true: {
-        blockSize: 35,
-      },
-      false: {
-        px: '1.5rem',
-        py: '0.66rem',
-      },
-    },
-  },
 })

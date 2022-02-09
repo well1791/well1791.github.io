@@ -2,8 +2,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
 
 import * as stl from './styles'
 
-export type Props = {
-  title: string
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  title?: string
   nav: 'prev' | 'next'
   onClick: () => void
 }
@@ -11,9 +11,11 @@ export type Props = {
 export default function ExperienceNavBtn({ title, onClick, nav }: Props) {
   return (
     <button type="button" className={stl.container({ nav })} onClick={onClick}>
-      <span className="sr-only">
-        go to {nav === 'prev' ? 'previous' : 'next'}: {title}
-      </span>
+      {title && (
+        <span className="sr-only">
+          go to {nav === 'prev' ? 'previous' : 'next'}: {title}
+        </span>
+      )}
 
       <span className={stl.bg()} />
 

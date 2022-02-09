@@ -57,7 +57,10 @@ export default function ThemeSwitcher() {
       })}
     >
       {props.icon}
-      <span>{props.name}</span>
+      <span className="sr-only">
+        theme {props.name === 'B/W' ? 'black and white' : props.name}
+      </span>
+      <span aria-hidden="true">{props.name}</span>
     </div>
   )
 
@@ -69,6 +72,9 @@ export default function ThemeSwitcher() {
           <ThemeRender {...themeInfo[selectedTheme.name]} scope="trigger" />
         ),
         className: stl.triggerBtn(),
+        ariaProps: {
+          'aria-label': 'Theme navigation',
+        },
       }}
       menu={{
         containerClassName: stl.menuContainer(),

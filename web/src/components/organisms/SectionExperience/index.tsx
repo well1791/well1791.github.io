@@ -1,4 +1,5 @@
 import { ParallaxLayer } from '@react-spring/parallax'
+import { useSpringCarousel } from 'react-spring-carousel-js'
 
 import UnMemoExperienceCard from 'src/components/molecules/ExperienceCard'
 import ThreeShadowsText, {
@@ -59,26 +60,33 @@ export default function SectionExperience(props: Props) {
 
       <ParallaxLayer offset={props.page} speed={2.0}>
         <div className={stl.cardsContainer()}>
-          <div className={stl.cardsContent()}>
+          <div
+            role="region"
+            aria-label="Experience and skills carousel"
+            className={stl.cardsContent()}
+          >
             {expList.map((exp, i0) => {
               const i1 = i0 + 1
               const isFirst = i0 === 0
               const isLast = i1 === expList.length
               const hasMoreCards = expList.length > 1
+              const isActive = i0 === expI0
 
               return (
                 <ExperienceCard
                   key={exp.title}
+                  role="group"
+                  aria-label={`slide ${i1} of ${expList.length}`}
+                  aria-hidden={!isActive}
+                  aria-current={isActive}
                   className={stl.cardContainer({
-                    css: {
-                      display: i0 === expI0 ? 'block' : 'none',
-                    },
+                    css: { display: isActive ? 'block' : 'none' },
                   })}
                   data={exp}
-                  prevExp={
+                  prevBtn={
                     hasMoreCards && !isFirst ? getExp(i0 - 1) : undefined
                   }
-                  nextExp={hasMoreCards && !isLast ? getExp(i1) : undefined}
+                  nextBtn={hasMoreCards && !isLast ? getExp(i1) : undefined}
                 />
               )
             })}
