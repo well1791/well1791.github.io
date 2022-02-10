@@ -4,9 +4,7 @@ export const textContainer = css({
   userSelect: 'none',
   position: 'relative',
 
-  '.sr-only': {
-    srOnly: true,
-  },
+  '.sr-only': { srOnly: true },
 })
 
 export const text = css({

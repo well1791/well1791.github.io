@@ -6,7 +6,7 @@ import ThreeShadowsText, {
 } from 'src/components/atoms/ThreeShadowsText'
 import Divider from 'src/components/atoms/DividerWithIcons'
 import { expList } from 'src/shared/constants'
-import { lightTheme as theme } from 'src/shared/theme'
+import { css, lightTheme as theme } from 'src/shared/theme'
 import * as stl from './styles'
 
 const ExperienceCard = React.memo(UnMemoExperienceCard)
@@ -24,6 +24,7 @@ export default function SectionExperience(props: Props) {
 
   return (
     <section {...mouseBind()} id={props.id}>
+      <h2 className={css({ srOnly: true })()}>Skills</h2>
       <ParallaxLayer offset={props.page} className={stl.layerBg()} />
 
       <ParallaxLayer offset={props.page}>
@@ -35,9 +36,7 @@ export default function SectionExperience(props: Props) {
           <ThreeShadowsText
             text="Skills"
             className={stl.threeShadowsText()}
-            wrapper={(text) => <h2>{text}</h2>}
             pos={mousePos}
-            // shadowFontSize="calc(min(30vh) + 1rem)"
             shadowColors={[
               theme.colors.sectionExpTitleShBot.toString(),
               theme.colors.sectionExpTitleShMid.toString(),
@@ -75,8 +74,9 @@ export default function SectionExperience(props: Props) {
                 <ExperienceCard
                   key={exp.title}
                   role="group"
-                  aria-label={`slide ${i1} of ${expList.length}`}
+                  aria-label={`job experience slide ${i1} of ${expList.length}`}
                   aria-hidden={!isActive}
+                  aria-disabled={!isActive}
                   aria-current={isActive}
                   className={stl.cardContainer({
                     css: { display: isActive ? 'block' : 'none' },

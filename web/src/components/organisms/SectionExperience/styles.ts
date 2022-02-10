@@ -73,7 +73,11 @@ export const cardsContainer = css({
   display: 'flex',
   alignItems: 'flex-start',
 
-  pt: '35vw',
+  pt: 'calc(35vw + 100px)',
+
+  '@mobile': {
+    pt: 'calc(35vw + 50px)',
+  },
 
   '@laptop': {
     alignItems: 'center',

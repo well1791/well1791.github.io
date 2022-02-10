@@ -4,7 +4,6 @@ import * as stl from './styles'
 
 type Props = {
   text: string
-  wrapper: (text: string) => React.ReactNode
   className?: string
   pos: { x: number; y: number }
   shadowColors: Array<React.CSSProperties['color']>
@@ -14,7 +13,6 @@ type Props = {
 
 export default function ThreeShadowsText({
   text,
-  wrapper,
   className,
   pos,
   shadowFontSize,
@@ -28,8 +26,6 @@ export default function ThreeShadowsText({
         css: { size: shadowFontSize },
       })}
     >
-      <div className="sr-only">{wrapper(text)}</div>
-
       {zip([1.5, 0.5, -0.5], shadowColors).map(([n, color], i) => (
         <span
           key={n}

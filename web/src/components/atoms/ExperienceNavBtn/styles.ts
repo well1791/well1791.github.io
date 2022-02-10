@@ -35,9 +35,7 @@ export const container = css({
   overflow: 'hidden',
   position: 'relative',
 
-  '.sr-only': {
-    srOnly: true,
-  },
+  '.sr-only': { srOnly: true },
 
   svg: {
     size: '1rem',

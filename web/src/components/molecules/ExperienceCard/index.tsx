@@ -134,7 +134,8 @@ export default function ExperienceCard({
           </div>
         </div>
 
-        <ul className={stl.techSkillsInfo()}>
+        <h4 className="sr-only">List of skills learned</h4>
+        <ul title="Skills learned" className={stl.techSkillsInfo()}>
           {data.skills.map((skill) => (
             <TechSkill key={skill.name} {...skill} />
           ))}
