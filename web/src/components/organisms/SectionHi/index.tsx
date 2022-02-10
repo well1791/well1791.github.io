@@ -3,7 +3,7 @@ import { ParallaxLayer } from '@react-spring/parallax'
 import ThreeShadowsText, {
   useMousePosition,
 } from 'src/components/atoms/ThreeShadowsText'
-import { css, lightTheme as theme } from 'src/shared/theme'
+import { lightTheme as theme } from 'src/shared/theme'
 import * as stl from './styles'
 
 export type Props = React.HTMLAttributes<HTMLElement> & { page: number }
@@ -13,7 +13,7 @@ export default function SectionHi(props: Props) {
 
   return (
     <section {...mouseBind()} id={props.id}>
-      <h2 className={css({ srOnly: true })()}>Hi</h2>
+      <h2 className="sr-only">Hi</h2>
       <ParallaxLayer offset={props.page} className={stl.layerBg()} />
 
       <ParallaxLayer offset={props.page} speed={0.8}>

@@ -140,8 +140,6 @@ export const tooltip = css({
 })
 
 export const tooltipTrigger = css({
-  '.sr-only': { srOnly: true },
-
   svg: {
     display: 'inline',
     size: 18,
@@ -253,8 +251,6 @@ export const contentInfo = css({
   background:
     'linear-gradient(170deg, $colors$sectionExpCardContentBg1, $colors$sectionExpCardContentBg2 55%)',
   borderBlock: '1px solid transparent',
-
-  '.sr-only': { srOnly: true },
 })
 
 export const footer = css({

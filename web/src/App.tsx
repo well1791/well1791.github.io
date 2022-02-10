@@ -6,13 +6,19 @@ import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
 import ThemeProvider from 'src/ThemeProvider'
 import './index.css'
+import { globalCss } from 'src/shared/theme'
 
 const loadingDo = (fn: (el: Element) => void) => {
   const loadings = document.getElementsByClassName('loading-container')
   ;[...loadings].forEach(fn)
 }
 
+const globalStyles = globalCss({
+  '.sr-only': { srOnly: true },
+})
+
 const App = () => {
+  globalStyles()
   const [delay, setDelay] = React.useState(1000)
   const [isLoading, setIsLoading] = React.useState(true)
 

@@ -99,7 +99,7 @@ export default function MainNavigation() {
               isDismissable
               title="Main navigation"
               onClose={closeDialog}
-              titleCss={css({ srOnly: true })()}
+              titleCss="sr-only"
               underlayCss={stl.mobUnderlayContainer({ isClosingDialog })}
               overlayCss={stl.mobOverlayContainer()}
             >

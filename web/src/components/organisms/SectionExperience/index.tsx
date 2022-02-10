@@ -6,7 +6,7 @@ import ThreeShadowsText, {
 } from 'src/components/atoms/ThreeShadowsText'
 import Divider from 'src/components/atoms/DividerWithIcons'
 import { expList } from 'src/shared/constants'
-import { css, lightTheme as theme } from 'src/shared/theme'
+import { lightTheme as theme } from 'src/shared/theme'
 import * as stl from './styles'
 
 const ExperienceCard = React.memo(UnMemoExperienceCard)
@@ -24,7 +24,7 @@ export default function SectionExperience(props: Props) {
 
   return (
     <section {...mouseBind()} id={props.id}>
-      <h2 className={css({ srOnly: true })()}>Skills</h2>
+      <h2 className="sr-only">Skills</h2>
       <ParallaxLayer offset={props.page} className={stl.layerBg()} />
 
       <ParallaxLayer offset={props.page}>
