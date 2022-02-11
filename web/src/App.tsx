@@ -14,6 +14,10 @@ const loadingDo = (fn: (el: Element) => void) => {
 }
 
 const globalStyles = globalCss({
+  html: {
+    fontFamily: 'OpenSans-Regular',
+  },
+
   '.sr-only': { srOnly: true },
 })
 

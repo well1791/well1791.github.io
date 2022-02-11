@@ -8,11 +8,29 @@ import * as stl from './styles'
 
 export type Props = React.HTMLAttributes<HTMLElement> & { page: number }
 
+export const Presentation = React.memo(() => (
+  <div className={stl.bodyContainer()}>
+    <div className={stl.bodyContent()}>
+      <p className={stl.im({ className: stl.highlight })}>{"I'm"}</p>
+
+      <div className={stl.info()}>
+        <p className={stl.name({ className: stl.highlight })}>
+          Wellington Mendoza
+        </p>
+        <div className={stl.divider()} />
+        <p className={stl.role({ className: stl.highlight })}>
+          Frontend Developer
+        </p>
+      </div>
+    </div>
+  </div>
+))
+
 export default function SectionHi(props: Props) {
   const { mouseBind, mousePos } = useMousePosition()
 
   return (
-    <section {...mouseBind()} id={props.id}>
+    <section id={props.id}>
       <h2 className="sr-only">Hi</h2>
       <ParallaxLayer offset={props.page} className={stl.layerBg()} />
 
@@ -37,20 +55,8 @@ export default function SectionHi(props: Props) {
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page} speed={-0.2}>
-        <div className={stl.bodyContainer()}>
-          <div className={stl.bodyContent()}>
-            <p className={stl.im({ className: stl.highlight })}>{"I'm"}</p>
-
-            <div className={stl.info()}>
-              <p className={stl.name({ className: stl.highlight })}>
-                Wellington Mendoza
-              </p>
-              <div className={stl.divider()} />
-              <p className={stl.role({ className: stl.highlight })}>
-                Frontend Developer
-              </p>
-            </div>
-          </div>
+        <div {...mouseBind()} style={{ position: 'absolute', inset: 0 }}>
+          <Presentation />
         </div>
       </ParallaxLayer>
     </section>

@@ -600,8 +600,3 @@ html, html:focus-within {
   font-family: 'OpenSans-Regular';
   src: url(../public/fonts/OpenSans-Regular.ttf);
 }
-
-
-html {
-  font-family: 'OpenSans-Regular';
-}
