@@ -13,6 +13,7 @@ export const themeOption = css({
           margin: 'auto',
           size: '30px',
           color: '$themeSwitcherTriggerText',
+          transition: 'filter 350ms ease',
         },
       },
       menu: {
@@ -91,4 +92,10 @@ export const menuItem = css({
 export const triggerBtn = css({
   size: '$smBtn',
   br: '50%',
+
+  '&:hover, &:focus, &[aria-expanded="true"]': {
+    '& svg': {
+      filter: 'drop-shadow(0 0 5px $colors$themeSwitcherTriggerText)',
+    },
+  },
 })

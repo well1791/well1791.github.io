@@ -20,15 +20,22 @@ export const skipNav = css({
 })
 
 export const navItem = css({
-  color: '$mobMainNavMenuText',
   p: '0.25rem',
   br: '$sm',
+
+  color: '$mobMainNavMenuText',
   fontWeight: 'bold',
   fontSize: '$lg',
+
+  transition: 'text-shadow 350ms ease',
 
   '@tablet': {
     fontSize: '$md',
     color: '$mainNavText',
+  },
+
+  '&:hover, &:focus': {
+    textShadow: '0 0 8px white',
   },
 })
 
