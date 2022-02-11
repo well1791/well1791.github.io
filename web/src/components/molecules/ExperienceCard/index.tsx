@@ -39,129 +39,134 @@ export const durationShortTime = (durationFmt: string) =>
       (m: string) => ({ day: 'd', month: 'mo', year: 'yr' }[m.trim()])
     )
 
-export default function ExperienceCard({
-  data,
-  prevBtn,
-  nextBtn,
-  ...props
-}: Props) {
-  const isTouchable = useMediaQuery({ query: config.media.touchable })
-  const ref = React.useRef()
-  const { tooltipTriggerProps, tooltipOverlayProps, tooltipState } =
-    useTooltip(ref)
-  const durationFmt = durationTime({
-    start: data.startDate,
-    end: data.endDate === 'Present' ? startOfToday() : data.endDate,
-  })
+export default React.forwardRef<HTMLDivElement>(
+  ({ data, prevBtn, nextBtn, ...props }: Props, ref) => {
+    const tooltipRef = React.useRef()
+    const isTouchable = useMediaQuery({ query: config.media.touchable })
+    const { tooltipTriggerProps, tooltipOverlayProps, tooltipState } =
+      useTooltip(tooltipRef)
+    const durationFmt = durationTime({
+      start: data.startDate,
+      end: data.endDate === 'Present' ? startOfToday() : data.endDate,
+    })
+    const toggleTooltip = (shouldOpen?: boolean) => () => {
+      const isOpen = shouldOpen === undefined ? tooltipState.isOpen : shouldOpen
+      if (isOpen) tooltipState.open()
+      else tooltipState.close()
+    }
 
-  return (
-    <div {...props} className={stl.container({ className: props.className })}>
-      <header className={stl.header()}>
-        <h3 className={stl.headerTitle()}>
-          <a
-            className={stl.headerLink()}
-            href={data.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {data.title}
-          </a>
-          <span className={stl.headerUnderline()} />
-        </h3>
-      </header>
-
-      <div className={stl.contentInfo()}>
-        <div className={stl.expContainer()}>
-          <div className={stl.expRole()}>
-            <p>{'Role: '}</p>
-            <strong>{data.role}</strong>
-          </div>
-
-          <div className={stl.expTime()}>
-            <p>{'Duration: '}</p>
-            <strong>
-              {durationFmt}
-              <span
-                ref={ref}
-                {...tooltipTriggerProps}
-                className={stl.tooltipTrigger()}
-              >
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (!isTouchable) return
-
-                    if (tooltipState.isMounted) tooltipState.close()
-                    else tooltipState.open()
-                  }}
-                >
-                  <span className="sr-only">time period</span>
-                  <QuestionMarkCircledIcon
-                    aria-hidden="true"
-                    focusable="false"
-                  />
-                </button>
-              </span>
-            </strong>
-
-            <Tooltip
-              state={tooltipState}
-              {...tooltipOverlayProps}
-              className={stl.tooltip({ isOpen: tooltipState.isOpen })}
+    return (
+      <div
+        ref={ref}
+        {...props}
+        className={stl.container({ className: props.className })}
+      >
+        <header className={stl.header()}>
+          <h3 className={stl.headerTitle()}>
+            <a
+              className={stl.headerLink()}
+              href={data.url}
+              target="_blank"
+              rel="noreferrer"
             >
-              <div className={stl.tooltipArrow()} />
+              {data.title}
+            </a>
+            <span className={stl.headerUnderline()} />
+          </h3>
+        </header>
 
-              <div className={stl.tooltipContent()}>
-                <p>
-                  {'Started: '}
-                  <strong>{formatDate(data.startDate)}</strong>
-                </p>
+        <div className={stl.contentInfo()}>
+          <div className={stl.expContainer()}>
+            <div className={stl.expRole()}>
+              <p>{'Role: '}</p>
+              <strong>{data.role}</strong>
+            </div>
 
-                <p>
-                  {'Ended: '}
-                  <strong>
-                    {data.endDate === 'Present'
-                      ? 'Present'
-                      : formatDate(data.endDate)}
-                  </strong>
-                </p>
-              </div>
+            <div className={stl.expTime()}>
+              <p>{'Duration: '}</p>
+              <strong>
+                {durationFmt}
+                <span
+                  ref={tooltipRef}
+                  {...tooltipTriggerProps}
+                  className={stl.tooltipTrigger()}
+                >
+                  <button
+                    type="button"
+                    onFocus={toggleTooltip(true)}
+                    onBlur={toggleTooltip(false)}
+                    onClick={() => {
+                      if (isTouchable) toggleTooltip()
+                    }}
+                  >
+                    <span className="sr-only">time period</span>
+                    <QuestionMarkCircledIcon
+                      aria-hidden="true"
+                      focusable="false"
+                    />
+                  </button>
+                </span>
+              </strong>
 
-              <div className={stl.tooltipIcon()}>
-                <InfoCircledIcon aria-hidden="true" focusable="false" />
-              </div>
-            </Tooltip>
+              <Tooltip
+                state={tooltipState}
+                {...tooltipOverlayProps}
+                className={stl.tooltip({ isOpen: tooltipState.isOpen })}
+              >
+                <div className={stl.tooltipArrow()} />
+
+                <div className={stl.tooltipContent()}>
+                  <p>
+                    {'Started: '}
+                    <strong>{formatDate(data.startDate)}</strong>
+                  </p>
+
+                  <p>
+                    {'Ended: '}
+                    <strong>
+                      {data.endDate === 'Present'
+                        ? 'Present'
+                        : formatDate(data.endDate)}
+                    </strong>
+                  </p>
+                </div>
+
+                <div className={stl.tooltipIcon()}>
+                  <InfoCircledIcon aria-hidden="true" focusable="false" />
+                </div>
+              </Tooltip>
+            </div>
+          </div>
+
+          <h4 className="sr-only">List of skills learned</h4>
+          <ul title="Skills learned" className={stl.techSkillsInfo()}>
+            {data.skills.map((skill) => (
+              <TechSkill key={skill.name} {...skill} />
+            ))}
+          </ul>
+        </div>
+
+        <div className={stl.footer()}>
+          <div>
+            {prevBtn && (
+              <NavBtn
+                title={prevBtn.title}
+                nav="prev"
+                onClick={prevBtn.onClick}
+              />
+            )}
+          </div>
+          <div>
+            {nextBtn && (
+              <NavBtn
+                title={nextBtn.title}
+                nav="next"
+                onClick={nextBtn.onClick}
+              />
+            )}
           </div>
         </div>
-
-        <h4 className="sr-only">List of skills learned</h4>
-        <ul title="Skills learned" className={stl.techSkillsInfo()}>
-          {data.skills.map((skill) => (
-            <TechSkill key={skill.name} {...skill} />
-          ))}
-        </ul>
       </div>
-
-      <div className={stl.footer()}>
-        <div>
-          {prevBtn && (
-            <NavBtn
-              title={prevBtn.title}
-              nav="prev"
-              onClick={prevBtn.onClick}
-            />
-          )}
-        </div>
-        <div>
-          {nextBtn && (
-            <NavBtn
-              title={nextBtn.title}
-              nav="next"
-              onClick={nextBtn.onClick}
-            />
-          )}
-        </div>
-      </div>
-    </div>
-  )
-}
+    )
+  }
+)

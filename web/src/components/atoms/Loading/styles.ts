@@ -68,32 +68,13 @@ export const circleColor = css({
   ].join(', '),
 })
 
-export const innerShadow = css({
-  $$width: 'calc($$wMax - 4px)',
-  $$shBlur: 'calc($$wMax * 2.7)',
-  $$shOffset: 'calc($$wMax / 1.8)',
-  $$shSpread: 'calc($$wMax * -1)',
-
-  zIndex: '200',
-  height: '$$width',
-  width: '$$width',
-  backgroundColor: '$$bgBlack',
-  boxShadow: [
-    'yellow $$shOffset 0px $$shBlur $$shSpread inset',
-    'blueviolet -$$shOffset 0px $$shBlur $$shSpread inset',
-    'green 0px $$shOffset $$shBlur $$shSpread inset',
-    'salmon 0px -$$shOffset $$shBlur $$shSpread inset',
-  ].join(', '),
-  animation: `10s ease 0s infinite alternate-reverse none running ${animation.skewFTW()}`,
-})
-
 export const backdrop = css({
   display: 'grid',
   gridTemplateColumns: '1fr',
   placeItems: 'center',
   animation: `5s ease 0s infinite alternate-reverse none running ${animation.skewFTW()}`,
 
-  [`& .${circleColor()}, & .${innerShadow()}`]: {
+  [`& .${circleColor()}`]: {
     gridRow: '1 / auto',
     gridColumn: '1 / auto',
     borderRadius: '100%',

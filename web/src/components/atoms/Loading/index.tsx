@@ -5,7 +5,6 @@ export default function Loading() {
     <div className={stl.container()}>
       <div className={stl.outerShadow()}>
         <div className={stl.backdrop()}>
-          <div className={stl.innerShadow()} />
           <div className={stl.circleColor()} />
         </div>
       </div>
