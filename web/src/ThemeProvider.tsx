@@ -1,4 +1,4 @@
-import { theme } from 'src/shared/theme'
+import { themes } from 'src/shared/theme'
 import useSelectedTheme from 'src/hooks/useSelectedTheme'
 
 export type Props = {
@@ -11,7 +11,7 @@ export default function ThemeProvider({ children }: Props) {
   React.useEffect(() => {
     document
       .querySelector('body')
-      .setAttribute('class', theme[selectedTheme.name])
+      .setAttribute('class', themes[selectedTheme.name])
   }, [selectedTheme])
 
   return <>{children}</>

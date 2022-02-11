@@ -1,4 +1,6 @@
-import { css, animation, darkTheme } from 'src/shared/theme'
+import { opacify, darken, mix, rgba } from 'polished'
+
+import { css, animation, darkTheme, theme } from 'src/shared/theme'
 
 export const container = css({
   $$px: '.75rem',
@@ -188,23 +190,19 @@ export const expContainer = css({
   fontSize: '$md',
   color: '$sectionExpCardContentText',
 
-  position: 'relative',
+  position: 'sticky',
+  insetBlockStart: 0,
+  zIndex: '$max',
 
   '&::before': {
     content: '',
     position: 'absolute',
     inset: 0,
     zIndex: -1,
-    bg: 'rgba(255 255 255 / .85)',
+    bg: opacify(0.4, theme.colors.sectionExpCardBg.value),
 
     [`.${darkTheme} &`]: {
-      bg: '$blackA12',
-    },
-  },
-
-  '@mobile': {
-    '&::before': {
-      bg: 'transparent',
+      bg: opacify(0.2, theme.colors.blackA11.value),
     },
   },
 
@@ -245,7 +243,7 @@ export const techSkillsInfo = css({
 })
 
 export const contentInfo = css({
-  py: '1rem',
+  pb: '1rem',
   minBlockSize: '40%',
 
   background:

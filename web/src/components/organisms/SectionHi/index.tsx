@@ -3,7 +3,7 @@ import { ParallaxLayer } from '@react-spring/parallax'
 import ThreeShadowsText, {
   useMousePosition,
 } from 'src/components/atoms/ThreeShadowsText'
-import { lightTheme as theme } from 'src/shared/theme'
+import { theme } from 'src/shared/theme'
 import * as stl from './styles'
 
 export type Props = React.HTMLAttributes<HTMLElement> & { page: number }

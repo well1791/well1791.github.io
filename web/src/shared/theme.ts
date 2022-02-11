@@ -15,7 +15,7 @@ export const {
   globalCss,
   keyframes,
   getCssText,
-  theme: lightTheme,
+  theme,
   createTheme,
   config,
 } = createStitches({
@@ -373,16 +373,16 @@ export const blackAndWhiteTheme = createTheme({
   },
 })
 
-export const theme = {
-  light: lightTheme,
+export const themes = {
+  light: theme,
   dark: darkTheme,
   blackAndWhite: blackAndWhiteTheme,
 }
 
-export type ThemeType = keyof typeof theme
+export type ThemeType = keyof typeof themes
 
 export const isValidTheme = (value?: string): value is ThemeType =>
-  Boolean(theme[value])
+  Boolean(themes[value])
 
 export const animation = {
   fadeIn: keyframes({

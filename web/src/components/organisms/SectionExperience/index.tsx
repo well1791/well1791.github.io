@@ -6,7 +6,7 @@ import ThreeShadowsText, {
 } from 'src/components/atoms/ThreeShadowsText'
 import Divider from 'src/components/atoms/DividerWithIcons'
 import { expList } from 'src/shared/constants'
-import { lightTheme as theme } from 'src/shared/theme'
+import { theme } from 'src/shared/theme'
 import * as stl from './styles'
 
 export type Props = React.HTMLAttributes<HTMLElement> & { page: number }
