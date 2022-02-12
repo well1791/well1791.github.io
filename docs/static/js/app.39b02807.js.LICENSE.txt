@@ -69,8 +69,6 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../../../modules/es.string.starts-with */
 
-/*! ../../../modules/es.string.trim */
-
 /*! ../../es/array/from */
 
 /*! ../../es/array/is-array */
@@ -106,8 +104,6 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ../../es/instance/some */
 
 /*! ../../es/instance/starts-with */
-
-/*! ../../es/instance/trim */
 
 /*! ../../es/json/stringify */
 
@@ -304,8 +300,6 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ../../stable/instance/some */
 
 /*! ../../stable/instance/starts-with */
-
-/*! ../../stable/instance/trim */
 
 /*! ../../stable/json/stringify */
 
@@ -677,10 +671,6 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../internals/string-punycode-to-ascii */
 
-/*! ../internals/string-trim */
-
-/*! ../internals/string-trim-forced */
-
 /*! ../internals/task */
 
 /*! ../internals/to-absolute-index */
@@ -710,8 +700,6 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ../internals/well-known-symbol */
 
 /*! ../internals/well-known-symbol-wrapped */
-
-/*! ../internals/whitespaces */
 
 /*! ../isArray */
 
@@ -762,8 +750,6 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ../string/virtual/match-all */
 
 /*! ../string/virtual/starts-with */
-
-/*! ../string/virtual/trim */
 
 /*! ../style */
 
@@ -1421,8 +1407,6 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! core-js-pure/features/instance/starts-with */
 
-/*! core-js-pure/features/instance/trim */
-
 /*! core-js-pure/features/json/stringify */
 
 /*! core-js-pure/features/object/assign */
@@ -1480,7 +1464,7 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ~redwood-app-root */
 
 /*!***********************************!*\
-  !*** ./src/App.tsx + 165 modules ***!
+  !*** ./src/App.tsx + 176 modules ***!
   \***********************************/
 
 /*!************************************!*\
@@ -2648,10 +2632,6 @@ PERFORMANCE OF THIS SOFTWARE.
   \********************************************************/
 
 /*!********************************************************!*\
-  !*** ../node_modules/core-js-pure/es/instance/trim.js ***!
-  \********************************************************/
-
-/*!********************************************************!*\
   !*** ../node_modules/core-js-pure/es/object/assign.js ***!
   \********************************************************/
 
@@ -3060,10 +3040,6 @@ PERFORMANCE OF THIS SOFTWARE.
   \************************************************************/
 
 /*!************************************************************!*\
-  !*** ../node_modules/core-js-pure/stable/instance/trim.js ***!
-  \************************************************************/
-
-/*!************************************************************!*\
   !*** ../node_modules/core-js-pure/stable/object/assign.js ***!
   \************************************************************/
 
@@ -3180,14 +3156,6 @@ PERFORMANCE OF THIS SOFTWARE.
   \*************************************************************/
 
 /*!*************************************************************!*\
-  !*** ../node_modules/core-js-pure/internals/string-trim.js ***!
-  \*************************************************************/
-
-/*!*************************************************************!*\
-  !*** ../node_modules/core-js-pure/internals/whitespaces.js ***!
-  \*************************************************************/
-
-/*!*************************************************************!*\
   !*** ../node_modules/core-js-pure/modules/es.array.fill.js ***!
   \*************************************************************/
 
@@ -3256,10 +3224,6 @@ PERFORMANCE OF THIS SOFTWARE.
   \**************************************************************/
 
 /*!**************************************************************!*\
-  !*** ../node_modules/core-js-pure/es/string/virtual/trim.js ***!
-  \**************************************************************/
-
-/*!**************************************************************!*\
   !*** ../node_modules/core-js-pure/features/instance/fill.js ***!
   \**************************************************************/
 
@@ -3273,10 +3237,6 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!**************************************************************!*\
   !*** ../node_modules/core-js-pure/features/instance/some.js ***!
-  \**************************************************************/
-
-/*!**************************************************************!*\
-  !*** ../node_modules/core-js-pure/features/instance/trim.js ***!
   \**************************************************************/
 
 /*!**************************************************************!*\
@@ -3337,10 +3297,6 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!**************************************************************!*\
   !*** ../node_modules/core-js-pure/modules/es.regexp.exec.js ***!
-  \**************************************************************/
-
-/*!**************************************************************!*\
-  !*** ../node_modules/core-js-pure/modules/es.string.trim.js ***!
   \**************************************************************/
 
 /*!**************************************************************!*\
@@ -4020,10 +3976,6 @@ PERFORMANCE OF THIS SOFTWARE.
   \********************************************************************/
 
 /*!********************************************************************!*\
-  !*** ../node_modules/core-js-pure/internals/string-trim-forced.js ***!
-  \********************************************************************/
-
-/*!********************************************************************!*\
   !*** ../node_modules/core-js-pure/modules/esnext.weak-map.from.js ***!
   \********************************************************************/
 
@@ -4209,10 +4161,6 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!***********************************************************************!*\
   !*** ../node_modules/@babel/runtime-corejs3/core-js/instance/some.js ***!
-  \***********************************************************************/
-
-/*!***********************************************************************!*\
-  !*** ../node_modules/@babel/runtime-corejs3/core-js/instance/trim.js ***!
   \***********************************************************************/
 
 /*!***********************************************************************!*\
