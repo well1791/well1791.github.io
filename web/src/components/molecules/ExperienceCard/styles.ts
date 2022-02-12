@@ -1,6 +1,6 @@
-import { opacify, darken, mix, rgba } from 'polished'
+import { opacify } from 'polished'
 
-import { css, animation, darkTheme, theme } from 'src/shared/theme'
+import { css, animation, themes, theme } from 'src/shared/theme'
 
 export const container = css({
   $$px: '.75rem',
@@ -82,7 +82,9 @@ export const header = css({
   boxShadow: 'inset 0 -3px 4px -4px white',
 })
 
-export const expRole = css({})
+export const expRole = css({
+  width: '40%',
+})
 
 export const expTime = css({
   position: 'relative',
@@ -142,6 +144,7 @@ export const tooltip = css({
 })
 
 export const tooltipTrigger = css({
+  mb: 2,
   svg: {
     display: 'inline',
     size: 18,
@@ -175,8 +178,8 @@ export const tooltipIcon = css({
 
 export const expContainer = css({
   display: 'flex',
-  flexWrap: 'wrap',
   aligItems: 'center',
+  flexDirection: 'column',
 
   px: '$$px',
   py: '1rem',
@@ -199,24 +202,40 @@ export const expContainer = css({
     position: 'absolute',
     inset: 0,
     zIndex: -1,
-    bg: opacify(0.4, theme.colors.sectionExpCardBg.value),
 
-    [`.${darkTheme} &`]: {
+    [`.${themes.light} &`]: {
+      bg: opacify(0.35, themes.light.colors.sectionExpCardBg.value),
+    },
+
+    [`.${themes.blackAndWhite} &`]: {
+      bg: opacify(0.35, theme.colors.whiteA11.value),
+    },
+
+    [`.${themes.dark} &`]: {
       bg: opacify(0.2, theme.colors.blackA11.value),
     },
   },
 
   [`.${expRole()}, .${expTime()}`]: {
     display: 'flex',
-    '& strong': { pl: '.4em' },
-    '& p': { lineHeight: '$relaxed' },
+    alignItems: 'center',
+
+    '& p': {
+      pr: '.4em',
+      lineHeight: '$relaxed',
+    },
   },
 
-  [`.${expRole()}`]: {
-    width: '100%',
+  '@laptop': {
+    flexDirection: 'row',
+  },
 
-    '@laptop': {
-      width: '40%',
+  variants: {
+    inView: {
+      true: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+      },
     },
   },
 })
@@ -229,7 +248,7 @@ export const techSkillsInfo = css({
 
   py: '1rem',
 
-  [`.${darkTheme} &`]: {
+  [`.${themes.dark} &`]: {
     bg: '$blackA9',
 
     '@tablet': {

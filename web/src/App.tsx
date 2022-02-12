@@ -1,6 +1,9 @@
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RecoilRoot } from 'recoil'
 import { OverlayProvider } from 'react-aria'
+import { defaultFallbackInView } from 'react-intersection-observer'
+
+defaultFallbackInView(false)
 
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'

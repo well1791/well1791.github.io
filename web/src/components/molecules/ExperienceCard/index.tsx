@@ -25,6 +25,7 @@ export type ExpData = {
 
 export type Props = React.HTMLAttributes<HTMLElement> & {
   data: ExpData
+  isActive?: boolean
   prevBtn?: NavAction
   nextBtn?: NavAction
 }
@@ -35,12 +36,12 @@ export const durationShortTime = (durationFmt: string) =>
   durationFmt
     .replace(/s/g, '')
     .replace(
-      /( years?)|( months?)|( days?)/g,
-      (m: string) => ({ day: 'd', month: 'mo', year: 'yr' }[m.trim()])
+      /(years?)|(months?)|(days?)/g,
+      (m: string) => ({ day: 'd', month: 'mo', year: 'yr' }[m])
     )
 
-export default React.forwardRef<HTMLDivElement>(
-  ({ data, prevBtn, nextBtn, ...props }: Props, ref) => {
+export default React.forwardRef<HTMLDivElement, Props>(
+  ({ data, isActive = false, prevBtn, nextBtn, ...props }: Props, ref) => {
     const tooltipRef = React.useRef()
     const isTouchable = useMediaQuery({ query: config.media.touchable })
     const { tooltipTriggerProps, tooltipOverlayProps, tooltipState } =
@@ -54,11 +55,15 @@ export default React.forwardRef<HTMLDivElement>(
       if (isOpen) tooltipState.open()
       else tooltipState.close()
     }
+    const inView = false
 
     return (
       <div
         ref={ref}
         {...props}
+        aria-hidden={!isActive}
+        aria-disabled={!isActive}
+        aria-current={isActive}
         className={stl.container({ className: props.className })}
       >
         <header className={stl.header()}>
@@ -76,37 +81,38 @@ export default React.forwardRef<HTMLDivElement>(
         </header>
 
         <div className={stl.contentInfo()}>
-          <div className={stl.expContainer()}>
+          <div className={stl.expContainer({ inView })}>
             <div className={stl.expRole()}>
-              <p>{'Role: '}</p>
+              <p className={inView ? 'sr-only' : ''}>{'Role: '}</p>
               <strong>{data.role}</strong>
             </div>
 
             <div className={stl.expTime()}>
-              <p>{'Duration: '}</p>
-              <strong>
-                {durationFmt}
-                <span
-                  ref={tooltipRef}
-                  {...tooltipTriggerProps}
-                  className={stl.tooltipTrigger()}
-                >
-                  <button
-                    type="button"
-                    onFocus={toggleTooltip(true)}
-                    onBlur={toggleTooltip(false)}
-                    onClick={() => {
-                      if (isTouchable) toggleTooltip()
-                    }}
-                  >
-                    <span className="sr-only">time period</span>
-                    <QuestionMarkCircledIcon
-                      aria-hidden="true"
-                      focusable="false"
-                    />
-                  </button>
-                </span>
+              <p className={inView ? 'sr-only' : ''}>{'Duration: '}</p>
+
+              <strong aria-hidden="true" className={inView ? '' : 'sr-only'}>
+                {durationShortTime(durationFmt)}
               </strong>
+              <strong className={inView ? 'sr-only' : ''}>{durationFmt}</strong>
+
+              <span
+                ref={tooltipRef}
+                {...tooltipTriggerProps}
+                className={stl.tooltipTrigger()}
+              >
+                <button
+                  type="button"
+                  onFocus={toggleTooltip(true)}
+                  onBlur={toggleTooltip(false)}
+                  onClick={() => isTouchable && toggleTooltip()}
+                >
+                  <span className="sr-only">time period</span>
+                  <QuestionMarkCircledIcon
+                    aria-hidden="true"
+                    focusable="false"
+                  />
+                </button>
+              </span>
 
               <Tooltip
                 state={tooltipState}

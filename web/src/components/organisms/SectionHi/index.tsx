@@ -42,9 +42,9 @@ export default function SectionHi(props: Props) {
             className={stl.threeShadowsText()}
             shadowFontSize="calc(min(75vh, 75vw) + 1rem)"
             shadowColors={[
-              theme.colors.sectionHiTitleShBot.toString(),
-              theme.colors.sectionHiTitleShMid.toString(),
-              theme.colors.sectionHiTitleShTop.toString(),
+              theme.colors.sectionHiTitleShBot.computedValue,
+              theme.colors.sectionHiTitleShMid.computedValue,
+              theme.colors.sectionHiTitleShTop.computedValue,
             ]}
           />
         </div>

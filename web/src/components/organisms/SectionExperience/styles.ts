@@ -112,4 +112,15 @@ export const cardContainer = css({
   '@laptop': {
     inlineSize: '75%',
   },
+
+  variants: {
+    isActive: {
+      true: {
+        display: 'block',
+      },
+      false: {
+        display: 'none',
+      },
+    },
+  },
 })

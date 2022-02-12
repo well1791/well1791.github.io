@@ -38,13 +38,9 @@ export const ExperienceList = React.memo(() => {
               key={exp.title}
               role="group"
               aria-label={`job experience slide ${i1} of ${expList.length}`}
-              aria-hidden={!isActive}
-              aria-disabled={!isActive}
-              aria-current={isActive}
-              className={stl.cardContainer({
-                css: { display: isActive ? 'block' : 'none' },
-              })}
+              className={stl.cardContainer({ isActive })}
               data={exp}
+              isActive={isActive}
               prevBtn={hasMoreCards && !isFirst ? getExp(i0 - 1) : undefined}
               nextBtn={hasMoreCards && !isLast ? getExp(i1) : undefined}
             />
@@ -74,9 +70,9 @@ export default function SectionExperience(props: Props) {
             className={stl.threeShadowsText()}
             pos={mousePos}
             shadowColors={[
-              theme.colors.sectionExpTitleShBot.toString(),
-              theme.colors.sectionExpTitleShMid.toString(),
-              theme.colors.sectionExpTitleShTop.toString(),
+              theme.colors.sectionExpTitleShBot.computedValue,
+              theme.colors.sectionExpTitleShMid.computedValue,
+              theme.colors.sectionExpTitleShTop.computedValue,
             ]}
           />
         </div>

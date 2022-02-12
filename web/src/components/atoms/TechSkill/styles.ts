@@ -55,7 +55,7 @@ export const container = css({
 
   [`.${bg()}`]: {
     backgroundImage:
-      'linear-gradient(to right, $$color 38%, $$bg 40%, $$bg 88%, $$color 90%)',
+      'linear-gradient(to right, $$color 37%, $$bg 37%, $$bg 87%, $$color 87%)',
   },
   [`.${category()}`]: { color: '$$color' },
   [`.${name()}`]: { color: '$$bg' },
