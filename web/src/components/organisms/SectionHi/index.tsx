@@ -55,7 +55,7 @@ export default function SectionHi(props: Props) {
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page} speed={-0.2}>
-        <div {...mouseBind()} style={{ position: 'absolute', inset: 0 }}>
+        <div {...mouseBind()} className="absolute inset-0">
           <Presentation />
         </div>
       </ParallaxLayer>

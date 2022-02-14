@@ -4,32 +4,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wellington Mendoza's resume website</title>
   <link rel="icon" type="image/png" href="/favicon.png" />
 
   <style type="text/css">
     @keyframes ellipsis {
-      0% { content: '    ' }
-      25% { content: ' .  ' }
-      50% { content: ' .. ' }
-      75% { content: ' ...' }
-      100% { content: '    ' }
+      0% {
+        content: '    '
+      }
+
+      25% {
+        content: ' .  '
+      }
+
+      50% {
+        content: ' .. '
+      }
+
+      75% {
+        content: ' ...'
+      }
+
+      100% {
+        content: '    '
+      }
     }
 
     @keyframes bpLeftToRight {
-      0% { background-position: left }
-      100% { background-position: right }
+      0% {
+        background-position: left
+      }
+
+      100% {
+        background-position: right
+      }
     }
 
     @keyframes rotate1Turn {
-      to { transform: rotate(1turn) }
+      to {
+        transform: rotate(1turn)
+      }
     }
 
     @keyframes skewFTW {
-      0% { transform: skew(1deg, 0) }
-      25% { transform: skew(0, 1.3deg) }
-      50% { transform: skew(-1.2deg, 1deg) }
-      75% { transform: skew(0, -1.5deg) }
-      100% { transform: skew(-1deg, 0) }
+      0% {
+        transform: skew(1deg, 0)
+      }
+
+      25% {
+        transform: skew(0, 1.3deg)
+      }
+
+      50% {
+        transform: skew(-1.2deg, 1deg)
+      }
+
+      75% {
+        transform: skew(0, -1.5deg)
+      }
+
+      100% {
+        transform: skew(-1deg, 0)
+      }
     }
 
     .loading-container {
@@ -44,7 +80,10 @@
       padding: 2.5rem;
 
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
       z-index: 9999;
 
       opacity: 0;
@@ -52,8 +91,13 @@
       transition: opacity 800ms ease;
     }
 
-    .opacity-1 { opacity: 1; }
-    .opacity-0 { opacity: 0; }
+    .opacity-1 {
+      opacity: 1;
+    }
+
+    .opacity-0 {
+      opacity: 0;
+    }
 
     .loading-outer-shadow {
       ---size: 200px;
@@ -86,20 +130,11 @@
 
     .loading-inner-shadow {
       ---thisSize: calc(var(---size) - 4px);
-      ---shBlur: calc(var(---size) * 10.7);
-      ---shOffset: calc(var(---size) / 1.8);
-      ---shSpread: calc(var(---size) * -1);
 
       z-index: 200;
       block-size: var(---thisSize);
       inline-size: var(---thisSize);
       background-color: var(---bgBlack);
-      box-shadow:
-        yellow var(---shOffset) 0px var(---shBlur) var(---shSpread) inset,
-        blueviolet calc(var(---shOffset) * -1) 0px var(---shBlur) var(---shSpread) inset,
-        green 0px var(---shOffset) var(---shBlur) var(---shSpread) inset,
-        salmon 0px calc(var(---shOffset) * -1) var(---shBlur) var(---shSpread) inset;
-      animation: 10s ease 0s infinite alternate-reverse none running skewFTW;
     }
 
     .loading-backdrop {

@@ -6,7 +6,7 @@ import { useButton } from '@react-aria/button'
 import { useMediaQuery } from 'react-responsive'
 
 import ModalDialog from 'src/components/molecules/ModalDialog'
-import { breakPoint, config, css } from 'src/shared/theme'
+import { breakpoint, config } from 'src/shared/theme'
 import * as str from 'src/shared/store'
 import * as stl from './styles'
 
@@ -19,7 +19,7 @@ export type NavItem = {
 export default function MainNavigation() {
   const navState = useRecoilValue(str.mainNavItems)
   const dialogState = useOverlayTriggerState({})
-  const isMobile = useMediaQuery({ maxWidth: breakPoint.tablet })
+  const isMobile = useMediaQuery({ maxWidth: breakpoint.tablet })
   const isMotionReduced = useMediaQuery({ query: config.media.motion })
   const openMenuRef = React.useRef()
   const closeMenuRef = React.useRef()

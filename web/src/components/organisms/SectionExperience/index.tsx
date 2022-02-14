@@ -1,4 +1,5 @@
 import { ParallaxLayer } from '@react-spring/parallax'
+import { FocusScope } from '@react-aria/focus'
 
 import ExperienceCard from 'src/components/molecules/ExperienceCard'
 import ThreeShadowsText, {
@@ -26,26 +27,28 @@ export const ExperienceList = React.memo(() => {
         aria-label="Experience and skills carousel"
         className={stl.cardsContent()}
       >
-        {expList.map((exp, i0) => {
-          const i1 = i0 + 1
-          const isFirst = i0 === 0
-          const isLast = i1 === expList.length
-          const hasMoreCards = expList.length > 1
-          const isActive = i0 === expI0
+        {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
+        <FocusScope autoFocus>
+          {expList.map((exp, i0) => {
+            const i1 = i0 + 1
+            const isActive = i0 === expI0
+            const isOneCard = expList.length === 1
+            const hasPrevCard = !isOneCard && i0 !== 0
+            const hasNextCard = !isOneCard && i1 !== expList.length
 
-          return (
-            <ExperienceCard
-              key={exp.title}
-              role="group"
-              aria-label={`job experience slide ${i1} of ${expList.length}`}
-              className={stl.cardContainer({ isActive })}
-              data={exp}
-              isActive={isActive}
-              prevBtn={hasMoreCards && !isFirst ? getExp(i0 - 1) : undefined}
-              nextBtn={hasMoreCards && !isLast ? getExp(i1) : undefined}
-            />
-          )
-        })}
+            return (
+              <ExperienceCard
+                key={exp.title}
+                aria-label={`job experience slide ${i1} of ${expList.length}`}
+                className={stl.cardContainer({ isActive })}
+                data={exp}
+                isActive={isActive}
+                prevBtn={hasPrevCard ? getExp(i0 - 1) : undefined}
+                nextBtn={hasNextCard ? getExp(i1) : undefined}
+              />
+            )
+          })}
+        </FocusScope>
       </div>
     </div>
   )
@@ -89,7 +92,7 @@ export default function SectionExperience(props: Props) {
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page} speed={2.0}>
-        <div {...mouseBind()} style={{ position: 'absolute', inset: 0 }}>
+        <div {...mouseBind()} className="absolute inset-0">
           <ExperienceList />
         </div>
       </ParallaxLayer>

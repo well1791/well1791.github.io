@@ -2,7 +2,7 @@ import { createStitches } from '@stitches/core'
 import type Stitches from '@stitches/core'
 import * as rc from '@radix-ui/colors'
 
-export const breakPoint = {
+export const breakpoint = {
   mobile: '640px',
   tablet: '768px',
   laptop: '1024px',
@@ -127,7 +127,7 @@ export const {
       none: '0 0 #0000',
     },
     sizes: {
-      ...breakPoint,
+      ...breakpoint,
       prose: '65ch',
       smBtn: '35px',
       mdBtn: '60px',
@@ -144,11 +144,11 @@ export const {
     },
   },
   media: {
-    mobile: `(min-width: ${breakPoint.mobile})`,
-    tablet: `(min-width: ${breakPoint.tablet})`,
-    laptop: `(min-width: ${breakPoint.laptop})`,
-    desktop: `(min-width: ${breakPoint.desktop})`,
-    wide: `(min-width: ${breakPoint.wide})`,
+    mobile: `(min-width: ${breakpoint.mobile})`,
+    tablet: `(min-width: ${breakpoint.tablet})`,
+    laptop: `(min-width: ${breakpoint.laptop})`,
+    desktop: `(min-width: ${breakpoint.desktop})`,
+    wide: `(min-width: ${breakpoint.wide})`,
 
     motion: '(prefers-reduced-motion)',
     hover: '(any-hover: hover)',

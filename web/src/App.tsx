@@ -22,11 +22,30 @@ const globalStyles = globalCss({
   },
 
   '.sr-only': { srOnly: true },
+
+  '.inline': { display: 'inline' },
+  '.inline-block': { display: 'inline-block' },
+  '.block': { display: 'block' },
+  '.hidden': { display: 'none' },
+
+  '.absolute': { position: 'absolute' },
+  '.relative': { position: 'relative' },
+
+  '.inset-0': {
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+
+    '@supports (inset: 0)': {
+      inset: 0,
+    },
+  },
 })
 
 const App = () => {
   globalStyles()
-  const [delay, setDelay] = React.useState(1000)
+  const [delay, setDelay] = React.useState(1200)
   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {

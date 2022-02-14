@@ -82,10 +82,7 @@ export const header = css({
   boxShadow: 'inset 0 -3px 4px -4px white',
 })
 
-export const expRole = css({
-  width: '40%',
-})
-
+export const expRole = css({})
 export const expTime = css({
   position: 'relative',
 })
@@ -145,10 +142,11 @@ export const tooltip = css({
 
 export const tooltipTrigger = css({
   mb: 2,
+  ml: '.25rem',
+
   svg: {
     display: 'inline',
     size: 18,
-    ml: '.25rem',
   },
 })
 
@@ -177,9 +175,9 @@ export const tooltipIcon = css({
 })
 
 export const expContainer = css({
-  display: 'flex',
-  aligItems: 'center',
-  flexDirection: 'column',
+  display: 'grid',
+  gap: '.125rem .1rem',
+  gridTemplateColumns: '1fr',
 
   px: '$$px',
   py: '1rem',
@@ -217,24 +215,19 @@ export const expContainer = css({
   },
 
   [`.${expRole()}, .${expTime()}`]: {
-    display: 'flex',
-    alignItems: 'center',
-
     '& p': {
-      pr: '.4em',
       lineHeight: '$relaxed',
     },
   },
 
   '@laptop': {
-    flexDirection: 'row',
+    gridTemplateColumns: 'repeat(2, 1fr)',
   },
 
   variants: {
     inView: {
       true: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
+        gridTemplateColumns: 'repeat(2, 1fr)',
       },
     },
   },

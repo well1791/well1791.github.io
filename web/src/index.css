@@ -35,7 +35,12 @@ html {
 
 html {
   line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+@supports (-webkit-text-size-adjust: 100%) {
+  html {
+    -webkit-text-size-adjust: 100%; /* 2 */
+  }
 }
 
 /*
@@ -571,22 +576,26 @@ video {
 /**
  * Custom defaults
  */
-html, html:focus-within {
-  scroll-behavior: smooth;
+@supports (scroll-behavior: smooth) {
+  html, html:focus-within {
+    scroll-behavior: smooth;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html, html:focus-within {
-   scroll-behavior: auto;
-  }
+  @supports (scroll-behavior: auto) {
+    html, html:focus-within {
+      scroll-behavior: auto;
+    }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 

@@ -45,7 +45,7 @@ export default function HomePage() {
         <Parallax
           ref={parallaxRef}
           pages={Object.values(section).length}
-          style={{ top: 0, left: 0 }}
+          style={{ insetBlockStart: 0, insetInlineStart: 0 }}
         >
           <SectionHi {...section.hi} />
           <SectionExperience {...section.experience} />

@@ -13,9 +13,9 @@ export default function useTooltip(
   const props = { delay, ...propsArg }
   const state = useTooltipTriggerState({
     ...props,
-    onOpenChange: (isTooltipOpen) => {
-      if (isTooltipOpen) setIsDelayed(Boolean(closeDelay))
-      if (props.onOpenChange) props.onOpenChange(isTooltipOpen)
+    onOpenChange: (isOpen) => {
+      if (isOpen) setIsDelayed(Boolean(closeDelay))
+      if (props.onOpenChange) props.onOpenChange(isOpen)
     },
   })
   const aria = useTooltipTrigger(props, state, ref)
