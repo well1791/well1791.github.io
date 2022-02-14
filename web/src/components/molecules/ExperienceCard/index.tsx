@@ -46,7 +46,7 @@ export default React.forwardRef<HTMLDivElement, Props>(
   ({ data, isActive = false, prevBtn, nextBtn, ...props }: Props, ref) => {
     const isTouchableDev = useMediaQuery({ query: config.media.touchable })
     const isMobile = useMediaQuery({
-      query: `(max-width: ${breakpoint.tablet})`,
+      query: `(max-width: ${breakpoint.mobile})`,
     })
     const tooltipRef = React.useRef()
     const { tooltipTriggerProps, tooltipOverlayProps, tooltipState } =
