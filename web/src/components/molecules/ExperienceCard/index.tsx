@@ -32,8 +32,10 @@ export type Props = React.HTMLAttributes<HTMLElement> & {
 }
 
 const lgDateFmt = format('MMM d, yyyy')
-const smDateFmt = format("M/d''yy")
-const durationFmt = flow(intervalToDuration, formatDuration)
+const smDateFmt = format("MMM/d''yy")
+const durationFmt = flow(intervalToDuration, (date) =>
+  formatDuration(date, { format: ['years', 'months'] })
+)
 const durationSmFmt = (duration: string) =>
   duration
     .replace(/s/g, '')
@@ -105,11 +107,11 @@ export default React.forwardRef<HTMLDivElement, Props>(
                 </span>
                 <strong
                   aria-hidden="true"
-                  className={clsx([!inView && !isMobile && 'hidden'])}
+                  className={clsx([inView && !isMobile && 'hidden'])}
                 >
                   {durationSmFmt(durationLgFmt)}
                 </strong>
-                <strong className={clsx([(inView || isMobile) && 'sr-only'])}>
+                <strong className={clsx([(!inView || isMobile) && 'sr-only'])}>
                   {durationLgFmt}
                 </strong>
               </p>
