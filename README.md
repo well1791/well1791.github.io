@@ -1,18 +1,22 @@
-# Redwood
+# My resume site
 
-> **NOTICE:** RedwoodJS is very close to a stable version 1.0. In the last two years,
-> the project has matured significantly and is already used in production by a number
-> of startups. We intend to have a 1.0 release candidate before the end of 2021 and
-> to release a truly production-ready 1.0 in early 2022.
+> **NOTICE:** I'm using redwood, and so far for web is awesome!
 
-## Getting Started
-- [Tutorial](https://redwoodjs.com/tutorial/welcome-to-redwood): getting started and complete overview guide.
-- [Docs](https://redwoodjs.com/docs/introduction): using the Redwood Router, handling assets and files, list of command-line tools, and more.
-- [Redwood Community](https://community.redwoodjs.com): get help, share tips and tricks, and collaborate on everything about RedwoodJS.
+## Stack
+- [redwood](https://redwoodjs.com/docs/quick-start) base framework
+- [stitches core](https://stitches.dev/docs/framework-agnostic) for CSS-IN-JSS
+- [radix-ui/colors](https://www.radix-ui.com/docs/colors/getting-started/usage) for colors
+- [radix-ui/react-icons](https://icons.modulz.app/) for icons
+- [polished](https://polished.js.org/docs/) for awesomeness in CSS
+- [date-fns](https://date-fns.org/docs/Getting-Started) for date manipulation/formatting
+- [react-responsive](https://github.com/yocontra/react-responsive) for CSS media queries in JS
+- [recoil](https://recoiljs.org/docs/introduction/core-concepts/) for state management
+- [react-aria](https://react-spectrum.adobe.com/react-aria/why.html) and [react-stately](https://react-spectrum.adobe.com/react-stately/index.html) for a11y
+- [react-spring/parallax](https://react-spring.io/components/parallax) for parallax effect
 
 ### Setup
 
-We use Yarn as our package manager. To get the dependencies installed, just do this in the root directory:
+To get the dependencies installed, just do this in the root directory:
 
 ```terminal
 yarn install
@@ -21,7 +25,16 @@ yarn install
 ### Fire it up
 
 ```terminal
-yarn redwood dev
+yarn rw dev
 ```
 
 Your browser should open automatically to `http://localhost:8910` to see the web app. Lambda functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`.
+
+
+### Deploy
+
+For now the solution is pretty much this
+1. `yarn rw build web`
+1. `rm -rf docs/ && cp web/dist docs`
+1. `git add . && git commit -m "Update site"`
+1. `git push --set-upstream origin`
