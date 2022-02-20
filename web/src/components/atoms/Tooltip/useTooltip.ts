@@ -31,8 +31,8 @@ export default function useTooltip(
   }, [closeDelay, isDelayed, isClosed])
 
   return {
-    tooltipTriggerProps: aria.triggerProps,
-    tooltipOverlayProps: aria.tooltipProps,
-    tooltipState: { isMounted, ...state },
+    triggerProps: aria.triggerProps,
+    overlayProps: aria.tooltipProps,
+    state: { isMounted, ...state },
   }
 }
