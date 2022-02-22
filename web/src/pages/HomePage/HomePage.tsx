@@ -23,9 +23,9 @@ export default function HomePage() {
       onClick: () => parallaxRef.current.scrollTo(val.page),
     }))
     const skipToNav = {
-      href: `#${section.experience.id}`,
+      href: `#${section.hi.id}`,
       title: 'Skip Navigation',
-      onClick: () => parallaxRef.current.scrollTo(section.experience.page),
+      onClick: () => parallaxRef.current.scrollTo(section.hi.page),
     }
 
     setMainNavItems({

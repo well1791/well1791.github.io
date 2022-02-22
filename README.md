@@ -4,7 +4,7 @@
 
 ## Stack
 - [redwood](https://redwoodjs.com/docs/quick-start) base framework
-- [stitches core](https://stitches.dev/docs/framework-agnostic) for CSS-IN-JSS
+- [stitches/core](https://stitches.dev/docs/framework-agnostic) for CSS-IN-JSS
 - [radix-ui/colors](https://www.radix-ui.com/docs/colors/getting-started/usage) for colors
 - [radix-ui/react-icons](https://icons.modulz.app/) for icons
 - [polished](https://polished.js.org/docs/) for awesomeness in CSS
