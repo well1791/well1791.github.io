@@ -1,28 +1,12 @@
-import flow from 'lodash/fp/flow'
-import format from 'date-fns/fp/format'
 import clsx from 'clsx'
 import { QuestionMarkCircledIcon, InfoCircledIcon } from '@radix-ui/react-icons'
-import { formatDuration, intervalToDuration, startOfToday } from 'date-fns'
-import { useMediaQuery } from 'react-responsive'
 
 import NavBtn from 'src/components/atoms/ExperienceNavBtn'
-import type { Props as NavBtnProps } from 'src/components/atoms/ExperienceNavBtn'
 import TechSkill from 'src/components/atoms/TechSkill'
-import type { Props as TechSkillProps } from 'src/components/atoms/TechSkill'
-import Tooltip, { useTooltip } from 'src/components/atoms/Tooltip'
-import { config, breakpoint } from 'src/shared/theme'
+import Tooltip from 'src/components/atoms/Tooltip'
+import usePresenter from './usePresenter'
 import * as stl from './styles'
-
-export type NavAction = Omit<NavBtnProps, 'nav'>
-
-export type ExpData = {
-  title: string
-  url: string
-  startDate: Date
-  role: 'Fullstack' | 'Frontend'
-  endDate: Date | 'Present'
-  skills: TechSkillProps[]
-}
+import type { ExpData, NavAction } from './types'
 
 export type Props = React.HTMLAttributes<HTMLElement> & {
   data: ExpData
@@ -31,34 +15,18 @@ export type Props = React.HTMLAttributes<HTMLElement> & {
   nextBtn?: NavAction
 }
 
-const lgDateFmt = format('MMM d, yyyy')
-const smDateFmt = format("MMM/d''yy")
-const durationFmt = flow(intervalToDuration, (date) =>
-  formatDuration(date, { format: ['years', 'months'] })
-)
-const durationSmFmt = (duration: string) =>
-  duration
-    .replace(/s/g, '')
-    .replace(
-      /( years?)|( months?)|( days?)/g,
-      (m: string) => ({ day: 'd', month: 'mo', year: 'yr' }[m.trim()])
-    )
-
 export default React.forwardRef<HTMLDivElement, Props>(
   ({ data, isActive = false, prevBtn, nextBtn, ...props }: Props, ref) => {
-    const isTouchableDev = useMediaQuery({ query: config.media.touchable })
-    const isMobile = useMediaQuery({
-      query: `(max-width: ${breakpoint.mobile})`,
-    })
-    const tooltipRef = React.useRef()
-    const { tooltipTriggerProps, tooltipOverlayProps, tooltipState } =
-      useTooltip(tooltipRef)
-    const durationLgFmt = durationFmt({
-      start: data.startDate,
-      end: data.endDate === 'Present' ? startOfToday() : data.endDate,
-    })
-    const inView = true
-    const headerId = `experience card: ${data.title}`
+    const {
+      tooltip,
+      isTouchDev,
+      isMobile,
+      durationLgFmt,
+      durationSmFmt,
+      inView,
+      header,
+      touchDev,
+    } = usePresenter({ data })
 
     return (
       <div
@@ -68,21 +36,17 @@ export default React.forwardRef<HTMLDivElement, Props>(
         aria-hidden={!isActive}
         aria-disabled={!isActive}
         aria-current={isActive}
-        aria-describedby={headerId}
+        aria-describedby={header.id}
         className={stl.container({ className: props.className })}
       >
         <header className={stl.header()}>
-          <h3 id={headerId} className={stl.headerTitle()}>
+          <h3 id={header.id} className={stl.headerTitle()}>
             <a
               className={stl.headerLink()}
               href={data.url}
-              target={data.endDate === 'Present' ? '_self' : '_blank'}
+              target={header.target}
               rel="noreferrer"
-              aria-label={
-                data.endDate === 'Present'
-                  ? `go to my resume website`
-                  : `go to ${data.title} website`
-              }
+              aria-label={header.label}
             >
               {data.title}
             </a>
@@ -107,20 +71,20 @@ export default React.forwardRef<HTMLDivElement, Props>(
                 </span>
                 <strong
                   aria-hidden="true"
-                  className={clsx([inView && !isMobile && 'hidden'])}
+                  className={clsx(inView && !isMobile && 'hidden')}
                 >
-                  {durationSmFmt(durationLgFmt)}
+                  {durationSmFmt}
                 </strong>
-                <strong className={clsx([(!inView || isMobile) && 'sr-only'])}>
+                <strong className={clsx((!inView || isMobile) && 'sr-only')}>
                   {durationLgFmt}
                 </strong>
               </p>
 
-              {!isTouchableDev && (
+              {!isTouchDev && (
                 <div className="relative inline">
                   <button
-                    ref={tooltipRef}
-                    {...tooltipTriggerProps}
+                    ref={tooltip.ref}
+                    {...tooltip.triggerProps}
                     type="button"
                     className={stl.tooltipTrigger()}
                   >
@@ -132,25 +96,21 @@ export default React.forwardRef<HTMLDivElement, Props>(
                   </button>
 
                   <Tooltip
-                    state={tooltipState}
-                    {...tooltipOverlayProps}
-                    className={stl.tooltip({ isOpen: tooltipState.isOpen })}
+                    state={tooltip.state}
+                    {...tooltip.overlayProps}
+                    className={stl.tooltip({ isOpen: tooltip.state.isOpen })}
                   >
                     <div className={stl.tooltipArrow()} />
 
                     <div className={stl.tooltipContent()}>
                       <p>
                         {'Started: '}
-                        <strong>{lgDateFmt(data.startDate)}</strong>
+                        <strong>{tooltip.startDate}</strong>
                       </p>
 
                       <p>
                         {'Ended: '}
-                        <strong>
-                          {data.endDate === 'Present'
-                            ? 'Present'
-                            : lgDateFmt(data.endDate)}
-                        </strong>
+                        <strong>{tooltip.endDate}</strong>
                       </p>
                     </div>
 
@@ -162,29 +122,19 @@ export default React.forwardRef<HTMLDivElement, Props>(
               )}
             </div>
 
-            {isTouchableDev && (
+            {isTouchDev && (
               <>
                 <div className={clsx({ inView: 'sr-only' })}>
                   <p>
                     <span>{'Started: '}</span>
-                    <strong>
-                      {isMobile
-                        ? smDateFmt(data.startDate)
-                        : lgDateFmt(data.startDate)}
-                    </strong>
+                    <strong>{touchDev.startDate}</strong>
                   </p>
                 </div>
 
                 <div className={clsx({ inView: 'sr-only' })}>
                   <p>
                     <span>{'Ended: '}</span>
-                    <strong>
-                      {data.endDate === 'Present'
-                        ? 'Present'
-                        : isMobile
-                        ? smDateFmt(data.endDate)
-                        : lgDateFmt(data.endDate)}
-                    </strong>
+                    <strong>{touchDev.endDate}</strong>
                   </p>
                 </div>
               </>

@@ -1,14 +1,17 @@
 import { ParallaxLayer } from '@react-spring/parallax'
 import { FocusScope } from '@react-aria/focus'
+import { useInView } from 'react-intersection-observer'
+import { useRecoilState } from 'recoil'
 
 import ExperienceCard from 'src/components/molecules/ExperienceCard'
 import ThreeShadowsText, {
   useMousePosition,
 } from 'src/components/atoms/ThreeShadowsText'
-import Divider from 'src/components/atoms/DividerWithIcons'
+import Component from 'src/components/atoms/DividerWithIcons'
 import { expList } from 'src/shared/constants'
 import { theme } from 'src/shared/theme'
 import * as stl from './styles'
+import * as str from 'src/shared/store'
 
 export type Props = React.HTMLAttributes<HTMLElement> & { page: number }
 
@@ -56,10 +59,18 @@ export const ExperienceList = React.memo(() => {
 
 export default function SectionExperience(props: Props) {
   const { mouseBind, mousePos } = useMousePosition()
+  const { ref, inView } = useInView({ threshold: 0.5 })
+  const [activeNav, setActiveNav] = useRecoilState(str.activeNav)
+
+  React.useEffect(() => {
+    if (inView && activeNav !== props.id) setActiveNav(props.id)
+  }, [inView, activeNav, props.id, setActiveNav])
 
   return (
-    <section id={props.id}>
-      <h2 className="sr-only">Skills</h2>
+    <section aria-labelledby={props.id}>
+      <h2 id={props.id} className="sr-only">
+        Skills
+      </h2>
       <ParallaxLayer offset={props.page} className={stl.layerBg()} />
 
       <ParallaxLayer offset={props.page}>
@@ -88,11 +99,11 @@ export default function SectionExperience(props: Props) {
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page}>
-        <Divider />
+        <Component />
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page} speed={2.0}>
-        <div {...mouseBind()} className="absolute inset-0">
+        <div ref={ref} {...mouseBind()} className="absolute inset-0">
           <ExperienceList />
         </div>
       </ParallaxLayer>

@@ -1,26 +1,29 @@
 import { ParallaxLayer } from '@react-spring/parallax'
+import { ArrowDownIcon } from '@radix-ui/react-icons'
+import { useInView } from 'react-intersection-observer'
+import { useRecoilState } from 'recoil'
 
 import ThreeShadowsText, {
   useMousePosition,
 } from 'src/components/atoms/ThreeShadowsText'
 import { theme } from 'src/shared/theme'
 import * as stl from './styles'
+import * as str from 'src/shared/store'
 
-export type Props = React.HTMLAttributes<HTMLElement> & { page: number }
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  goToNextSection: () => void
+  page: number
+}
 
-export const Presentation = React.memo(() => (
+export const MyInfo = React.memo(() => (
   <div className={stl.bodyContainer()}>
     <div className={stl.bodyContent()}>
-      <p className={stl.im({ className: stl.highlight })}>{"I'm"}</p>
+      <p className={stl.im()}>{"I'm"}</p>
 
       <div className={stl.info()}>
-        <p className={stl.name({ className: stl.highlight })}>
-          Wellington Mendoza
-        </p>
+        <p className={stl.name()}>Wellington Mendoza</p>
         <div className={stl.divider()} />
-        <p className={stl.role({ className: stl.highlight })}>
-          Frontend Developer
-        </p>
+        <p className={stl.role()}>Frontend Developer</p>
       </div>
     </div>
   </div>
@@ -28,10 +31,18 @@ export const Presentation = React.memo(() => (
 
 export default function SectionHi(props: Props) {
   const { mouseBind, mousePos } = useMousePosition()
+  const { ref, inView } = useInView({ threshold: 0.5 })
+  const [activeNav, setActiveNav] = useRecoilState(str.activeNav)
+
+  React.useEffect(() => {
+    if (inView && activeNav !== props.id) setActiveNav(props.id)
+  }, [inView, activeNav, props.id, setActiveNav])
 
   return (
-    <section id={props.id}>
-      <h2 className="sr-only">Hi</h2>
+    <section aria-labelledby={props.id}>
+      <h2 id={props.id} className="sr-only">
+        Hi
+      </h2>
       <ParallaxLayer offset={props.page} className={stl.layerBg()} />
 
       <ParallaxLayer offset={props.page} speed={0.8}>
@@ -55,9 +66,18 @@ export default function SectionHi(props: Props) {
       </ParallaxLayer>
 
       <ParallaxLayer offset={props.page} speed={-0.2}>
-        <div {...mouseBind()} className="absolute inset-0">
-          <Presentation />
+        <div ref={ref} {...mouseBind()} className="absolute inset-0">
+          <MyInfo />
         </div>
+
+        <button
+          type="button"
+          className={stl.goToNextSection()}
+          onClick={props.goToNextSection}
+        >
+          <span className="sr-only">Scroll to next section</span>
+          <ArrowDownIcon aria-hidden="true" focusable="false" />
+        </button>
       </ParallaxLayer>
     </section>
   )

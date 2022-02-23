@@ -145,6 +145,7 @@ export const {
   },
   media: {
     mobile: `(min-width: ${breakpoint.mobile})`,
+    isMobile: `(max-width: ${breakpoint.mobile})`,
     tablet: `(min-width: ${breakpoint.tablet})`,
     laptop: `(min-width: ${breakpoint.laptop})`,
     desktop: `(min-width: ${breakpoint.desktop})`,
@@ -154,7 +155,7 @@ export const {
     hover: '(any-hover: hover)',
     dark: '(prefers-color-scheme: dark)',
     light: '(prefers-color-scheme: light)',
-    touchable: '(hover: none) and (pointer: coarse)',
+    touchDev: '(hover: none) and (pointer: coarse)',
   },
   utils: {
     p: (
@@ -316,8 +317,8 @@ export const darkTheme = createTheme({
     sectionExpCardHeaderBg: '$purple2',
     sectionExpCardHeaderText: 'white',
     sectionExpCardContentText: 'white',
-    sectionExpCardContentBg1: '$greenA6',
-    sectionExpCardContentBg2: '$cyanA3',
+    sectionExpCardContentBg1: 'transparent',
+    sectionExpCardContentBg2: '$pink3',
   },
 })
 

@@ -32,7 +32,7 @@ const iconsList = [
   GlobeIcon,
 ]
 
-export default function Divider() {
+export default function DividerWithIcons() {
   const dividerRef = React.useRef<HTMLDivElement>()
   const [currentWidth, setCurrentWidths] = React.useState(window.innerWidth)
   const [dimension, setDimension] = React.useState({ width: 0, height: 0 })
@@ -49,7 +49,7 @@ export default function Divider() {
   const icons = Array(nTimes).fill(iconsList).flat()
 
   React.useLayoutEffect(() => {
-    const handleResize = function handleResize() {
+    function handleResize() {
       if (currentWidth !== window.innerWidth) {
         setCurrentWidths(window.innerWidth)
       }

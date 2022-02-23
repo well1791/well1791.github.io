@@ -17,7 +17,7 @@ export const content = css({
   gap: '0.125rem',
 
   br: 'inherit',
-  py: '.2rem',
+  py: '.15rem',
   px: '1.5rem',
   background: 'white',
 

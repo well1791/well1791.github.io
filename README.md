@@ -4,7 +4,7 @@
 
 ## Stack
 - [redwood](https://redwoodjs.com/docs/quick-start) base framework
-- [stitches core](https://stitches.dev/docs/framework-agnostic) for CSS-IN-JSS
+- [stitches/core](https://stitches.dev/docs/framework-agnostic) for CSS-IN-JSS
 - [radix-ui/colors](https://www.radix-ui.com/docs/colors/getting-started/usage) for colors
 - [radix-ui/react-icons](https://icons.modulz.app/) for icons
 - [polished](https://polished.js.org/docs/) for awesomeness in CSS
@@ -35,6 +35,6 @@ Your browser should open automatically to `http://localhost:8910` to see the web
 
 For now the solution is pretty much this
 1. `yarn rw build web`
-1. `rm -rf docs/ && cp web/dist docs`
+1. `rm -rf docs/ && mv web/dist docs`
 1. `git add . && git commit -m "Update site"`
 1. `git push --set-upstream origin`

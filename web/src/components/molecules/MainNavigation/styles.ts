@@ -20,22 +20,41 @@ export const skipNav = css({
 })
 
 export const navItem = css({
-  p: '0.25rem',
-  br: '$sm',
+  py: '.3rem',
+  px: '.5rem',
+  br: '$full',
 
   color: '$mobMainNavMenuText',
   fontWeight: 'bold',
   fontSize: '$lg',
 
-  transition: 'text-shadow 350ms ease',
+  transition: [
+    'text-shadow 350ms ease',
+    'background-color 350ms ease',
+    'color 350ms ease',
+  ].join(','),
 
   '@tablet': {
     fontSize: '$md',
     color: '$mainNavText',
   },
 
-  '&:hover, &:focus': {
+  '&:hover': {
     textShadow: '0 0 8px white',
+  },
+
+  variants: {
+    isActive: {
+      true: {
+        bg: '$mobMainNavMenuText',
+        color: '$mobMainNavMenuBg',
+
+        '@tablet': {
+          bg: '$mainNavText',
+          color: '$mainHeaderBg',
+        },
+      },
+    },
   },
 })
 
