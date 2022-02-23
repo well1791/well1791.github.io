@@ -1,4 +1,5 @@
 import { css, keyframes, animation as thAnimation } from 'src/shared/theme'
+import type { CSS } from 'src/shared/theme'
 
 const animation = {
   hi: keyframes({
@@ -87,6 +88,17 @@ const animation = {
   bodyContainer: keyframes({
     to: { transform: 'translateX(7.5%)' },
   }),
+
+  scrollDownBtn: keyframes({
+    from: {
+      opacity: 0,
+      transform: 'translateY(-80%)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'translateY(20%)',
+    },
+  }),
 }
 
 export const layerBg = css({
@@ -146,13 +158,13 @@ export const bodyContent = css({
   },
 })
 
-export const highlight = css({
+const highlight: CSS = {
   color: '$whiteA12',
   textShadow: [
     '0px 0px 10px $colors$whiteA11',
     '1px 0px 5px $colors$blackA12',
   ].join(','),
-})
+}
 
 export const bodyContainer = css({
   display: 'flex',
@@ -172,6 +184,7 @@ export const bodyContainer = css({
 })
 
 export const im = css({
+  ...highlight,
   color: 'white',
   fontSize: '$lg',
   paddingInlineEnd: '0.75em',
@@ -183,6 +196,7 @@ export const im = css({
 })
 
 export const name = css({
+  ...highlight,
   animation: [
     `1.3s ease 1.5s 1 normal both running ${animation.slideInName}`,
     `1s ease 3s 1 normal both running ${animation.slideUpName}`,
@@ -190,6 +204,7 @@ export const name = css({
 })
 
 export const role = css({
+  ...highlight,
   animation: `1s ease 3s 1 normal both running ${animation.slideDownRole}`,
 })
 
@@ -214,4 +229,20 @@ export const divider = css({
   marginBlock: '0.75rem',
 
   animation: `.8s ease 2.75s 1 normal both running ${animation.slideInDivider}`,
+})
+
+export const goToNextSection = css({
+  $$size: '50px',
+
+  position: 'absolute',
+  insetBlockEnd: '10%',
+  insetInlineStart: 'calc(50% - ($$size / 2))',
+
+  transition: 'transform 350ms ease, opacity 350ms ease',
+
+  svg: {
+    color: 'white',
+    size: '$$size',
+    animation: `1.5s ease 3.5s infinite normal both running ${animation.scrollDownBtn}`,
+  },
 })

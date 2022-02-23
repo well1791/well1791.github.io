@@ -18,6 +18,7 @@ export type NavItem = {
 
 export default function MainNavigation() {
   const navState = useRecoilValue(str.mainNavItems)
+  const activeNav = useRecoilValue(str.activeNav)
   const dialogState = useOverlayTriggerState({})
   const isMobile = useMediaQuery({ maxWidth: breakpoint.tablet })
   const isMotionReduced = useMediaQuery({ query: config.media.motion })
@@ -54,7 +55,7 @@ export default function MainNavigation() {
         <li key={nav.href}>
           <a
             href={nav.href}
-            className={stl.navItem()}
+            className={stl.navItem({ isActive: nav.title === activeNav })}
             onClick={() => {
               if (isMobile) closeDialog()
               if (nav.onClick) nav.onClick()

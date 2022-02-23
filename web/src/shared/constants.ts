@@ -1,4 +1,4 @@
-import { ExpData } from 'src/components/molecules/ExperienceCard'
+import type { ExpData } from 'src/components/molecules/ExperienceCard/types'
 
 export const expList: ExpData[] = [
   {

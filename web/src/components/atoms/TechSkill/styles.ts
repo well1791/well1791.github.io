@@ -15,7 +15,7 @@ export const category = css({
   minInlineSize: 50,
   inlineSize: 'fit-content',
   blockSize: '100%',
-  pr: '.35rem',
+  pr: '.75rem',
 
   fontWeight: 'bold',
   fontSize: '$md',

@@ -317,8 +317,8 @@ export const darkTheme = createTheme({
     sectionExpCardHeaderBg: '$purple2',
     sectionExpCardHeaderText: 'white',
     sectionExpCardContentText: 'white',
-    sectionExpCardContentBg1: '$greenA6',
-    sectionExpCardContentBg2: '$cyanA3',
+    sectionExpCardContentBg1: 'transparent',
+    sectionExpCardContentBg2: '$pink3',
   },
 })
 

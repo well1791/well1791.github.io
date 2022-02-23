@@ -33,3 +33,8 @@ export const mainNavItems = atom<{ items: NavItem[]; skipTo?: NavItem }>({
     items: [],
   },
 })
+
+export const activeNav = atom<string>({
+  key: 'activeNav',
+  default: '',
+})

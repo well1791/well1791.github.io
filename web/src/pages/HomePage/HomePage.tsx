@@ -1,5 +1,6 @@
 import { MetaTags } from '@redwoodjs/web'
-import { Parallax, IParallax } from '@react-spring/parallax'
+import { Parallax } from '@react-spring/parallax'
+import type { IParallax } from '@react-spring/parallax'
 import { useSetRecoilState } from 'recoil'
 
 import MainLayout from 'src/layouts/MainLayout'
@@ -15,6 +16,7 @@ const section = {
 export default function HomePage() {
   const parallaxRef = React.useRef<IParallax>()
   const setMainNavItems = useSetRecoilState(str.mainNavItems)
+  const setActiveNav = useSetRecoilState(str.activeNav)
 
   React.useEffect(() => {
     const navItems = Object.values(section).map((val) => ({
@@ -32,7 +34,9 @@ export default function HomePage() {
       items: navItems,
       skipTo: skipToNav,
     })
-  }, [setMainNavItems])
+
+    setActiveNav(section.hi.id)
+  }, [setMainNavItems, setActiveNav])
 
   return (
     <>
@@ -47,7 +51,12 @@ export default function HomePage() {
           pages={Object.values(section).length}
           style={{ insetBlockStart: 0, insetInlineStart: 0 }}
         >
-          <SectionHi {...section.hi} />
+          <SectionHi
+            {...section.hi}
+            goToNextSection={() =>
+              parallaxRef.current.scrollTo(section.hi.page + 1)
+            }
+          />
           <SectionExperience {...section.experience} />
         </Parallax>
       </MainLayout>

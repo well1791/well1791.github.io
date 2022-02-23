@@ -46,28 +46,6 @@
       }
     }
 
-    @keyframes skewFTW {
-      0% {
-        transform: skew(1deg, 0)
-      }
-
-      25% {
-        transform: skew(0, 1.3deg)
-      }
-
-      50% {
-        transform: skew(-1.2deg, 1deg)
-      }
-
-      75% {
-        transform: skew(0, -1.5deg)
-      }
-
-      100% {
-        transform: skew(-1deg, 0)
-      }
-    }
-
     .loading-container {
       ---bgBlack: #080f11;
 
@@ -124,8 +102,8 @@
         linear-gradient(270deg, lightgoldenrodyellow, steelblue, cyan, fuchsia, yellow);
       background-size: 400%;
       animation:
-        3s linear 0s infinite normal none running rotate1Turn,
-        3s ease 0s infinite alternate-reverse none running bpLeftToRight;
+        1.5s linear 0s infinite normal none running rotate1Turn,
+        1.5s ease 0s infinite alternate-reverse none running bpLeftToRight;
     }
 
     .loading-inner-shadow {
@@ -141,7 +119,6 @@
       display: grid;
       grid-template-columns: 1fr;
       place-items: center;
-      animation: 5s ease 0s infinite alternate-reverse none running skewFTW;
     }
 
     .loading-backdrop .loading-circle-color,

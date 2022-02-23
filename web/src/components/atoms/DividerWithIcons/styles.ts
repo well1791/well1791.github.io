@@ -28,14 +28,7 @@ export const iconContainer = css({
     color: '$whiteA9',
     size: '100%',
     animation: `$$duration linear $$rotationDelay infinite alternate both running ${animation.rotate}`,
-    transition: 'color 5s cubic-bezier(0, 1.2, 1, 0.98)',
-  },
-
-  '&:hover': {
-    svg: {
-      color: 'white !important',
-      filter: 'drop-shadow(0 0 5px white)',
-    },
+    transition: 'color 5s ease-out',
   },
 })
 
@@ -52,10 +45,4 @@ export const divider = css({
   overflow: 'hidden',
 
   transform: 'translateX(-10%) translateY(-25%) rotate(.005turn)',
-
-  [`&:hover .${iconContainer()}`]: {
-    svg: {
-      color: '$whiteA7',
-    },
-  },
 })

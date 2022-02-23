@@ -49,7 +49,7 @@ export default function DividerWithIcons() {
   const icons = Array(nTimes).fill(iconsList).flat()
 
   React.useLayoutEffect(() => {
-    const handleResize = function handleResize() {
+    function handleResize() {
       if (currentWidth !== window.innerWidth) {
         setCurrentWidths(window.innerWidth)
       }

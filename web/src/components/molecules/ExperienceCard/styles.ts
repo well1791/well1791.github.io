@@ -210,7 +210,7 @@ export const expContainer = css({
     },
 
     [`.${themes.dark} &`]: {
-      bg: opacify(0.2, theme.colors.blackA11.value),
+      bg: opacify(0.35, theme.colors.blackA11.value),
     },
   },
 
@@ -240,14 +240,6 @@ export const techSkillsInfo = css({
   gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
 
   py: '1rem',
-
-  [`.${themes.dark} &`]: {
-    bg: '$blackA9',
-
-    '@tablet': {
-      bg: 'transparent',
-    },
-  },
 
   '@tablet': {
     bg: 'transparent',
