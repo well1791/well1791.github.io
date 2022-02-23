@@ -1,4 +1,4 @@
-import { render } from '@redwoodjs/testing/web'
+import { render, screen } from '@redwoodjs/testing/web'
 
 import Component from '.'
 
@@ -7,5 +7,9 @@ describe(Component.name, () => {
     expect(() => {
       render(<Component />)
     }).not.toThrow()
+  })
+
+  it('renders a lot of icons', () => {
+    render(<Component />)
   })
 })
