@@ -1,6 +1,6 @@
 import { render } from '@redwoodjs/testing/web'
 
-import Page from '.'
+import Page from './HomePage'
 
 describe(Page.name, () => {
   it('renders successfully', () => {
