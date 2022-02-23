@@ -35,6 +35,6 @@ Your browser should open automatically to `http://localhost:8910` to see the web
 
 For now the solution is pretty much this
 1. `yarn rw build web`
-1. `rm -rf docs/ && cp web/dist docs`
+1. `rm -rf docs/ && mv web/dist docs`
 1. `git add . && git commit -m "Update site"`
 1. `git push --set-upstream origin`

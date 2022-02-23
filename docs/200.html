@@ -36,28 +36,6 @@
       }
     }
 
-    @keyframes skewFTW {
-      0% {
-        transform: skew(1deg, 0)
-      }
-
-      25% {
-        transform: skew(0, 1.3deg)
-      }
-
-      50% {
-        transform: skew(-1.2deg, 1deg)
-      }
-
-      75% {
-        transform: skew(0, -1.5deg)
-      }
-
-      100% {
-        transform: skew(-1deg, 0)
-      }
-    }
-
     .loading-container {
       ---bgBlack: #080f11;
 
@@ -114,8 +92,8 @@
         linear-gradient(270deg, lightgoldenrodyellow, steelblue, cyan, fuchsia, yellow);
       background-size: 400%;
       animation:
-        3s linear 0s infinite normal none running rotate1Turn,
-        3s ease 0s infinite alternate-reverse none running bpLeftToRight;
+        1.5s linear 0s infinite normal none running rotate1Turn,
+        1.5s ease 0s infinite alternate-reverse none running bpLeftToRight;
     }
 
     .loading-inner-shadow {
@@ -131,7 +109,6 @@
       display: grid;
       grid-template-columns: 1fr;
       place-items: center;
-      animation: 5s ease 0s infinite alternate-reverse none running skewFTW;
     }
 
     .loading-backdrop .loading-circle-color,
@@ -152,4 +129,4 @@
       white-space: pre;
       content: '   ';
       animation: ellipsis steps(1, end) 1s infinite;
-    }</style><script defer="defer" src="/static/js/runtime-app.20723b98.js"></script><script defer="defer" src="/static/js/app.ac60feda.js"></script><link href="/static/css/app.fb5109f2.css" rel="stylesheet"></head><body><div class="loading-container"><div class="loading-outer-shadow"><div class="loading-backdrop"><div class="loading-circle-color"></div><div class="loading-inner-shadow"></div></div></div><p class="loading-text">loading</p></div><div id="redwood-app"><server-markup></server-markup></div></body></html>
+    }</style><script defer="defer" src="/static/js/runtime-app.20723b98.js"></script><script defer="defer" src="/static/js/app.274b93c4.js"></script><link href="/static/css/app.fb5109f2.css" rel="stylesheet"></head><body><div class="loading-container"><div class="loading-outer-shadow"><div class="loading-backdrop"><div class="loading-circle-color"></div><div class="loading-inner-shadow"></div></div></div><p class="loading-text">loading</p></div><div id="redwood-app"><server-markup></server-markup></div></body></html>
