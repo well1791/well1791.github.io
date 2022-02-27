@@ -48,7 +48,6 @@ export default function SectionHi(props: Props) {
       <ParallaxLayer offset={props.page} speed={0.8}>
         <div className={stl.hiContainer()}>
           <ThreeShadowsText
-            text="Hi"
             pos={mousePos}
             className={stl.threeShadowsText()}
             shadowFontSize="calc(min(75vh, 75vw) + 1rem)"
@@ -57,7 +56,11 @@ export default function SectionHi(props: Props) {
               theme.colors.sectionHiTitleShMid.computedValue,
               theme.colors.sectionHiTitleShTop.computedValue,
             ]}
-          />
+          >
+            <span aria-label="Hi" role="img">
+              👋
+            </span>
+          </ThreeShadowsText>
         </div>
       </ParallaxLayer>
 

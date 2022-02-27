@@ -3,7 +3,7 @@ import zip from 'lodash/fp/zip'
 import * as stl from './styles'
 
 type Props = {
-  text: string
+  children: React.ReactNode
   className?: string
   pos: { x: number; y: number }
   shadowColors: Array<React.CSSProperties['color']>
@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function ThreeShadowsText({
-  text,
+  children,
   className,
   pos,
   shadowFontSize,
@@ -40,7 +40,7 @@ export default function ThreeShadowsText({
           style={{ transform: `translate(${pos.x * n}%, ${pos.y * n}%)` }}
           aria-hidden="true"
         >
-          {text}
+          {children}
         </span>
       ))}
     </div>

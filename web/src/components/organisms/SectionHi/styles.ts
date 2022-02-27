@@ -9,7 +9,7 @@ const animation = {
     },
     to: {
       opacity: 1,
-      transform: 'rotate(-0.04turn) translateY(40%)',
+      transform: 'rotate(-0.04turn) translateY(20%)',
     },
   }),
 

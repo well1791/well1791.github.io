@@ -80,7 +80,6 @@ export default function SectionExperience(props: Props) {
       <ParallaxLayer offset={props.page} speed={0.7}>
         <div className={stl.threeShadowsContainer()}>
           <ThreeShadowsText
-            text="Skills"
             className={stl.threeShadowsText()}
             pos={mousePos}
             shadowColors={[
@@ -88,7 +87,9 @@ export default function SectionExperience(props: Props) {
               theme.colors.sectionExpTitleShMid.computedValue,
               theme.colors.sectionExpTitleShTop.computedValue,
             ]}
-          />
+          >
+            Skills
+          </ThreeShadowsText>
         </div>
       </ParallaxLayer>
 
