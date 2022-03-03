@@ -57,9 +57,7 @@ export default function SectionHi(props: Props) {
               theme.colors.sectionHiTitleShTop.computedValue,
             ]}
           >
-            <span aria-label="Hi" role="img">
-              👋
-            </span>
+            Hi
           </ThreeShadowsText>
         </div>
       </ParallaxLayer>
