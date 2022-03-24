@@ -1,22 +1,12 @@
-# My resume site
-
-> **NOTICE:** I'm using redwood, and so far for web is awesome!
-
-## Stack
-- [redwood](https://redwoodjs.com/docs/quick-start) base framework
-- [stitches/core](https://stitches.dev/docs/framework-agnostic) for CSS-IN-JSS
-- [radix-ui/colors](https://www.radix-ui.com/docs/colors/getting-started/usage) for colors
-- [radix-ui/react-icons](https://icons.modulz.app/) for icons
-- [polished](https://polished.js.org/docs/) for awesomeness in CSS
-- [date-fns](https://date-fns.org/docs/Getting-Started) for date manipulation/formatting
-- [react-responsive](https://github.com/yocontra/react-responsive) for CSS media queries in JS
-- [recoil](https://recoiljs.org/docs/introduction/core-concepts/) for state management
-- [react-aria](https://react-spectrum.adobe.com/react-aria/why.html) and [react-stately](https://react-spectrum.adobe.com/react-stately/index.html) for a11y
-- [react-spring/parallax](https://react-spring.io/components/parallax) for parallax effect
+# Redwood
+## Getting Started
+- [Tutorial](https://redwoodjs.com/docs/tutorial): getting started and complete overview guide.
+- [Docs](https://redwoodjs.com/docs/introduction): using the Redwood Router, handling assets and files, list of command-line tools, and more.
+- [Redwood Community](https://community.redwoodjs.com): get help, share tips and tricks, and collaborate on everything about RedwoodJS.
 
 ### Setup
 
-To get the dependencies installed, just do this in the root directory:
+We use Yarn as our package manager. To get the dependencies installed, just do this in the root directory:
 
 ```terminal
 yarn install
@@ -25,16 +15,7 @@ yarn install
 ### Fire it up
 
 ```terminal
-yarn rw dev
+yarn redwood dev
 ```
 
-Your browser should open automatically to `http://localhost:8910` to see the web app. Lambda functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`.
-
-
-### Deploy
-
-For now the solution is pretty much this
-1. `yarn rw build web`
-1. `rm -rf docs/ && mv web/dist docs`
-1. `git add . && git commit -m "Update site"`
-1. `git push --set-upstream origin`
+Your browser should open automatically to `http://localhost:8910` to see the web app. Server functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`.
