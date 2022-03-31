@@ -1,19 +1,35 @@
-import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+
+import * as stl from './HomePage.styles'
 
 const HomePage = () => {
   return (
     <>
       <MetaTags title="Home" description="Home page" />
 
-      <h1>HomePage</h1>
-      <p>
-        Find me in <code>./web/src/pages/HomePage/HomePage.tsx</code>
-      </p>
-      <p>
-        My default route is named <code>home</code>, link to me with `
-        <Link to={routes.home()}>Home</Link>`
-      </p>
+      <div className={stl.container()}>
+        <div>
+          <p>Hey,</p>
+          <h1>
+            {"I'm"} Well<span>ington</span>
+          </h1>
+        </div>
+
+        <section aria-labelledby="experience">
+          <h2 id="experience">Experience</h2>
+
+          <section>
+            <div>
+              <h3>Solo</h3>
+              <time dateTime=""></time>
+            </div>
+
+            <div>
+              <div>Tech stack</div>
+            </div>
+          </section>
+        </section>
+      </div>
     </>
   )
 }

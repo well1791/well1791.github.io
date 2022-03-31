@@ -1,12 +1,16 @@
-# Redwood
-## Getting Started
-- [Tutorial](https://redwoodjs.com/docs/tutorial): getting started and complete overview guide.
-- [Docs](https://redwoodjs.com/docs/introduction): using the Redwood Router, handling assets and files, list of command-line tools, and more.
-- [Redwood Community](https://community.redwoodjs.com): get help, share tips and tricks, and collaborate on everything about RedwoodJS.
+# My resume
+## Tech stack
+
+- typescript :shrug:
+- [https://redwoodjs.com/](redwoodjs)
+- [https://stitches.dev/](stitches)
+- [https://polished.js.org/](polished)
+- [https://date-fns.org/](date-fns)
+- [https://jotai.org/](jotai)
 
 ### Setup
 
-We use Yarn as our package manager. To get the dependencies installed, just do this in the root directory:
+To get the dependencies installed, just do this in the root directory:
 
 ```terminal
 yarn install
@@ -19,3 +23,16 @@ yarn redwood dev
 ```
 
 Your browser should open automatically to `http://localhost:8910` to see the web app. Server functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`.
+
+### Deploy
+
+For now the solution is pretty much this
+
+```terminal
+yarn rw build web && \
+rm -rf docs && \
+mv web/dist docs && \
+git add . && \
+git commit -m "Update site" && \
+git push --set-upstream origin
+```
