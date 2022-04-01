@@ -516,8 +516,8 @@ export const darkTheme = createTheme({
     ...rc.slateDark,
     ...rc.slateDarkA,
 
-    ...rc.red,
-    ...rc.redA,
+    ...rc.redDark,
+    ...rc.redDarkA,
     ...rc.purpleDark,
     ...rc.purpleDarkA,
     ...rc.mintDark,
