@@ -20,7 +20,7 @@ export const bp = {
   '2xl': '1536px',
 }
 
-export const length = {
+export const remSize = {
   '0_5': '0.125rem',
   1: '0.25rem', // 4px
   '1_5': '0.375rem',

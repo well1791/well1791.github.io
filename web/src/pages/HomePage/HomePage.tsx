@@ -1,5 +1,8 @@
 import { MetaTags } from '@redwoodjs/web'
 
+import ExperienceSection from 'src/components/ExperienceSection'
+import SkillsSection from 'src/components/SkillsSection'
+import MainHero from 'src/components/MainHero'
 import * as stl from './HomePage.styles'
 
 const HomePage = () => {
@@ -8,27 +11,14 @@ const HomePage = () => {
       <MetaTags title="Home" description="Home page" />
 
       <div className={stl.container()}>
-        <div>
-          <p>Hey,</p>
-          <h1>
-            {"I'm"} Well<span>ington</span>
-          </h1>
+        <MainHero className={stl.sectionHero()} />
+
+        <div className={stl.sectionContainer()}>
+          <ExperienceSection className={stl.sectionContent()} />
         </div>
-
-        <section aria-labelledby="experience">
-          <h2 id="experience">Experience</h2>
-
-          <section>
-            <div>
-              <h3>Solo</h3>
-              <time dateTime=""></time>
-            </div>
-
-            <div>
-              <div>Tech stack</div>
-            </div>
-          </section>
-        </section>
+        <div className={stl.sectionContainer()}>
+          <SkillsSection className={stl.sectionContent()} />
+        </div>
       </div>
     </>
   )

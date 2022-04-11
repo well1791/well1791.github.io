@@ -1,20 +1,36 @@
-import { css } from 'src/shared/theme'
+import { css, stl } from 'src/shared/theme'
 
-export const container = css({
-  display: 'flex',
-  items: 'center',
-  justify: 'center',
-  gap: '$$headerActionsGap',
-})
+export const linkUnderline = stl.linkUnderline.css
 
 export const link = css({
-  transition: 'color 350ms ease',
   p: '$1',
   rounded: '$md',
 
-  '&:hover': {
-    color: '$headerBorderClr',
+  color: '$colors$text',
+  textDecoration: 'none',
+
+  position: 'relative',
+
+  '@motion': {
+    transition: 'color 350ms ease',
+  },
+
+  '@hover': {
+    '&:hover': {
+      color: '$headerAccent1',
+    },
   },
 })
 
-export const listItem = css({})
+export const listItem = css({
+  listStyle: 'none',
+  display: 'inline-block',
+})
+
+export const content = css({
+  p: 0,
+  m: 0,
+  spaceX: '$$headerActionsGap', // TODO: don't use magic MainHeader.actions
+})
+
+export const container = css({})

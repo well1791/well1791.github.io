@@ -10,7 +10,7 @@ import {
   flatVal,
   percent,
 } from './utils'
-import { bgGrdDir, bp, length } from './constants'
+import { bgGrdDir, bp, remSize } from './constants'
 
 export const {
   css,
@@ -24,7 +24,7 @@ export const {
   theme: {
     borderStyles: {},
     borderWidths: {
-      ...length,
+      ...remSize,
     },
     colors: {
       ...rc.whiteA,
@@ -33,45 +33,56 @@ export const {
       ...rc.slate,
       ...rc.slateA,
 
-      ...rc.sky,
-      ...rc.skyA,
-      ...rc.yellow,
-      ...rc.yellowA,
+      shadowSm: 'rgb(0 0 0 / 0.05)',
+      shadowMd: 'rgb(0 0 0 / 0.1)',
+      shadowLg: 'rgb(0 0 0 / 0.25)',
 
-      ...rc.red,
-      ...rc.redA,
-      ...rc.purple,
-      ...rc.purpleA,
-      ...rc.mint,
-      ...rc.mintA,
-      ...rc.amber,
-      ...rc.amberA,
+      text: rc.slate.slate12,
 
-      headerBorderClr: '$colors$red10',
+      headerBg: rc.cyan.cyan3,
+      headerAccent1: rc.orange.orange10,
+      headerAccent2: rc.violet.violet10,
+
+      mainBg: rc.slate.slate2,
+      mainAccent1: rc.indigo.indigo2,
+      mainAccent2: rc.crimson.crimson2,
+
+      footerBg: rc.cyan.cyan3,
     },
     fonts: {
-      quattro: 'iA Quattro',
+      quattroR: 'iA Quattro Regular',
+      quattroB: 'iA Quattro Bold',
+      emoji: 'NotoEmoji',
     },
     fontSizes: {
-      xs: length[3],
-      sm: length['3_5'],
-      base: length[4],
-      lg: length['4_5'],
-      xl: length[5],
-      '2xl': length[6],
+      xs: 'clamp(0.72rem, calc(0.57rem + 0.19vw), 0.61rem)',
+      sm: 'clamp(0.73rem, calc(0.67rem + 0.28vw), 0.90rem)',
+      base: 'clamp(0.88rem, calc(0.79rem + 0.42vw), 1.13rem)',
+      lg: 'clamp(1.05rem, calc(0.93rem + 0.59vw), 1.41rem)',
+      xl: 'clamp(1.26rem, calc(1.09rem + 0.83vw), 1.76rem)',
+      '2xl': 'clamp(1.51rem, calc(1.28rem + 1.14vw), 2.20rem)',
+      '3xl': 'clamp(1.81rem, calc(1.50rem + 1.55vw), 2.75rem)',
+      '4xl': 'clamp(2.18rem, calc(1.76rem + 2.09vw), 3.43rem)',
     },
     fontWeights: {
-      thin: '100',
-      extralight: '200',
-      light: '300',
-      normal: '400',
-      medium: '500',
-      semibold: '600',
-      bold: '700',
-      extrabold: '800',
-      black: '900',
+      thin: 100,
+      extralight: 200,
+      light: 300,
+      normal: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
+      extrabold: 800,
+      black: 900,
     },
-    letterSpacings: {},
+    letterSpacings: {
+      tighter: '-0.05em',
+      tight: '-0.025em',
+      normal: '0em',
+      wide: '0.025em',
+      wider: '0.05em',
+      widest: '0.1em',
+    },
     lineHeights: {
       none: 1,
       tight: 1.25,
@@ -82,24 +93,36 @@ export const {
     },
     radii: {
       full: '9999px',
-      sm: length[1],
-      md: length['1_5'],
-      lg: length[2],
-      xl: length[3],
-      '2xl': length[4],
+      sm: remSize[1],
+      md: remSize['1_5'],
+      lg: remSize[2],
+      xl: remSize[3],
+      '2xl': remSize[4],
     },
     shadows: {
-      xs: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-      sm: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-      md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-      lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
-      xl: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
-      '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
-      inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
+      xs: '0 1px 2px 0 $colors$shadowSm',
+      sm: [
+        '0 1px 3px 0 $colors$shadowMd',
+        '0 1px 2px -1px $colors$shadowMd',
+      ].join(', '),
+      md: [
+        '0 4px 6px -1px $colors$shadowMd',
+        '0 2px 4px -2px $colors$shadowMd',
+      ].join(', '),
+      lg: [
+        '0 10px 15px -3px $colors$shadowMd',
+        '0 4px 6px -4px $colors$shadowMd',
+      ].join(', '),
+      xl: [
+        '0 20px 25px -5px $colors$shadowMd',
+        ' 0 8px 10px -6px $colors$shadowMd',
+      ].join(', '),
+      '2xl': '0 25px 50px -12px $colors$shadowLg',
+      inner: 'inset 0 2px 4px 0 $colors$shadowSm',
       none: '0 0 #0000',
     },
     sizes: {
-      ...length,
+      ...remSize,
       ...bp,
       prose: '65ch',
       '1of2': percent(1, 2),
@@ -129,13 +152,14 @@ export const {
       '10of12': percent(10, 12),
       '11of12': percent(11, 12),
       full: '100%',
-      screen: '100vw',
+      hScreen: '100vh',
+      wScreen: '100vw',
       min: 'min-content',
       max: 'max-content',
       fit: 'fit-content',
     },
     space: {
-      ...length,
+      ...remSize,
     },
     transitions: {},
     zIndices: {
@@ -149,12 +173,13 @@ export const {
   media: {
     xs: `(min-width: ${bp.xs})`,
     sm: `(min-width: ${bp.sm})`,
+    untilSm: `(max-width: ${bp.sm})`,
     md: `(min-width: ${bp.md})`,
     lg: `(min-width: ${bp.lg})`,
     xl: `(min-width: ${bp.xl})`,
     '2xl': `(min-width: ${bp['2xl']})`,
 
-    motion: '(prefers-reduced-motion)',
+    motion: '(prefers-reduced-motion: no-preference)',
     hover: '(any-hover: hover)',
     dark: '(prefers-color-scheme: dark)',
     light: '(prefers-color-scheme: light)',
@@ -377,20 +402,17 @@ export const {
       }))('((margin-block-start: 1rem) and (margin-block-end: 1rem))'),
 
     // space
-    space: ([dir, value]: [
-      'x' | 'y',
-      number | Stitches.PropertyValue<'marginInlineStart'>
-    ]) => ({
-      '> * + *': {
-        x: ((qry) => ({
-          [`@supports ${qry}`]: { marginInlineStart: value },
-          [`@supports not ${qry}`]: { marginLeft: value },
-        }))('(margin-inline-start: 1rem)'),
-        y: ((qry) => ({
-          [`@supports ${qry}`]: { marginBlockStart: value },
-          [`@supports not ${qry}`]: { marginTop: value },
-        }))('(margin-block-start: 1rem)'),
-      }[dir],
+    spaceX: (value: Stitches.PropertyValue<'marginInlineStart'>) => ({
+      '> * + *': ((qry) => ({
+        [`@supports ${qry}`]: { marginInlineStart: value },
+        [`@supports not ${qry}`]: { marginLeft: value },
+      }))('(margin-inline-start: 1rem)'),
+    }),
+    spaceY: (value: Stitches.PropertyValue<'marginBlockStart'>) => ({
+      '> * + *': ((qry) => ({
+        [`@supports ${qry}`]: { marginBlockStart: value },
+        [`@supports not ${qry}`]: { marginTop: value },
+      }))('(margin-block-start: 1rem)'),
     }),
 
     // background
@@ -468,7 +490,6 @@ export const {
       }))('((border-block-start: 1rem) and (border-block-end: 1rem))'),
 
     // font
-    text: (value: Stitches.PropertyValue<'fontSize'>) => ({ fontSize: value }),
     textOverflow: (
       value: 'truncate' | Stitches.PropertyValue<'textOverflow'>
     ) =>
@@ -479,6 +500,11 @@ export const {
             whiteSpace: 'nowrap',
           }
         : value,
+
+    // tracking
+    tracking: (value: Stitches.PropertyValue<'letterSpacing'>) => ({
+      letterSpacing: value,
+    }),
 
     // screen-reader
     srOnly: (value: boolean) =>
@@ -516,22 +542,27 @@ export const darkTheme = createTheme({
     ...rc.slateDark,
     ...rc.slateDarkA,
 
-    ...rc.redDark,
-    ...rc.redDarkA,
-    ...rc.purpleDark,
-    ...rc.purpleDarkA,
-    ...rc.mintDark,
-    ...rc.mintDarkA,
-    ...rc.amberDark,
-    ...rc.amberDarkA,
+    shadowSm: 'rgb(255 255 255 / 0.05)',
+    shadowMd: 'rgb(255 255 255 / 0.1)',
+    shadowLg: 'rgb(255 255 255 / 0.25)',
 
-    headerBorderClr: '$colors$sky9',
+    text: rc.slateDark.slate12,
+
+    headerBg: rc.violetDark.violet2,
+    headerAccent1: rc.yellowDark.yellow10,
+    headerAccent2: rc.skyDark.sky10,
+
+    mainBg: rc.slateDark.slate2,
+    mainAccent1: rc.indigoDark.indigo2,
+    mainAccent2: rc.crimsonDark.crimson2,
+
+    footerBg: rc.violetDark.violet2,
   },
 })
 
-export const themes: {
-  [k in Type.ThemeType]: typeof theme | typeof darkTheme
-} = {
-  light: theme,
+export type ThemeType = typeof theme | typeof darkTheme
+
+export const themes: { [k in Type.ThemeNameType]: ThemeType } = {
+  light: lightTheme,
   dark: darkTheme,
 }

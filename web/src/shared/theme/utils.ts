@@ -1,11 +1,11 @@
 import { themes } from './theme'
 import { FlexStartEnd, FlexSpace } from './types'
-import type { ThemeType, AvThemeType, BgLinGrd } from './types'
+import type { ThemeNameType, AvThemeNameType, BgLinGrd } from './types'
 
-export const isValidTheme = (value?: string): value is ThemeType =>
+export const isValidTheme = (value?: string): value is ThemeNameType =>
   Boolean(themes[value])
 
-export const isValidAvTheme = (value?: string): value is AvThemeType =>
+export const isValidAvTheme = (value?: string): value is AvThemeNameType =>
   value === 'system' || Boolean(themes[value])
 
 export const isBgLinGrd = (v: BgLinGrd | BgLinGrd[]): v is BgLinGrd => {

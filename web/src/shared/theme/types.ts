@@ -1,8 +1,8 @@
 import type Stitches from '@stitches/core'
 
-export type ThemeType = 'light' | 'dark'
+export type ThemeNameType = 'light' | 'dark'
 
-export type AvThemeType = ThemeType | 'system'
+export type AvThemeNameType = ThemeNameType | 'system'
 
 export type BgGrdDir = 't' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl'
 

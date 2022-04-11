@@ -3,11 +3,14 @@ import { atomWithStorage } from 'jotai/utils'
 import type { Maybe } from 'purify-ts/Maybe'
 import { Nothing } from 'purify-ts/Maybe'
 
-import type { AvThemeType, ThemeType } from 'src/shared/theme'
+import type { AvThemeNameType, ThemeNameType } from 'src/shared/theme'
 // import type { NavItem } from 'src/components/molecules/MainNavigation'
 
-export const storedThemeAtom = atomWithStorage<AvThemeType>('theme', 'system')
-export const currentThemeAtom = atom<Maybe<ThemeType>>(Nothing)
+export const storedThemeNameAtom = atomWithStorage<AvThemeNameType>(
+  'theme',
+  'system'
+)
+export const currentThemeNameAtom = atom<Maybe<ThemeNameType>>(Nothing)
 
 export const headerStylesAtom = atom({ blockSize: '70px' })
 
