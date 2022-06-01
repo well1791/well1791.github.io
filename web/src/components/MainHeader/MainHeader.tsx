@@ -1,7 +1,7 @@
 import { formatInTimeZone } from 'date-fns-tz/fp'
 import { useWindowScroll } from '@mantine/hooks'
 import { transparentize } from 'polished'
-import { compareDesc, set, startOfToday } from 'date-fns'
+import { set } from 'date-fns'
 
 import MainNavigation from 'src/components/MainNavigation'
 import ThemeMenu from 'src/components/ThemeMenu'
@@ -31,22 +31,22 @@ export const MainHeader = ({ css, ...props }: Props) => {
   const shouldDisplayProgressBar = scrollPos >= 4
   const cssProps = { $$height: css.height.join('') }
   const [theme] = useCurrentTheme()
-  const startOfDay = React.useMemo(() => startOfToday(), [])
   const isNow = (values: Parameters<typeof set>[1]) =>
-    compareDesc(set(startOfDay, values), timer) >= 0
+    timer.getTime() >=
+    set(timer, { minutes: 0, seconds: 0, ...values }).getTime()
   const emoji =
     [
-      { time: { hours: 7 }, emoji: '😑' },
-      { time: { hours: 9, minutes: 30 }, emoji: '🙂' },
-      { time: { hours: 11, minutes: 30 }, emoji: '🍲' },
-      { time: { hours: 12, minutes: 30 }, emoji: '😁' },
-      { time: { hours: 16 }, emoji: '🥪' },
-      { time: { hours: 16, minutes: 30 }, emoji: '🙂' },
-      { time: { hours: 18, minutes: 30 }, emoji: '🏋️' },
-      { time: { hours: 20 }, emoji: '🛀' },
-      { time: { hours: 20, minutes: 30 }, emoji: '📺' },
-      { time: { hours: 21, minutes: 30 }, emoji: '🥱' },
       { time: { hours: 23 }, emoji: '🛌' },
+      { time: { hours: 21, minutes: 30 }, emoji: '🥱' },
+      { time: { hours: 20, minutes: 30 }, emoji: '📺' },
+      { time: { hours: 20 }, emoji: '🛀' },
+      { time: { hours: 18, minutes: 30 }, emoji: '🏋️' },
+      { time: { hours: 16, minutes: 30 }, emoji: '🙂' },
+      { time: { hours: 16 }, emoji: '🥪' },
+      { time: { hours: 12, minutes: 30 }, emoji: '😁' },
+      { time: { hours: 11, minutes: 30 }, emoji: '🍲' },
+      { time: { hours: 9, minutes: 30 }, emoji: '🙂' },
+      { time: { hours: 7 }, emoji: '😑' },
     ].find(({ time }) => isNow(time))?.emoji || '🛌'
 
   // update timer

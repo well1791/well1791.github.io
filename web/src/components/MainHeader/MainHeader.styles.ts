@@ -94,6 +94,10 @@ export const container = css({
     transition: 'height 350ms ease, opacity 350ms ease',
   },
 
+  '[data-emoji]': {
+    fontSize: '$lg',
+  },
+
   variants: {
     shouldDisplayProgressBar: {
       true: {
