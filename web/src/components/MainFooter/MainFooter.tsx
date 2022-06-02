@@ -43,7 +43,7 @@ export const MainFooter = ({ css, ...props }: Props) => {
         className={stl.container({ className: props.className, css: cssProps })}
       >
         <div className={stl.content()}>
-          <h2 className={stl.title()}>{'Find me'}</h2>
+          <h2 className={stl.title()}>{'Get in touch'}</h2>
 
           <nav aria-label="Footer navigation">
             <ul className={stl.contactList()}>
