@@ -27,7 +27,9 @@ export const titleIndicator = css({
   w: '1ch',
   borderT: 'solid $colors$headerAccent1 $space$1',
 
-  transition: ['transform 350ms ease', 'opacity 250ms ease'].join(', '),
+  '@motion': {
+    transition: ['transform 350ms ease', 'opacity 250ms ease'].join(', '),
+  },
 
   '@hover': {
     ':hover > &': {

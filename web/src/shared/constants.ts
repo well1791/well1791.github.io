@@ -1,6 +1,6 @@
 import type { CompanyExperience } from './types'
 
-export const expList: CompanyExperience[] = [
+export const expList: Array<CompanyExperience> = [
   {
     name: 'Stack Builders',
     location: 'Quito, EC',
@@ -10,13 +10,43 @@ export const expList: CompanyExperience[] = [
     endDate: 'Present',
     projects: [
       {
-        name: 'Twilio',
-        description: 'Update documentation content, fix CMS issues.',
+        name: 'Crossplatform mobile app for Social Events connections',
+        description:
+          'Add features and make fixes on the app, enhance performance given the amount of clients connected simultaneously, improve UI/UX based on good practices for mobile apps.',
+        team: '1 dev',
+        startDate: new Date(2023, 8, 14),
+        techStack: [
+          { name: 'typescript', cat: 'js' },
+          { name: 'fp-ts', cat: 'js' },
+          { name: 'edgeql', cat: 'sql' },
+          { name: 'javascript', cat: 'js' },
+        ],
+      },
+      {
+        name: 'Crossplatform mobile app for Parenting',
+        description: 'Provide support and guidelines for a shutdown process.',
+        team: '1 dev',
+        startDate: new Date(2023, 4, 10),
+        endDate: new Date(2023, 11, 1),
+        techStack: [
+          { name: 'javascript', cat: 'js' },
+          { name: 'react-native', cat: 'js' },
+          { name: 'circleci', cat: 'devops' },
+        ],
+      },
+      {
+        name: 'Programmable Communication API',
+        description:
+          'Lead a multidisciplined team, maintain a CMS site, bring support to other internal teams across the company, improve UI/UX.',
         team: '4 devs',
         startDate: new Date(2022, 5, 16),
+        endDate: new Date(2023, 4, 7),
         techStack: [
           { name: 'wagtail', cat: 'py' },
+          { name: 'django', cat: 'py' },
+          { name: 'javascript', cat: 'js' },
           { name: 'scss', cat: 'css' },
+          { name: 'docker', cat: 'css' },
         ],
       },
       {
@@ -29,7 +59,7 @@ export const expList: CompanyExperience[] = [
     ],
   },
   {
-    name: 'No job',
+    name: 'On vacations',
     location: 'Guayaquil, EC',
     url: 'https://well1791.github.io',
     role: 'Frontend',

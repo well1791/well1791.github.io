@@ -1,4 +1,5 @@
 export type TechCategory =
+  | 'devops'
   | 'css'
   | 'php'
   | 'js'
@@ -11,15 +12,18 @@ export type TechCategory =
 
 export type CompanyRole = 'Frontend' | 'Fullstack'
 
-type NonEmptyArray<T> = [T, ...T[]]
+type NonEmptyArray<T> = [T, ...Array<T>]
 
 export type CompanyProject = {
   name: string
   description: string
   team: string
-  techStack: NonEmptyArray<{ name: string; cat: TechCategory }>
+  techStack: NonEmptyArray<{
+    name: string
+    cat: TechCategory
+  }>
   startDate?: Date
-  endDate?: Date | 'Present'
+  endDate?: Date
 }
 
 export type CompanyExperience = {
