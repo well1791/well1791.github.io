@@ -2,12 +2,36 @@ import type { CompanyExperience } from './types'
 
 export const expList: Array<CompanyExperience> = [
   {
+    name: 'Inscyth',
+    location: '',
+    url: 'https://inscyth.com/',
+    role: 'Frontend',
+    startDate: new Date(2023, 10, 16),
+    endDate: 'Present',
+    projects: [
+      {
+        name: 'EE3',
+        description:
+          "EE3 is a countertop shop/draw app that allows users to draw the shape of the countertop and customize it as much as the store allows for it (keep in mind that the app change its settings based on the store) all that while updating the final price on each action as that's the main goal of the app: let the user know how much will it cost. Here are some of the proposals I've made for the v3: use a css trick to use rem directly without converting them from px to rem, promote strategies on styled-components to separate component logic from component styling on react-prop by using css-variables, improve its current pre-commit process to mimic a CI process (to cover the lack of a proper CI). ",
+        team: '4 devs',
+        startDate: new Date(2023, 10, 16),
+        techStack: [
+          { name: 'typescript', cat: 'js' },
+          { name: 'redux-toolkit', cat: 'js' },
+          { name: 'styled-components', cat: 'js' },
+          { name: 'storybook', cat: 'js' },
+          { name: 'webpack', cat: 'js' },
+        ],
+      },
+    ],
+  },
+  {
     name: 'Stack Builders',
     location: 'Quito, EC',
     url: 'https://stackbuilders.com',
     role: 'Fullstack',
     startDate: new Date(2022, 3, 18),
-    endDate: 'Present',
+    endDate: new Date(2023, 10, 6),
     projects: [
       {
         name: 'Crossplatform mobile app for Social Events connections',
@@ -59,7 +83,7 @@ export const expList: Array<CompanyExperience> = [
     ],
   },
   {
-    name: 'On vacations',
+    name: 'Gap year',
     location: 'Guayaquil, EC',
     url: 'https://well1791.github.io',
     role: 'Frontend',
